@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta property="og:title" content="Ziad Elfeky — S&C & Rehabilitation Specialist"/>
-<meta property="og:description" content="Fix the root cause. Build the body. Perform for life."/>
-<meta name="description" content="Fix the root cause. Build the body. Perform for life."/>
+<meta property="og:title" content="Ziad Elfeky · Performance &amp; Rehabilitation Coach"/>
+<meta property="og:description" content="Online coaching worldwide, by application. Fix the root cause. Build the body. Perform for life."/>
+<meta name="description" content="Online coaching worldwide, by application. Fix the root cause. Build the body. Perform for life."/>
 <meta name="theme-color" content="#111111"/>
 <title>Ziad Elfeky</title>
 <style>
@@ -27,172 +27,68 @@ body{
   padding:52px 20px 60px;
 }
 
-/* ── PROFILE ── */
-.profile{display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:36px;text-align:center;}
+/* PROFILE */
+.profile{display:flex;flex-direction:column;align-items:center;margin-bottom:8px;text-align:center;max-width:420px;}
+.monogram{width:80px;height:80px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.monogram-text{font-family:'DM Serif Display',serif;font-size:28px;color:var(--gold);letter-spacing:.04em;}
+.name{font-family:'DM Serif Display',serif;font-size:26px;color:var(--ink);letter-spacing:-.01em;line-height:1.1;}
+.title{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:8px;}
+.tagline{font-size:13px;color:var(--soft);font-style:italic;margin-top:10px;line-height:1.6;}
+.intro{font-size:14px;color:var(--mid);line-height:1.7;margin-top:18px;max-width:360px;}
+.divider{width:32px;height:1px;background:var(--rule);margin:22px auto 0;}
 
-.monogram{
-  width:80px;height:80px;border-radius:50%;
-  background:var(--ink);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:18px;
-}
-.monogram-text{
-  font-family:'DM Serif Display',serif;
-  font-size:28px;font-weight:400;
-  color:var(--gold);
-  letter-spacing:.04em;
-}
-
-.name{
-  font-family:'DM Serif Display',serif;
-  font-size:26px;font-weight:400;
-  color:var(--ink);
-  letter-spacing:-.01em;
-  line-height:1.1;
-}
-
-.title{
-  font-size:12px;font-weight:500;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--gold);
-  margin-top:8px;
-}
-
-.tagline{
-  font-size:13px;color:var(--soft);
-  font-style:italic;margin-top:10px;
-  line-height:1.6;
-}
-
-.divider{
-  width:32px;height:1px;background:var(--rule);
-  margin:20px auto 0;
-}
-
-/* ── CARDS ── */
-.cards{
-  display:flex;flex-direction:column;gap:12px;
-  width:100%;max-width:420px;
-}
-
-.card{
-  background:var(--white);
-  border:1px solid var(--rule);
-  border-radius:14px;
-  padding:20px 22px;
-  text-decoration:none;
-  display:flex;align-items:center;gap:16px;
-  transition:border-color .18s, transform .18s, box-shadow .18s;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-}
-
-.card::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;
-  height:2px;
-  background:linear-gradient(90deg, var(--gold), var(--gold-dark));
-  opacity:0;
-  transition:opacity .18s;
-}
-
-.card:hover{
-  border-color:var(--gold);
-  transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(0,0,0,0.07);
-}
-
-.card:hover::before{opacity:1;}
-
-.card-icon{
-  width:44px;height:44px;border-radius:10px;
-  background:var(--ink);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  transition:background .18s;
-}
-
-.card-icon svg{width:22px;height:22px;}
-
-.card-text{flex:1;min-width:0;}
-
-.card-label{
-  font-size:11px;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:3px;
-}
-
-.card-title{
-  font-family:'DM Serif Display',serif;
-  font-size:18px;font-weight:400;
-  color:var(--ink);line-height:1.2;
-}
-
-.card-desc{
-  font-size:12px;color:var(--soft);
-  margin-top:4px;line-height:1.5;
-}
-
-.card-arrow{
-  flex-shrink:0;color:var(--rule);
-  transition:color .18s, transform .18s;
-}
-
-.card:hover .card-arrow{
-  color:var(--gold);
-  transform:translateX(3px);
-}
-.card:hover .card-icon{
-  background:var(--gold);
-}
-.card:hover .card-icon svg{
-  stroke:#111;
-}
-
-/* ── FOOTER ── */
-.footer{
-  margin-top:48px;
-  text-align:center;
-  font-size:11px;
-  color:var(--soft);
-  letter-spacing:.06em;
-  line-height:1.8;
-}
-
-.footer-name{
-  font-family:'DM Serif Display',serif;
-  font-size:13px;
-  color:var(--gold);
-  display:block;
-  margin-bottom:2px;
-}
-
-/* ── BADGE ── */
-.badge-row{
-  display:flex;gap:8px;justify-content:center;
-  flex-wrap:wrap;margin-top:16px;
-}
-.badge{
-  display:inline-flex;align-items:center;gap:5px;
-  background:var(--white);border:1px solid var(--rule);
-  border-radius:20px;padding:5px 12px;
-  font-size:11px;font-weight:500;color:var(--mid);
-  letter-spacing:.04em;
-}
+/* BADGES */
+.badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px;max-width:420px;}
+.badge{display:inline-flex;align-items:center;gap:5px;background:var(--white);border:1px solid var(--rule);border-radius:20px;padding:5px 12px;font-size:11px;font-weight:500;color:var(--mid);letter-spacing:.04em;}
 .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
 
-/* ── SECTION LABEL ── */
-.section-label{
-  font-size:10px;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--soft);
-  margin-bottom:12px;margin-top:4px;
-  text-align:center;width:100%;max-width:420px;
-}
+/* SECTION LABEL */
+.section-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin:0 0 12px;text-align:center;width:100%;max-width:420px;}
 
-/* ── RESPONSIVE ── */
+/* FEATURED: ONLINE COACHING */
+.feature{
+  width:100%;max-width:420px;
+  background:var(--ink);color:#fff;
+  border-radius:16px;padding:26px 24px 22px;
+  text-decoration:none;display:block;position:relative;overflow:hidden;
+  transition:transform .18s, box-shadow .18s;
+}
+.feature:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.18);}
+.feature-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+.feature-title{font-family:'DM Serif Display',serif;font-size:26px;line-height:1.15;margin-top:6px;}
+.feature-desc{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.65;margin-top:8px;max-width:330px;}
+.feature-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--gold);color:var(--ink);font-size:13px;font-weight:600;letter-spacing:.04em;padding:11px 18px;border-radius:10px;transition:background .18s;}
+.feature:hover .feature-cta{background:#c9a87c;}
+.steps{list-style:none;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;}
+.steps li{font-size:12px;color:rgba(255,255,255,.55);line-height:1.5;display:flex;gap:8px;}
+.steps b{color:var(--gold);font-weight:600;flex-shrink:0;}
+
+/* CARDS */
+.cards{display:flex;flex-direction:column;gap:12px;width:100%;max-width:420px;}
+.card{background:var(--white);border:1px solid var(--rule);border-radius:14px;padding:18px 22px;text-decoration:none;display:flex;align-items:center;gap:16px;transition:border-color .18s, transform .18s, box-shadow .18s;cursor:pointer;position:relative;overflow:hidden;}
+.card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.07);}
+.card-icon{width:42px;height:42px;border-radius:10px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .18s;}
+.card-icon svg{width:21px;height:21px;}
+.card-text{flex:1;min-width:0;}
+.card-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.card-title{font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink);line-height:1.2;}
+.card-desc{font-size:12px;color:var(--soft);margin-top:4px;line-height:1.5;}
+.card-arrow{flex-shrink:0;color:var(--rule);transition:color .18s, transform .18s;}
+.card:hover .card-arrow{color:var(--gold);transform:translateX(3px);}
+.card:hover .card-icon{background:var(--gold);}
+.card:hover .card-icon svg{stroke:#111;}
+
+.creds{display:flex;align-items:center;justify-content:center;gap:8px;max-width:420px;width:100%;margin-top:14px;padding:14px;border:1px solid var(--rule);border-radius:12px;text-decoration:none;color:var(--mid);font-size:13px;font-weight:500;transition:border-color .18s, color .18s;}
+.creds:hover{border-color:var(--gold);color:var(--gold-dark);}
+
+/* FOOTER */
+.footer{margin-top:48px;text-align:center;font-size:11px;color:var(--soft);letter-spacing:.06em;line-height:1.8;}
+.footer-name{font-family:'DM Serif Display',serif;font-size:13px;color:var(--gold);display:block;margin-bottom:2px;}
+
 @media(max-width:480px){
   body{padding:40px 16px 50px;}
+  .feature{padding:22px 20px 20px;}
+  .feature-title{font-size:24px;}
   .card{padding:16px 18px;gap:14px;}
   .card-icon{width:40px;height:40px;}
   .card-title{font-size:17px;}
@@ -203,110 +99,92 @@ body{
 
 <!-- PROFILE -->
 <div class="profile">
-  <div class="monogram">
-    <span class="monogram-text">ZE</span>
-  </div>
+  <div class="monogram"><span class="monogram-text">ZE</span></div>
   <div class="name">Ziad Elfeky</div>
-  <div class="title">S&amp;C &amp; Rehabilitation Specialist</div>
+  <div class="title">Performance &amp; Rehabilitation Coach</div>
   <div class="tagline">Fix the root cause. Build the body. Perform for life.</div>
-  <div class="divider"></div>
+  <p class="intro">I test before I program. Every plan starts from where your body is today, and changes as you do. Online clients get the same standard as the people I coach in person.</p>
 </div>
 
 <!-- BADGES -->
 <div class="badge-row">
   <div class="badge"><span class="badge-dot"></span>Founder, Kraft Fitness</div>
-  <div class="badge"><span class="badge-dot"></span>L4 S&amp;C — UK</div>
-  <div class="badge"><span class="badge-dot"></span>EXOS — USA</div>
+  <div class="badge"><span class="badge-dot"></span>L4 S&amp;C · UK</div>
+  <div class="badge"><span class="badge-dot"></span>EXOS · USA</div>
   <div class="badge"><span class="badge-dot"></span>FIFA Sports Medicine</div>
 </div>
+<div class="divider"></div>
 
-<!-- CARDS -->
-<div style="height:32px;"></div>
-<div class="section-label">Select a service to get started</div>
+<!-- ONLINE COACHING -->
+<div style="height:28px;"></div>
+<a class="feature" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">
+  <div class="feature-label">Worldwide · By application</div>
+  <div class="feature-title">Online Coaching</div>
+  <div class="feature-desc">A program built from your assessment, delivered on the app, and adjusted at every check-in.</div>
+  <span class="feature-cta">Apply
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </span>
+  <ol class="steps">
+    <li><b>01</b>You apply</li>
+    <li><b>02</b>I review it myself</li>
+    <li><b>03</b>Program on the app within 2 to 3 days of payment</li>
+    <li><b>04</b>Weekly check-ins, program adjusted</li>
+  </ol>
+</a>
+
+<!-- IN ALEXANDRIA -->
+<div style="height:36px;"></div>
+<div class="section-label">In Alexandria</div>
 <div class="cards">
 
-  <!-- Online Coaching -->
-  <a class="card" href="https://ziadelfeky.github.io/ZE-OnlineTraining" target="_blank">
+  <a class="card" href="https://ziadelfeky.github.io/ZE-KraftPT">
     <div class="card-icon">
-      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24">
-        <rect x="2" y="3" width="20" height="14" rx="2"/>
-        <path d="M8 21h8M12 17v4"/>
-      </svg>
+      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 4v16M18 4v16M3 12h18M3 7h3M3 17h3M18 7h3M18 17h3"/></svg>
     </div>
     <div class="card-text">
-      <div class="card-label">Worldwide</div>
-      <div class="card-title">Online Coaching</div>
-      <div class="card-desc">Fully individualized program. Train anywhere in the world.</div>
-    </div>
-    <div class="card-arrow">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-  </a>
-
-  <!-- Kraft Fitness -->
-  <a class="card" href="https://ziadelfeky.github.io/ZE-KraftPT" target="_blank">
-    <div class="card-icon">
-      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24">
-        <path d="M6 4v16M18 4v16M3 12h18M3 7h3M3 17h3M18 7h3M18 17h3"/>
-      </svg>
-    </div>
-    <div class="card-text">
-      <div class="card-label">Alexandria · In Person</div>
+      <div class="card-label">Ganaklis · In person</div>
       <div class="card-title">Kraft Fitness</div>
-      <div class="card-desc">VIP 1-on-1, Private Training & Muscle Release. Gleem, Alexandria.</div>
+      <div class="card-desc">VIP 1-on-1 and private training at the studio.</div>
     </div>
-    <div class="card-arrow">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    <div class="card-arrow"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </a>
 
-  <!-- Home Training -->
-  <a class="card" href="https://ziadelfeky.github.io/Home-Training/" target="_blank">
+  <a class="card" href="https://ziadelfeky.github.io/Home-Training/">
     <div class="card-icon">
-      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24">
-        <path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/>
-      </svg>
+      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
     </div>
     <div class="card-text">
-      <div class="card-label">Alexandria · At Your Door</div>
+      <div class="card-label">At your door</div>
       <div class="card-title">Home Private Training</div>
-      <div class="card-desc">Premium coaching brought to you. VIP & Duo training.</div>
+      <div class="card-desc">VIP and Duo training, at your home.</div>
     </div>
-    <div class="card-arrow">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    <div class="card-arrow"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </a>
 
-  <!-- Muscle Release -->
-  <a class="card" href="https://ziadelfeky.github.io/Muscle-Release-/" target="_blank">
+  <a class="card" href="https://ziadelfeky.github.io/Muscle-Release-/">
     <div class="card-icon">
-      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24">
-        <path d="M12 3c-1 3-4 4-4 8a4 4 0 008 0c0-4-3-5-4-8z"/><path d="M8 15c0 3 2 5 4 5s4-2 4-5"/>
-      </svg>
+      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3c-1 3-4 4-4 8a4 4 0 008 0c0-4-3-5-4-8z"/><path d="M8 15c0 3 2 5 4 5s4-2 4-5"/></svg>
     </div>
     <div class="card-text">
-      <div class="card-label">Recovery · Manual Therapy</div>
+      <div class="card-label">Recovery · Manual therapy</div>
       <div class="card-title">Muscle Release &amp; Recovery</div>
-      <div class="card-desc">Soft tissue & myofascial release. At the studio or your home.</div>
+      <div class="card-desc">Soft tissue and myofascial release, at the studio or at home.</div>
     </div>
-    <div class="card-arrow">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    <div class="card-arrow"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </a>
 
 </div>
 
-<!-- CREDENTIALS LINK -->
-<a href="https://ziadelfeky.github.io/ZE-Credentials/" style="display:flex;align-items:center;justify-content:center;gap:8px;max-width:420px;width:100%;margin-top:14px;padding:14px;background:transparent;border:1px solid var(--rule);border-radius:12px;text-decoration:none;color:var(--mid);font-size:13px;font-weight:500;transition:all .18s;" onmouseover="this.style.borderColor='#b8966a';this.style.color='#9a7c52'" onmouseout="this.style.borderColor='#e2dfd9';this.style.color='#555'">
+<a class="creds" href="https://ziadelfeky.github.io/ZE-Credentials/">
   <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6-6.3 4.6L8 13.9 2 9.4h7.6z"/></svg>
-  View Full Credentials &amp; Qualifications
+  Credentials &amp; qualifications
 </a>
 
 <!-- FOOTER -->
 <div class="footer">
   <span class="footer-name">Ziad Elfeky</span>
-  L4 S&amp;C · EXOS Performance Specialist<br>
-  17 Years in Performance &amp; Rehabilitation<br>
+  L4 S&amp;C (UK) · EXOS Performance Specialist (USA)<br>
+  10 years coaching · 20+ years in sport<br>
   Alexandria, Egypt
 </div>
 
