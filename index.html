@@ -2,191 +2,225 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta property="og:title" content="Ziad Elfeky · Performance &amp; Rehabilitation Coach"/>
 <meta property="og:description" content="Online coaching worldwide, by application. Fix the root cause. Build the body. Perform for life."/>
 <meta name="description" content="Online coaching worldwide, by application. Fix the root cause. Build the body. Perform for life."/>
-<meta name="theme-color" content="#111111"/>
+<meta name="theme-color" content="#0f0e0c"/>
 <title>Ziad Elfeky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&display=swap');
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+/* Layout: one narrow column on warm near-black. One lit panel (online coaching), everything else sits on the page with hairlines. */
 :root{
-  --ink:#111111;--mid:#555555;--soft:#999999;--rule:#e2dfd9;
-  --bg:#f6f4f0;--white:#ffffff;--gold:#b8966a;--gold-dark:#9a7c52;
-  --gold-faint:#faf6f0;
+  --bg:#0f0e0c;
+  --panel:#181613;
+  --line:rgba(241,236,226,.10);
+  --text:#f1ece2;
+  --muted:#a39d91;
+  --soft:#716b62;
+  --gold:#c9a96e;
+  --gold-ink:#15120e;
+  --serif:'Lora', Georgia, 'Times New Roman', serif;
+  --sans:'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme:dark;
 }
-html,body{min-height:100vh;}
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:52px 20px 60px;
-}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
 
-/* PROFILE */
-.profile{display:flex;flex-direction:column;align-items:center;margin-bottom:8px;text-align:center;max-width:420px;}
-.monogram{width:80px;height:80px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
-.monogram-text{font-family:'DM Serif Display',serif;font-size:28px;color:var(--gold);letter-spacing:.04em;}
-.name{font-family:'DM Serif Display',serif;font-size:26px;color:var(--ink);letter-spacing:-.01em;line-height:1.1;}
-.title{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:8px;}
-.tagline{font-size:13px;color:var(--soft);font-style:italic;margin-top:10px;line-height:1.6;}
-.intro{font-size:14px;color:var(--mid);line-height:1.7;margin-top:18px;max-width:360px;}
-.divider{width:32px;height:1px;background:var(--rule);margin:22px auto 0;}
+.wrap{max-width:460px;margin:0 auto;padding:56px 20px 48px;display:flex;flex-direction:column;gap:56px;}
 
-/* BADGES */
-.badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px;max-width:420px;}
-.badge{display:inline-flex;align-items:center;gap:5px;background:var(--white);border:1px solid var(--rule);border-radius:20px;padding:5px 12px;font-size:11px;font-weight:500;color:var(--mid);letter-spacing:.04em;}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.label{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
 
-/* SECTION LABEL */
-.section-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin:0 0 12px;text-align:center;width:100%;max-width:420px;}
+/* HERO */
+.hero{display:flex;flex-direction:column;gap:14px;}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:46px;line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance;}
+.tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted);margin:0;text-wrap:balance;}
+.intro{font-size:15px;line-height:1.75;color:var(--muted);margin:6px 0 0;max-width:36ch;}
+.creds{display:flex;flex-wrap:wrap;gap:6px 14px;margin:8px 0 0;padding:0;list-style:none;font-size:12px;color:var(--soft);letter-spacing:.02em;}
+.creds li{display:flex;align-items:center;gap:8px;}
+.creds li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);}
 
-/* FEATURED: ONLINE COACHING */
-.feature{
-  width:100%;max-width:420px;
-  background:var(--ink);color:#fff;
-  border-radius:16px;padding:26px 24px 22px;
-  text-decoration:none;display:block;position:relative;overflow:hidden;
-  transition:transform .18s, box-shadow .18s;
-}
-.feature:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.18);}
-.feature-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
-.feature-title{font-family:'DM Serif Display',serif;font-size:26px;line-height:1.15;margin-top:6px;}
-.feature-desc{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.65;margin-top:8px;max-width:330px;}
-.feature-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--gold);color:var(--ink);font-size:13px;font-weight:600;letter-spacing:.04em;padding:11px 18px;border-radius:10px;transition:background .18s;}
-.feature:hover .feature-cta{background:#c9a87c;}
-.steps{list-style:none;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;}
-.steps li{font-size:12px;color:rgba(255,255,255,.55);line-height:1.5;display:flex;gap:8px;}
-.steps b{color:var(--gold);font-weight:600;flex-shrink:0;}
+/* ONLINE COACHING: the one panel on the page */
+.coaching{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px 22px 22px;display:flex;flex-direction:column;gap:14px;}
+.coaching h2{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.1;margin:0;}
+.coaching p{margin:0;font-size:14.5px;line-height:1.7;color:var(--muted);}
+.steps{list-style:none;margin:6px 0 4px;padding:16px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;}
+.steps li{display:flex;gap:9px;font-size:12.5px;line-height:1.5;color:var(--muted);min-width:0;}
+.steps b{font-weight:500;color:var(--gold);font-variant-numeric:tabular-nums;}
+.apply{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:12px;background:var(--gold);color:var(--gold-ink);text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.02em;transition:filter .2s;}
+.apply:hover{filter:brightness(1.08);}
 
-/* CARDS */
-.cards{display:flex;flex-direction:column;gap:12px;width:100%;max-width:420px;}
-.card{background:var(--white);border:1px solid var(--rule);border-radius:14px;padding:18px 22px;text-decoration:none;display:flex;align-items:center;gap:16px;transition:border-color .18s, transform .18s, box-shadow .18s;cursor:pointer;position:relative;overflow:hidden;}
-.card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.07);}
-.card-icon{width:42px;height:42px;border-radius:10px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .18s;}
-.card-icon svg{width:21px;height:21px;}
-.card-text{flex:1;min-width:0;}
-.card-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
-.card-title{font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink);line-height:1.2;}
-.card-desc{font-size:12px;color:var(--soft);margin-top:4px;line-height:1.5;}
-.card-arrow{flex-shrink:0;color:var(--rule);transition:color .18s, transform .18s;}
-.card:hover .card-arrow{color:var(--gold);transform:translateX(3px);}
-.card:hover .card-icon{background:var(--gold);}
-.card:hover .card-icon svg{stroke:#111;}
+/* RESULTS */
+.section{display:flex;flex-direction:column;gap:16px;}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px 2px;}
+.chips::-webkit-scrollbar{display:none;}
+.chip{flex:0 0 auto;font-family:var(--sans);font-size:12.5px;font-weight:400;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;transition:color .2s,border-color .2s,background .2s;}
+.chip:hover{color:var(--text);}
+.chip[aria-selected="true"]{color:var(--gold-ink);background:var(--gold);border-color:var(--gold);font-weight:500;}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0;}
+.shot{position:relative;border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:1/1;max-width:100%;}
+.pair.tall .shot{aspect-ratio:4/5;}
+.shot img{width:100%;height:100%;object-fit:cover;}
+.tag{position:absolute;left:8px;bottom:8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:rgba(15,14,12,.72);color:var(--text);}
+.tag.after{background:var(--gold);color:var(--gold-ink);}
+.cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+.cap-title{font-family:var(--serif);font-size:20px;}
+.cap-sub{font-size:12px;color:var(--soft);}
+.note{font-size:11.5px;line-height:1.6;color:var(--soft);margin:0;}
 
-.creds{display:flex;align-items:center;justify-content:center;gap:8px;max-width:420px;width:100%;margin-top:14px;padding:14px;border:1px solid var(--rule);border-radius:12px;text-decoration:none;color:var(--mid);font-size:13px;font-weight:500;transition:border-color .18s, color .18s;}
-.creds:hover{border-color:var(--gold);color:var(--gold-dark);}
+/* REVIEWS */
+.quotes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;align-items:flex-start;}
+.quotes::-webkit-scrollbar{display:none;}
+.q{flex:0 0 100%;scroll-snap-align:start;margin:0;}
+.q p{font-family:var(--serif);font-size:19px;line-height:1.6;margin:0;color:var(--text);}
+.q p::before{content:'\201C';color:var(--gold);margin-right:2px;}
+.q p::after{content:'\201D';color:var(--gold);margin-left:1px;}
+.q footer{margin-top:16px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;}
+.q .who{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.q .tr{font-size:11.5px;color:var(--soft);font-style:italic;}
+.dots{display:flex;gap:6px;}
+.dot{width:18px;height:2px;border-radius:2px;background:var(--line);border:0;padding:0;cursor:pointer;transition:background .2s,width .2s;}
+.dot.on{background:var(--gold);width:28px;}
+
+/* ALEXANDRIA */
+.rows{display:flex;flex-direction:column;border-top:1px solid var(--line);}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 2px;border-bottom:1px solid var(--line);text-decoration:none;}
+.row-text{min-width:0;}
+.row-title{font-family:var(--serif);font-size:19px;}
+.row-sub{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5;}
+.arrow{color:var(--soft);font-size:18px;transition:transform .2s,color .2s;flex-shrink:0;}
+.row:hover .arrow{color:var(--gold);transform:translateX(3px);}
 
 /* FOOTER */
-.footer{margin-top:48px;text-align:center;font-size:11px;color:var(--soft);letter-spacing:.06em;line-height:1.8;}
-.footer-name{font-family:'DM Serif Display',serif;font-size:13px;color:var(--gold);display:block;margin-bottom:2px;}
+.foot{display:flex;flex-direction:column;gap:6px;font-size:11.5px;line-height:1.7;color:var(--soft);padding-top:8px;}
+.foot-name{font-family:var(--serif);font-size:16px;color:var(--gold);}
 
-@media(max-width:480px){
-  body{padding:40px 16px 50px;}
-  .feature{padding:22px 20px 20px;}
-  .feature-title{font-size:24px;}
-  .card{padding:16px 18px;gap:14px;}
-  .card-icon{width:40px;height:40px;}
-  .card-title{font-size:17px;}
-}
+@media (prefers-reduced-motion: reduce){*{transition:none !important;scroll-behavior:auto !important;}}
 </style>
 </head>
 <body>
+<main class="wrap">
 
-<!-- PROFILE -->
-<div class="profile">
-  <div class="monogram"><span class="monogram-text">ZE</span></div>
-  <div class="name">Ziad Elfeky</div>
-  <div class="title">Performance &amp; Rehabilitation Coach</div>
-  <div class="tagline">Fix the root cause. Build the body. Perform for life.</div>
-  <p class="intro">I test before I program. Every plan starts from where your body is today, and changes as you do. Online clients get the same standard as the people I coach in person.</p>
-</div>
+  <header class="hero">
+    <div class="label">Performance &amp; Rehabilitation Coach</div>
+    <h1>Ziad Elfeky</h1>
+    <p class="tagline">Fix the root cause. Build the body. Perform for life.</p>
+    <p class="intro">I test before I program. Every plan starts from where your body is today, and changes as you do.</p>
+    <ul class="creds">
+      <li>Founder, Kraft Fitness</li>
+      <li>L4 S&amp;C, UK</li>
+      <li>EXOS, USA</li>
+      <li>FIFA Sports Medicine</li>
+    </ul>
+  </header>
 
-<!-- BADGES -->
-<div class="badge-row">
-  <div class="badge"><span class="badge-dot"></span>Founder, Kraft Fitness</div>
-  <div class="badge"><span class="badge-dot"></span>L4 S&amp;C · UK</div>
-  <div class="badge"><span class="badge-dot"></span>EXOS · USA</div>
-  <div class="badge"><span class="badge-dot"></span>FIFA Sports Medicine</div>
-</div>
-<div class="divider"></div>
+  <section class="coaching" aria-labelledby="oc-title">
+    <div class="label">Worldwide · By application</div>
+    <h2 id="oc-title">Online Coaching</h2>
+    <p>A program built from your assessment, delivered on the app, and adjusted at every check-in. The same standard as my in-person clients.</p>
+    <ol class="steps">
+      <li><b>01</b>You apply</li>
+      <li><b>02</b>I review it myself</li>
+      <li><b>03</b>Program on the app within 2 to 3 days of payment</li>
+      <li><b>04</b>Weekly check-ins, program adjusted</li>
+    </ol>
+    <a class="apply" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
+  </section>
 
-<!-- ONLINE COACHING -->
-<div style="height:28px;"></div>
-<a class="feature" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">
-  <div class="feature-label">Worldwide · By application</div>
-  <div class="feature-title">Online Coaching</div>
-  <div class="feature-desc">A program built from your assessment, delivered on the app, and adjusted at every check-in.</div>
-  <span class="feature-cta">Apply
-    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </span>
-  <ol class="steps">
-    <li><b>01</b>You apply</li>
-    <li><b>02</b>I review it myself</li>
-    <li><b>03</b>Program on the app within 2 to 3 days of payment</li>
-    <li><b>04</b>Weekly check-ins, program adjusted</li>
-  </ol>
-</a>
+  <section class="section" aria-labelledby="res-title">
+    <div class="label" id="res-title">Results</div>
+    <div class="chips" role="tablist" aria-label="Choose a result" id="chips"></div>
+    <figure class="pair tall" id="pair">
+      <div class="shot"><img id="img-before" src="results/ziad-before.jpg" alt="Ziad Elfeky, before"><span class="tag">Before</span></div>
+      <div class="shot"><img id="img-after" src="results/ziad-after.jpg" alt="Ziad Elfeky, after"><span class="tag after">After</span></div>
+    </figure>
+    <div class="cap"><span class="cap-title" id="cap-title">Ziad Elfeky</span><span class="cap-sub" id="cap-sub">My own training</span></div>
+    <p class="note">Individual results. Every program is individual. Client photos shared with permission, faces hidden.</p>
+  </section>
 
-<!-- IN ALEXANDRIA -->
-<div style="height:36px;"></div>
-<div class="section-label">In Alexandria</div>
-<div class="cards">
-
-  <a class="card" href="https://ziadelfeky.github.io/ZE-KraftPT">
-    <div class="card-icon">
-      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 4v16M18 4v16M3 12h18M3 7h3M3 17h3M18 7h3M18 17h3"/></svg>
+  <section class="section" aria-labelledby="rev-title">
+    <div class="label" id="rev-title">In their words</div>
+    <div class="quotes" id="quotes">
+      <blockquote class="q"><p>I honestly thought my arm would never feel normal again. I was so frustrated at the beginning and didn't know if I would get better, but seeing the progress step by step gave me hope again. Still have work to do, but I'm so happy with how far I've come.</p><footer><span class="who">Arm recovery</span></footer></blockquote>
+      <blockquote class="q"><p>Honestly, the difference isn't just in shape. I've become more dedicated, and I understand why and how I train. The program is built around my goal and there's always follow-up. It's the first time I feel there's a real plan I'm following, and I'm training pain-free.</p><footer><span class="who">Training pain-free</span><span class="tr">Translated from Arabic</span></footer></blockquote>
+      <blockquote class="q"><p>Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts. My strength has improved a lot and I feel the difference in my performance too. The follow-up and feedback really make a difference.</p><footer><span class="who">Strength and performance</span></footer></blockquote>
+      <blockquote class="q"><p>I started just wanting to change my body, but honestly gained so much more than that. I feel stronger, more confident and finally comfortable with myself. I used to start and stop all the time, but this time it's different. Thank you Ziad.</p><footer><span class="who">Body and confidence</span></footer></blockquote>
+      <blockquote class="q"><p>Not gonna lie, I was expecting results but I didn't expect to enjoy the process this much. The plan fits my lifestyle and I don't feel lost anymore. Still not at my final goal, but the progress so far makes me wanna keep going.</p><footer><span class="who">A plan that fits life</span></footer></blockquote>
     </div>
-    <div class="card-text">
-      <div class="card-label">Ganaklis · In person</div>
-      <div class="card-title">Kraft Fitness</div>
-      <div class="card-desc">VIP 1-on-1 and private training at the studio.</div>
-    </div>
-    <div class="card-arrow"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-  </a>
+    <div class="dots" id="dots" aria-label="Reviews"></div>
+  </section>
 
-  <a class="card" href="https://ziadelfeky.github.io/Home-Training/">
-    <div class="card-icon">
-      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
-    </div>
-    <div class="card-text">
-      <div class="card-label">At your door</div>
-      <div class="card-title">Home Private Training</div>
-      <div class="card-desc">VIP and Duo training, at your home.</div>
-    </div>
-    <div class="card-arrow"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-  </a>
+  <section class="section" aria-labelledby="alx-title">
+    <div class="label" id="alx-title">In Alexandria</div>
+    <nav class="rows">
+      <a class="row" href="https://ziadelfeky.github.io/ZE-KraftPT"><div class="row-text"><div class="row-title">Kraft Fitness</div><div class="row-sub">VIP 1-on-1 and private training · Ganaklis</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="row" href="https://ziadelfeky.github.io/Home-Training/"><div class="row-text"><div class="row-title">Home Private Training</div><div class="row-sub">VIP and Duo, at your home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="row" href="https://ziadelfeky.github.io/Muscle-Release-/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue and myofascial release, studio or home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="row" href="https://ziadelfeky.github.io/ZE-Credentials/"><div class="row-text"><div class="row-title">Credentials</div><div class="row-sub">Certifications across S&amp;C, rehabilitation and nutrition</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </nav>
+  </section>
 
-  <a class="card" href="https://ziadelfeky.github.io/Muscle-Release-/">
-    <div class="card-icon">
-      <svg fill="none" stroke="#b8966a" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3c-1 3-4 4-4 8a4 4 0 008 0c0-4-3-5-4-8z"/><path d="M8 15c0 3 2 5 4 5s4-2 4-5"/></svg>
-    </div>
-    <div class="card-text">
-      <div class="card-label">Recovery · Manual therapy</div>
-      <div class="card-title">Muscle Release &amp; Recovery</div>
-      <div class="card-desc">Soft tissue and myofascial release, at the studio or at home.</div>
-    </div>
-    <div class="card-arrow"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-  </a>
+  <footer class="foot">
+    <span class="foot-name">Ziad Elfeky</span>
+    <span>10 years coaching · 20+ years in sport</span>
+    <span>Alexandria, Egypt</span>
+  </footer>
 
-</div>
+</main>
+<script>
+(function () {
+  var cases = [
+    { chip: 'Ziad', title: 'Ziad Elfeky', sub: 'My own training', b: 'ziad-before', a: 'ziad-after', tall: true },
+    { chip: 'Physique', title: 'Physique', sub: 'Client, front view', b: 'client-before', a: 'client-after' },
+    { chip: 'Overhead reach', title: 'Overhead reach', sub: 'Lying shoulder flexion test', b: 'reach-before', a: 'reach-after' },
+    { chip: 'Shoulder', title: 'Shoulder reach', sub: 'Hands-behind-back reach test', b: 'back-before', a: 'back-after' },
+    { chip: 'Squat', title: 'Squat depth', sub: 'Bodyweight squat', b: 'squat-before', a: 'squat-after' },
+    { chip: 'Wall reach', title: 'Overhead reach at the wall', sub: 'Back flat, arms to the wall', b: 'wall-before', a: 'wall-after' }
+  ];
+  var chips = document.getElementById('chips');
+  var pair = document.getElementById('pair');
+  var ib = document.getElementById('img-before');
+  var ia = document.getElementById('img-after');
+  function show(i) {
+    var c = cases[i];
+    ib.src = 'results/' + c.b + '.jpg'; ib.alt = c.title + ', before';
+    ia.src = 'results/' + c.a + '.jpg'; ia.alt = c.title + ', after';
+    pair.classList.toggle('tall', !!c.tall);
+    document.getElementById('cap-title').textContent = c.title;
+    document.getElementById('cap-sub').textContent = c.sub;
+    Array.prototype.forEach.call(chips.children, function (el, j) { el.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+  }
+  cases.forEach(function (c, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.setAttribute('role', 'tab');
+    b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    b.textContent = c.chip;
+    b.addEventListener('click', function () { show(i); });
+    chips.appendChild(b);
+    var pre = new Image(); pre.src = 'results/' + c.a + '.jpg';
+  });
 
-<a class="creds" href="https://ziadelfeky.github.io/ZE-Credentials/">
-  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6-6.3 4.6L8 13.9 2 9.4h7.6z"/></svg>
-  Credentials &amp; qualifications
-</a>
-
-<!-- FOOTER -->
-<div class="footer">
-  <span class="footer-name">Ziad Elfeky</span>
-  L4 S&amp;C (UK) · EXOS Performance Specialist (USA)<br>
-  10 years coaching · 20+ years in sport<br>
-  Alexandria, Egypt
-</div>
-
+  var quotes = document.getElementById('quotes');
+  var dots = document.getElementById('dots');
+  var qs = quotes.querySelectorAll('.q');
+  qs.forEach(function (q, i) {
+    var d = document.createElement('button');
+    d.type = 'button'; d.className = 'dot' + (i === 0 ? ' on' : '');
+    d.setAttribute('aria-label', 'Review ' + (i + 1));
+    d.addEventListener('click', function () { quotes.scrollTo({ left: q.offsetLeft - quotes.offsetLeft, behavior: 'smooth' }); });
+    dots.appendChild(d);
+  });
+  quotes.addEventListener('scroll', function () {
+    var i = Math.round(quotes.scrollLeft / quotes.clientWidth);
+    Array.prototype.forEach.call(dots.children, function (d, j) { d.classList.toggle('on', j === i); });
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
