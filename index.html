@@ -137,8 +137,8 @@ img{max-width:100%;display:block;}
     <div class="label" id="res-title">Results</div>
     <div class="chips" role="tablist" aria-label="Choose a result" id="chips"></div>
     <figure class="pair tall" id="pair">
-      <div class="shot"><img id="img-before" src="results/ziad-before.jpg" alt="Ziad Elfeky, before"><span class="tag">Before</span></div>
-      <div class="shot"><img id="img-after" src="results/ziad-after.jpg" alt="Ziad Elfeky, after"><span class="tag after">After</span></div>
+      <div class="shot"><img id="img-before" src="ziad-before.jpg" alt="Ziad Elfeky, before"><span class="tag">Before</span></div>
+      <div class="shot"><img id="img-after" src="ziad-after.jpg" alt="Ziad Elfeky, after"><span class="tag after">After</span></div>
     </figure>
     <div class="cap"><span class="cap-title" id="cap-title">Ziad Elfeky</span><span class="cap-sub" id="cap-sub">My own training</span></div>
     <p class="note">Individual results. Every program is individual. Client photos shared with permission, faces hidden.</p>
@@ -189,8 +189,8 @@ img{max-width:100%;display:block;}
   var ia = document.getElementById('img-after');
   function show(i) {
     var c = cases[i];
-    ib.src = 'results/' + c.b + '.jpg'; ib.alt = c.title + ', before';
-    ia.src = 'results/' + c.a + '.jpg'; ia.alt = c.title + ', after';
+    ib.src = '' + c.b + '.jpg'; ib.alt = c.title + ', before';
+    ia.src = '' + c.a + '.jpg'; ia.alt = c.title + ', after';
     pair.classList.toggle('tall', !!c.tall);
     document.getElementById('cap-title').textContent = c.title;
     document.getElementById('cap-sub').textContent = c.sub;
@@ -203,7 +203,7 @@ img{max-width:100%;display:block;}
     b.textContent = c.chip;
     b.addEventListener('click', function () { show(i); });
     chips.appendChild(b);
-    var pre = new Image(); pre.src = 'results/' + c.a + '.jpg';
+    var pre = new Image(); pre.src = '' + c.a + '.jpg';
   });
 
   var quotes = document.getElementById('quotes');
