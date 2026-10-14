@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
+<link rel="icon" type="image/png" sizes="32x32" href="https://ziadelfeky.github.io/ZE-Links/zf-favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://ziadelfeky.github.io/ZE-Links/zf-icon-192.png">
+<link rel="apple-touch-icon" href="https://ziadelfeky.github.io/ZE-Links/zf-apple-touch.png">
+<meta property="og:image" content="https://ziadelfeky.github.io/ZE-Links/zf-logo-dark.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta property="og:title" content="Ziad Elfeky · Performance &amp; Rehabilitation Coach"/>
 <meta property="og:description" content="Online coaching worldwide, by application. Fix the root cause. Build the body. Perform for life."/>
@@ -38,11 +42,14 @@ img{max-width:100%;display:block;}
 .label{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
 
 /* HERO */
-.hero{display:flex;flex-direction:column;gap:14px;}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;}
+.hero > .label{padding-left:.2em;}
+.mark{margin:0 0 18px;width:104px;}
 .hero h1{font-family:var(--serif);font-weight:500;font-size:46px;line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance;}
+.nw{white-space:nowrap;}
 .tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted);margin:0;text-wrap:balance;}
-.intro{font-size:15px;line-height:1.75;color:var(--muted);margin:6px 0 0;max-width:36ch;}
-.creds{display:flex;flex-wrap:wrap;gap:6px 14px;margin:8px 0 0;padding:0;list-style:none;font-size:12px;color:var(--soft);letter-spacing:.02em;}
+.intro{font-size:15px;line-height:1.75;color:var(--muted);margin:6px 0 0;max-width:34ch;text-wrap:balance;}
+.creds{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin:8px 0 0;padding:0;list-style:none;font-size:12px;color:var(--soft);letter-spacing:.02em;}
 .creds li{display:flex;align-items:center;gap:8px;}
 .creds li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);}
 
@@ -58,11 +65,12 @@ img{max-width:100%;display:block;}
 
 /* RESULTS */
 .section{display:flex;flex-direction:column;gap:16px;}
-.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px 2px;}
-.chips::-webkit-scrollbar{display:none;}
-.chip{flex:0 0 auto;font-family:var(--sans);font-size:12.5px;font-weight:400;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;transition:color .2s,border-color .2s,background .2s;}
-.chip:hover{color:var(--text);}
-.chip[aria-selected="true"]{color:var(--gold-ink);background:var(--gold);border-color:var(--gold);font-weight:500;}
+.rail{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;transition:height .35s ease;}
+.rail::-webkit-scrollbar{display:none;}
+.rail:focus-visible{outline-offset:6px;}
+.slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;gap:14px;}
+.rail-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:-2px;}
+.count{font-size:11px;letter-spacing:.14em;color:var(--soft);font-variant-numeric:tabular-nums;}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0;}
 .shot{position:relative;border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:1/1;max-width:100%;}
 .pair.tall .shot{aspect-ratio:4/5;}
@@ -108,10 +116,11 @@ img{max-width:100%;display:block;}
 <main class="wrap">
 
   <header class="hero">
+    <div class="mark"><svg role="img" aria-label="ZF, Ziad Elfeky" width="104" height="73.0" viewBox="4 46 228 160" style="display:block"><defs><mask id="zfcut" maskUnits="userSpaceOnUse" x="0" y="0" width="240" height="240"><rect width="240" height="240" fill="#fff"></rect><path d="M20 168 L224 92" stroke="#000" stroke-width="6"></path></mask></defs><g mask="url(#zfcut)"><g transform="skewX(-10) translate(18 0)"><g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="24"><path d="M36 66 H130 L46 174 H140" stroke="#f1ece2"></path><path d="M168 186 V66 H216 M168 120 H206" stroke="#c9a96e"></path></g></g></g></svg></div>
     <div class="label">Performance &amp; Rehabilitation Coach</div>
     <h1>Ziad Elfeky</h1>
-    <p class="tagline">Fix the root cause. Build the body. Perform for life.</p>
-    <p class="intro">I test before I program. Every plan starts from where your body is today, and changes as you do.</p>
+    <p class="tagline"><span class="nw">Fix the root cause.</span> <span class="nw">Build the body.</span> <span class="nw">Perform for life.</span></p>
+    <p class="intro">Over twenty years in sport, the last ten coaching. Shaped on the football pitch, refined in the clinic, and now reserved for a select few, in Alexandria and worldwide.</p>
     <ul class="creds">
       <li>Founder, Kraft Fitness</li>
       <li>L4 S&amp;C, UK</li>
@@ -135,12 +144,51 @@ img{max-width:100%;display:block;}
 
   <section class="section" aria-labelledby="res-title">
     <div class="label" id="res-title">Results</div>
-    <div class="chips" role="tablist" aria-label="Choose a result" id="chips"></div>
-    <figure class="pair tall" id="pair">
-      <div class="shot"><img id="img-before" src="ziad-before.jpg" alt="Ziad Elfeky, before"><span class="tag">Before</span></div>
-      <div class="shot"><img id="img-after" src="ziad-after.jpg" alt="Ziad Elfeky, after"><span class="tag after">After</span></div>
-    </figure>
-    <div class="cap"><span class="cap-title" id="cap-title">Ziad Elfeky</span><span class="cap-sub" id="cap-sub">My own training</span></div>
+    <div class="rail" id="results" tabindex="0" aria-roledescription="carousel" aria-label="Before and after results. Swipe for more.">
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 6">
+        <figure class="pair tall">
+          <div class="shot"><img src="ziad-before.jpg" alt="Ziad Elfeky, before"><span class="tag">Before</span></div>
+          <div class="shot"><img src="ziad-after.jpg" alt="Ziad Elfeky, after"><span class="tag after">After</span></div>
+        </figure>
+        <div class="cap"><span class="cap-title">Ziad Elfeky</span><span class="cap-sub">My own training</span></div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 6">
+        <figure class="pair">
+          <div class="shot"><img src="client-before.jpg" alt="Physique, before" loading="lazy"><span class="tag">Before</span></div>
+          <div class="shot"><img src="client-after.jpg" alt="Physique, after" loading="lazy"><span class="tag after">After</span></div>
+        </figure>
+        <div class="cap"><span class="cap-title">Physique</span><span class="cap-sub">Client, front view</span></div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 6">
+        <figure class="pair">
+          <div class="shot"><img src="reach-before.jpg" alt="Overhead reach, before" loading="lazy"><span class="tag">Before</span></div>
+          <div class="shot"><img src="reach-after.jpg" alt="Overhead reach, after" loading="lazy"><span class="tag after">After</span></div>
+        </figure>
+        <div class="cap"><span class="cap-title">Overhead reach</span><span class="cap-sub">Lying shoulder flexion test</span></div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 6">
+        <figure class="pair">
+          <div class="shot"><img src="back-before.jpg" alt="Shoulder reach, before" loading="lazy"><span class="tag">Before</span></div>
+          <div class="shot"><img src="back-after.jpg" alt="Shoulder reach, after" loading="lazy"><span class="tag after">After</span></div>
+        </figure>
+        <div class="cap"><span class="cap-title">Shoulder reach</span><span class="cap-sub">Hands-behind-back reach test</span></div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="5 of 6">
+        <figure class="pair">
+          <div class="shot"><img src="squat-before.jpg" alt="Squat depth, before" loading="lazy"><span class="tag">Before</span></div>
+          <div class="shot"><img src="squat-after.jpg" alt="Squat depth, after" loading="lazy"><span class="tag after">After</span></div>
+        </figure>
+        <div class="cap"><span class="cap-title">Squat depth</span><span class="cap-sub">Bodyweight squat</span></div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="6 of 6">
+        <figure class="pair">
+          <div class="shot"><img src="wall-before.jpg" alt="Overhead reach at the wall, before" loading="lazy"><span class="tag">Before</span></div>
+          <div class="shot"><img src="wall-after.jpg" alt="Overhead reach at the wall, after" loading="lazy"><span class="tag after">After</span></div>
+        </figure>
+        <div class="cap"><span class="cap-title">Overhead reach at the wall</span><span class="cap-sub">Back flat, arms to the wall</span></div>
+      </div>
+    </div>
+    <div class="rail-foot"><div class="dots" id="rdots" aria-label="Results"></div><span class="count" id="rcount" aria-hidden="true">1 / 6</span></div>
     <p class="note">Individual results. Every program is individual. Client photos shared with permission, faces hidden.</p>
   </section>
 
@@ -175,51 +223,40 @@ img{max-width:100%;display:block;}
 </main>
 <script>
 (function () {
-  var cases = [
-    { chip: 'Ziad', title: 'Ziad Elfeky', sub: 'My own training', b: 'ziad-before', a: 'ziad-after', tall: true },
-    { chip: 'Physique', title: 'Physique', sub: 'Client, front view', b: 'client-before', a: 'client-after' },
-    { chip: 'Overhead reach', title: 'Overhead reach', sub: 'Lying shoulder flexion test', b: 'reach-before', a: 'reach-after' },
-    { chip: 'Shoulder', title: 'Shoulder reach', sub: 'Hands-behind-back reach test', b: 'back-before', a: 'back-after' },
-    { chip: 'Squat', title: 'Squat depth', sub: 'Bodyweight squat', b: 'squat-before', a: 'squat-after' },
-    { chip: 'Wall reach', title: 'Overhead reach at the wall', sub: 'Back flat, arms to the wall', b: 'wall-before', a: 'wall-after' }
-  ];
-  var chips = document.getElementById('chips');
-  var pair = document.getElementById('pair');
-  var ib = document.getElementById('img-before');
-  var ia = document.getElementById('img-after');
-  function show(i) {
-    var c = cases[i];
-    ib.src = '' + c.b + '.jpg'; ib.alt = c.title + ', before';
-    ia.src = '' + c.a + '.jpg'; ia.alt = c.title + ', after';
-    pair.classList.toggle('tall', !!c.tall);
-    document.getElementById('cap-title').textContent = c.title;
-    document.getElementById('cap-sub').textContent = c.sub;
-    Array.prototype.forEach.call(chips.children, function (el, j) { el.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+  var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function swipe(rail, items, dots, label, count, fitHeight) {
+    var current = 0;
+    function pitch() { return items.length > 1 ? items[1].offsetLeft - items[0].offsetLeft : rail.clientWidth; }
+    function fit() { if (fitHeight) rail.style.height = items[current].offsetHeight + 'px'; }
+    function mark(i) {
+      if (i === current && dots.children.length) return;
+      current = i;
+      Array.prototype.forEach.call(dots.children, function (d, j) {
+        d.classList.toggle('on', j === i);
+        d.setAttribute('aria-current', j === i ? 'true' : 'false');
+      });
+      if (count) count.textContent = (i + 1) + ' / ' + items.length;
+      fit();
+    }
+    items.forEach(function (it, i) {
+      var d = document.createElement('button');
+      d.type = 'button'; d.className = 'dot' + (i === 0 ? ' on' : '');
+      d.setAttribute('aria-label', label + ' ' + (i + 1));
+      d.addEventListener('click', function () { rail.scrollTo({ left: i * pitch(), behavior: smooth ? 'smooth' : 'auto' }); });
+      dots.appendChild(d);
+    });
+    rail.addEventListener('scroll', function () {
+      var i = Math.max(0, Math.min(items.length - 1, Math.round(rail.scrollLeft / pitch())));
+      mark(i);
+    }, { passive: true });
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    fit();
   }
-  cases.forEach(function (c, i) {
-    var b = document.createElement('button');
-    b.type = 'button'; b.className = 'chip'; b.setAttribute('role', 'tab');
-    b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-    b.textContent = c.chip;
-    b.addEventListener('click', function () { show(i); });
-    chips.appendChild(b);
-    var pre = new Image(); pre.src = '' + c.a + '.jpg';
-  });
-
+  var results = document.getElementById('results');
+  swipe(results, Array.prototype.slice.call(results.querySelectorAll('.slide')), document.getElementById('rdots'), 'Result', document.getElementById('rcount'), true);
   var quotes = document.getElementById('quotes');
-  var dots = document.getElementById('dots');
-  var qs = quotes.querySelectorAll('.q');
-  qs.forEach(function (q, i) {
-    var d = document.createElement('button');
-    d.type = 'button'; d.className = 'dot' + (i === 0 ? ' on' : '');
-    d.setAttribute('aria-label', 'Review ' + (i + 1));
-    d.addEventListener('click', function () { quotes.scrollTo({ left: q.offsetLeft - quotes.offsetLeft, behavior: 'smooth' }); });
-    dots.appendChild(d);
-  });
-  quotes.addEventListener('scroll', function () {
-    var i = Math.round(quotes.scrollLeft / quotes.clientWidth);
-    Array.prototype.forEach.call(dots.children, function (d, j) { d.classList.toggle('on', j === i); });
-  }, { passive: true });
+  swipe(quotes, Array.prototype.slice.call(quotes.querySelectorAll('.q')), document.getElementById('dots'), 'Review', null, false);
 })();
 </script>
 </body>
