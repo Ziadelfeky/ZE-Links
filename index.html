@@ -1,114 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
-<link rel="icon" type="image/png" sizes="32x32" href="https://ziadelfeky.github.io/ZE-Links/zf-favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="https://ziadelfeky.github.io/ZE-Links/zf-icon-192.png">
-<link rel="apple-touch-icon" href="https://ziadelfeky.github.io/ZE-Links/zf-apple-touch.png">
-<meta property="og:image" content="https://ziadelfeky.github.io/ZE-Links/zf-logo-dark.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Ziad Elfeky · Performance &amp; Rehabilitation Coach</title>
+<meta name="description" content="Performance and rehabilitation coach. Online coaching worldwide, by application, and in-person training in Alexandria. Fix the root cause. Build the body. Perform for life."/>
 <meta property="og:title" content="Ziad Elfeky · Performance &amp; Rehabilitation Coach"/>
-<meta property="og:description" content="Online coaching worldwide, by application. Fix the root cause. Build the body. Perform for life."/>
-<meta name="description" content="Online coaching worldwide, by application. Fix the root cause. Build the body. Perform for life."/>
-<meta name="theme-color" content="#0f0e0c"/>
-<title>Ziad Elfeky</title>
+<meta property="og:description" content="Online coaching worldwide, by application, and in-person training in Alexandria."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://ziadelfeky.github.io/ZE-Links/"/>
+<meta property="og:image" content="https://ziadelfeky.github.io/ZE-Links/zf-og.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="theme-color" content="#0c0b0a"/>
+<link rel="icon" type="image/png" sizes="32x32" href="zf-favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="zf-icon-192.png">
+<link rel="apple-touch-icon" href="zf-apple-touch.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap">
 <style>
-/* Layout: one narrow column on warm near-black. One lit panel (online coaching), everything else sits on the page with hairlines. */
+/* Ziad Elfeky · one page, two themes (dark is live). Single column on phones; on wide screens the identity stays fixed on the left. */
+:root, [data-theme="dark"]{
+  --bg:#0c0b0a; --panel:#161411; --panel-2:#1d1a16;
+  --line:rgba(242,237,228,.10); --line-strong:rgba(242,237,228,.18);
+  --text:#f2ede4; --muted:#b0a99c; --soft:#938c7f;
+  --gold:#cfb27c; --gold-soft:rgba(207,178,124,.14);
+  --cta-bg:#cfb27c; --cta-ink:#14110d;
+  --tag-bg:rgba(12,11,10,.74); --tag-ink:#f2ede4;
+  --glow:rgba(207,178,124,.07);
+  color-scheme:dark;
+}
+[data-theme="ivory"]{
+  --bg:#f3efe7; --panel:#fbf9f5; --panel-2:#ece6da;
+  --line:rgba(23,21,18,.11); --line-strong:rgba(23,21,18,.20);
+  --text:#171512; --muted:#4e4941; --soft:#665f55;
+  --gold:#7a5c2b; --gold-soft:rgba(122,92,43,.10);
+  --cta-bg:#171512; --cta-ink:#f3efe7;
+  --tag-bg:rgba(23,21,18,.70); --tag-ink:#f3efe7;
+  --glow:rgba(122,92,43,.06);
+  color-scheme:light;
+}
 :root{
-  --bg:#0f0e0c;
-  --panel:#181613;
-  --line:rgba(241,236,226,.10);
-  --text:#f1ece2;
-  --muted:#a39d91;
-  --soft:#716b62;
-  --gold:#c9a96e;
-  --gold-ink:#15120e;
   --serif:'Lora', Georgia, 'Times New Roman', serif;
   --sans:'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box;}
 html,body{margin:0;}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;}
 a{color:inherit;}
 img{max-width:100%;display:block;}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px;}
 
-.wrap{max-width:460px;margin:0 auto;padding:56px 20px 48px;display:flex;flex-direction:column;gap:56px;}
-
-.label{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.wrap{max-width:520px;margin:0 auto;padding:44px 22px 40px;display:flex;flex-direction:column;gap:72px;}
+.label{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0;}
+.sec{display:flex;flex-direction:column;gap:18px;}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line);}
+.sec-link{font-size:12.5px;color:var(--muted);text-decoration:none;white-space:nowrap;}
+.sec-link:hover{color:var(--gold);}
 
 /* HERO */
-.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;}
-.hero > .label{padding-left:.2em;}
-.mark{margin:0 0 18px;width:104px;}
-.hero h1{font-family:var(--serif);font-weight:500;font-size:46px;line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance;}
+.hero{display:flex;flex-direction:column;gap:0;}
+.mark{width:64px;margin-bottom:34px;}
+.mark svg{width:100%;height:auto;display:block;}
+.mark .z{stroke:var(--text);} .mark .f{stroke:var(--gold);}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,13vw,58px);line-height:1;letter-spacing:-.02em;margin:14px 0 0;}
+.tagline{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.45;color:var(--text);margin:18px 0 0;}
 .nw{white-space:nowrap;}
-.tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted);margin:0;text-wrap:balance;}
-.intro{font-size:15px;line-height:1.75;color:var(--muted);margin:6px 0 0;max-width:34ch;text-wrap:balance;}
-.creds{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin:8px 0 0;padding:0;list-style:none;font-size:12px;color:var(--soft);letter-spacing:.02em;}
-.creds li{display:flex;align-items:center;gap:8px;}
-.creds li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);}
+.intro{font-size:15px;line-height:1.75;color:var(--muted);margin:16px 0 0;max-width:38ch;}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:30px;}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:12px;text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.01em;transition:filter .2s,border-color .2s,color .2s;}
+.btn-primary{background:var(--cta-bg);color:var(--cta-ink);}
+.btn-primary:hover{filter:brightness(1.07);}
+.btn-ghost{border:1px solid var(--line-strong);color:var(--text);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:36px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.stat{padding:18px 4px 16px;text-align:center;}
+.stat + .stat{border-left:1px solid var(--line);}
+.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:34px;line-height:1;color:var(--text);}
+.stat span{display:block;margin-top:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.4;}
 
-/* ONLINE COACHING: the one panel on the page */
-.coaching{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px 22px 22px;display:flex;flex-direction:column;gap:14px;}
-.coaching h2{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.1;margin:0;}
-.coaching p{margin:0;font-size:14.5px;line-height:1.7;color:var(--muted);}
-.steps{list-style:none;margin:6px 0 4px;padding:16px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;}
-.steps li{display:flex;gap:9px;font-size:12.5px;line-height:1.5;color:var(--muted);min-width:0;}
+/* CREDENTIALS */
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.cred{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;}
+.cred b{display:block;font-family:var(--serif);font-weight:500;font-size:16.5px;line-height:1.25;}
+.cred span{display:block;margin-top:5px;font-size:12px;color:var(--muted);}
+
+/* ONLINE COACHING */
+.feature{background:var(--panel);border:1px solid var(--line-strong);border-radius:20px;padding:28px 22px 22px;display:flex;flex-direction:column;gap:16px;background-image:radial-gradient(90% 60% at 100% 0%, var(--glow), transparent 70%);}
+.feature h2{font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.1;margin:0;}
+.feature p{margin:0;font-size:14.5px;line-height:1.75;color:var(--muted);}
+.feature .label{font-size:11px;line-height:1.4;color:var(--gold);}
+.price-line{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.price-line small{font-size:12px;color:var(--muted);}
+.price-line b{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1;color:var(--gold);}
+.price-line em{font-style:normal;font-size:12.5px;color:var(--muted);}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;}
+.steps li{display:flex;gap:10px;font-size:12.5px;line-height:1.5;color:var(--muted);min-width:0;}
 .steps b{font-weight:500;color:var(--gold);font-variant-numeric:tabular-nums;}
-.apply{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:12px;background:var(--gold);color:var(--gold-ink);text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.02em;transition:filter .2s;}
-.apply:hover{filter:brightness(1.08);}
+.ready{display:flex;flex-direction:column;margin-top:4px;}
+.ready-title{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line);}
+
+/* ROWS (Alexandria, ready-made) */
+.rows{display:flex;flex-direction:column;}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 2px;border-bottom:1px solid var(--line);text-decoration:none;}
+.row-text{min-width:0;}
+.row-title{font-family:var(--serif);font-size:19px;line-height:1.3;}
+.row-sub{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5;}
+.row-end{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.row-price{font-size:12.5px;color:var(--gold);white-space:nowrap;}
+.arrow{color:var(--soft);font-size:18px;transition:transform .2s,color .2s;}
+.row:hover .arrow{color:var(--gold);transform:translateX(3px);}
+.row:hover .row-title{color:var(--gold);}
+.row.compact{padding:13px 2px;}
+.row.compact .row-title{font-size:16.5px;}
 
 /* RESULTS */
-.section{display:flex;flex-direction:column;gap:16px;}
 .rail{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;transition:height .35s ease;}
 .rail::-webkit-scrollbar{display:none;}
 .rail:focus-visible{outline-offset:6px;}
 .slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;gap:14px;}
-.rail-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:-2px;}
-.count{font-size:11px;letter-spacing:.14em;color:var(--soft);font-variant-numeric:tabular-nums;}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0;}
-.shot{position:relative;border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:1/1;max-width:100%;}
-.pair.tall .shot{aspect-ratio:4/5;}
+.shot{position:relative;border-radius:14px;overflow:hidden;background:var(--panel-2);aspect-ratio:4/5;}
 .shot img{width:100%;height:100%;object-fit:cover;}
-.tag{position:absolute;left:8px;bottom:8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:rgba(15,14,12,.72);color:var(--text);}
-.tag.after{background:var(--gold);color:var(--gold-ink);}
+.tag{position:absolute;left:8px;bottom:8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--tag-bg);color:var(--tag-ink);}
+.tag.after{background:var(--cta-bg);color:var(--cta-ink);}
 .cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
 .cap-title{font-family:var(--serif);font-size:20px;}
-.cap-sub{font-size:12px;color:var(--soft);}
+.cap-sub{font-size:12px;color:var(--muted);}
+.rail-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.count{font-size:11px;letter-spacing:.14em;color:var(--muted);font-variant-numeric:tabular-nums;}
 .note{font-size:11.5px;line-height:1.6;color:var(--soft);margin:0;}
 
 /* REVIEWS */
 .quotes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;align-items:flex-start;}
 .quotes::-webkit-scrollbar{display:none;}
-.q{flex:0 0 100%;scroll-snap-align:start;margin:0;}
-.q p{font-family:var(--serif);font-size:19px;line-height:1.6;margin:0;color:var(--text);}
-.q p::before{content:'\201C';color:var(--gold);margin-right:2px;}
-.q p::after{content:'\201D';color:var(--gold);margin-left:1px;}
+.q{flex:0 0 100%;scroll-snap-align:start;margin:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 22px 20px;}
+.q-mark{font-family:var(--serif);font-size:46px;line-height:.6;color:var(--gold);height:22px;display:block;}
+.q p{font-family:var(--serif);font-size:18px;line-height:1.6;margin:10px 0 0;color:var(--text);}
 .q footer{margin-top:16px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;}
 .q .who{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
 .q .tr{font-size:11.5px;color:var(--soft);font-style:italic;}
 .dots{display:flex;gap:6px;}
-.dot{width:18px;height:2px;border-radius:2px;background:var(--line);border:0;padding:0;cursor:pointer;transition:background .2s,width .2s;}
+.dot{width:18px;height:2px;border-radius:2px;background:var(--line-strong);border:0;padding:0;cursor:pointer;transition:background .2s,width .2s;}
 .dot.on{background:var(--gold);width:28px;}
 
-/* ALEXANDRIA */
-.rows{display:flex;flex-direction:column;border-top:1px solid var(--line);}
-.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 2px;border-bottom:1px solid var(--line);text-decoration:none;}
-.row-text{min-width:0;}
-.row-title{font-family:var(--serif);font-size:19px;}
-.row-sub{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5;}
-.arrow{color:var(--soft);font-size:18px;transition:transform .2s,color .2s;flex-shrink:0;}
-.row:hover .arrow{color:var(--gold);transform:translateX(3px);}
-
 /* FOOTER */
-.foot{display:flex;flex-direction:column;gap:6px;font-size:11.5px;line-height:1.7;color:var(--soft);padding-top:8px;}
-.foot-name{font-family:var(--serif);font-size:16px;color:var(--gold);}
+.foot{display:flex;flex-direction:column;gap:6px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:var(--muted);}
+.foot-name{font-family:var(--serif);font-size:17px;color:var(--text);}
+.foot-tag{font-family:var(--serif);font-style:italic;color:var(--muted);}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;}
+.foot-links a{text-decoration:none;color:var(--muted);border-bottom:1px solid var(--line-strong);padding-bottom:1px;}
+.foot-links a:hover{color:var(--gold);border-color:var(--gold);}
 
+/* WIDE SCREENS: identity fixed on the left, content scrolls on the right */
+@media (min-width: 900px){
+  .wrap{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:clamp(380px,42vw,600px) minmax(0,1fr);column-gap:0;row-gap:88px;align-items:start;}
+  .hero{grid-column:1;grid-row:1 / span 7;position:sticky;top:0;min-height:100vh;justify-content:center;padding:64px clamp(36px,4.5vw,80px);border-right:1px solid var(--line);background:radial-gradient(80% 55% at 30% 35%, var(--glow), transparent 72%), var(--bg);}
+  .hero h1{font-size:64px;}
+  .wrap > :not(.hero){grid-column:2;width:min(560px, calc(100% - 112px));justify-self:center;}
+  .wrap > :nth-child(2){margin-top:96px;}
+  .wrap > .foot{margin-bottom:72px;}
+  .ctas{max-width:440px;}
+}
 @media (prefers-reduced-motion: reduce){*{transition:none !important;scroll-behavior:auto !important;}}
 </style>
 </head>
@@ -116,41 +172,74 @@ img{max-width:100%;display:block;}
 <main class="wrap">
 
   <header class="hero">
-    <div class="mark"><svg role="img" aria-label="ZF, Ziad Elfeky" width="104" height="73.0" viewBox="4 46 228 160" style="display:block"><defs><mask id="zfcut" maskUnits="userSpaceOnUse" x="0" y="0" width="240" height="240"><rect width="240" height="240" fill="#fff"></rect><path d="M20 168 L224 92" stroke="#000" stroke-width="6"></path></mask></defs><g mask="url(#zfcut)"><g transform="skewX(-10) translate(18 0)"><g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="24"><path d="M36 66 H130 L46 174 H140" stroke="#f1ece2"></path><path d="M168 186 V66 H216 M168 120 H206" stroke="#c9a96e"></path></g></g></g></svg></div>
-    <div class="label">Performance &amp; Rehabilitation Coach</div>
+    <div class="mark"><svg role="img" aria-label="ZF, Ziad Elfeky" viewBox="4 46 228 160"><defs><mask id="zfcut" maskUnits="userSpaceOnUse" x="0" y="0" width="240" height="240"><rect width="240" height="240" fill="#fff"></rect><path d="M20 168 L224 92" stroke="#000" stroke-width="6"></path></mask></defs><g mask="url(#zfcut)"><g transform="skewX(-10) translate(18 0)"><g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="24"><path class="z" d="M36 66 H130 L46 174 H140"></path><path class="f" d="M168 186 V66 H216 M168 120 H206"></path></g></g></g></svg></div>
+    <p class="label">Performance &amp; Rehabilitation Coach</p>
     <h1>Ziad Elfeky</h1>
     <p class="tagline"><span class="nw">Fix the root cause.</span> <span class="nw">Build the body.</span> <span class="nw">Perform for life.</span></p>
-    <p class="intro">Over twenty years in sport, the last ten coaching. Shaped on the football pitch, refined in the clinic, and now reserved for a select few, in Alexandria and worldwide.</p>
-    <ul class="creds">
-      <li>Founder, Kraft Fitness</li>
-      <li>L4 S&amp;C, UK</li>
-      <li>EXOS, USA</li>
-      <li>FIFA Sports Medicine</li>
-    </ul>
+    <p class="intro">Twenty years in sport, ten of them coaching. Shaped on the football pitch, refined in the clinic. Online worldwide, in person in Alexandria.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" href="#alexandria">Train in Alexandria</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>10</b><span>Years<br>coaching</span></div>
+      <div class="stat"><b>20+</b><span>Years<br>in sport</span></div>
+      <div class="stat"><b>16</b><span>Certifi&shy;cations</span></div>
+    </div>
   </header>
 
-  <section class="coaching" aria-labelledby="oc-title">
-    <div class="label">Worldwide · By application</div>
-    <h2 id="oc-title">Online Coaching</h2>
-    <p>A program built from your assessment, delivered on the app, and adjusted at every check-in. The same standard as my in-person clients.</p>
-    <ol class="steps">
-      <li><b>01</b>You apply</li>
-      <li><b>02</b>I review it myself</li>
-      <li><b>03</b>Program on the app within 2 to 3 days of payment</li>
-      <li><b>04</b>Weekly check-ins, program adjusted</li>
-    </ol>
-    <a class="apply" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
+  <section class="sec" aria-labelledby="cred-title">
+    <div class="sec-head"><p class="label" id="cred-title">Credentials</p><a class="sec-link" href="https://ziadelfeky.github.io/ZE-Credentials/">All 16 &rarr;</a></div>
+    <div class="creds">
+      <div class="cred"><b>Level 4 S&amp;C</b><span>United Kingdom</span></div>
+      <div class="cred"><b>Performance Specialist</b><span>EXOS, USA</span></div>
+      <div class="cred"><b>Football Medicine</b><span>FIFA Diploma</span></div>
+      <div class="cred"><b>Founder</b><span>Kraft Fitness, Alexandria</span></div>
+    </div>
   </section>
 
-  <section class="section" aria-labelledby="res-title">
-    <div class="label" id="res-title">Results</div>
+  <section class="sec" aria-labelledby="oc-title">
+    <div class="sec-head"><p class="label">Online · Worldwide</p></div>
+    <div class="feature">
+      <p class="label">By application</p>
+      <h2 id="oc-title">Online Coaching</h2>
+      <p>A program built from your assessment, written and supervised by me in the training app, and adjusted as you progress. The same standard as my in-person clients.</p>
+      <div class="price-line"><small>Four plans from</small><b>$60</b><em>a month · 3,400 EGP</em></div>
+      <ol class="steps">
+        <li><b>01</b>Apply and choose your plan</li>
+        <li><b>02</b>I review every application myself</li>
+        <li><b>03</b>Your program is ready 1 to 2 days after you register</li>
+        <li><b>04</b>Check-ins and adjustments as you progress</li>
+      </ol>
+      <a class="btn btn-primary" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="ready">
+      <div class="ready-title">Ready-made programs · no follow-up</div>
+      <nav class="rows" aria-label="Ready-made programs">
+        <a class="row compact" href="https://traintrackmarketplace.com/en/programmes/8875ef1e-eef0-4ee3-8598-9eece0f9536e" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Shape Over Scale</div><div class="row-sub">6 weeks · women · fat loss, glutes and shape</div></div><div class="row-end"><span class="row-price">2,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+        <a class="row compact" href="https://traintrackmarketplace.com/en/programmes/6bf557c1-8dd6-401a-8319-14fee54be2fd" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Lean Engine</div><div class="row-sub">12 weeks · fat loss, beginners or after a break</div></div><div class="row-end"><span class="row-price">4,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="sec" id="alexandria" aria-labelledby="alx-title">
+    <div class="sec-head"><p class="label" id="alx-title">In person · Alexandria</p></div>
+    <nav class="rows" aria-label="In Alexandria">
+      <a class="row" href="https://ziadelfeky.github.io/ZE-KraftPT"><div class="row-text"><div class="row-title">Kraft Fitness</div><div class="row-sub">VIP 1-on-1, Semi-Private and Associate Coaching · Ganaklis</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="row" href="https://ziadelfeky.github.io/Home-Training/"><div class="row-text"><div class="row-title">Home Private Training</div><div class="row-sub">VIP and Duo, at your home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="row" href="https://ziadelfeky.github.io/Muscle-Release-/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue and myofascial release, studio or home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </nav>
+  </section>
+
+  <section class="sec" aria-labelledby="res-title">
+    <div class="sec-head"><p class="label" id="res-title">Results</p><span class="count" id="rcount" aria-hidden="true">1 / 6</span></div>
     <div class="rail" id="results" tabindex="0" aria-roledescription="carousel" aria-label="Before and after results. Swipe for more.">
       <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 6">
-        <figure class="pair tall">
-          <div class="shot"><img src="ziad-before.jpg" alt="Ziad Elfeky, before"><span class="tag">Before</span></div>
-          <div class="shot"><img src="ziad-after.jpg" alt="Ziad Elfeky, after"><span class="tag after">After</span></div>
+        <figure class="pair">
+          <div class="shot"><img src="squat-before.jpg" alt="Squat depth, before"><span class="tag">Before</span></div>
+          <div class="shot"><img src="squat-after.jpg" alt="Squat depth, after"><span class="tag after">After</span></div>
         </figure>
-        <div class="cap"><span class="cap-title">Ziad Elfeky</span><span class="cap-sub">My own training</span></div>
+        <div class="cap"><span class="cap-title">Squat depth</span><span class="cap-sub">Bodyweight squat</span></div>
       </div>
       <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 6">
         <figure class="pair">
@@ -175,49 +264,44 @@ img{max-width:100%;display:block;}
       </div>
       <div class="slide" role="group" aria-roledescription="slide" aria-label="5 of 6">
         <figure class="pair">
-          <div class="shot"><img src="squat-before.jpg" alt="Squat depth, before" loading="lazy"><span class="tag">Before</span></div>
-          <div class="shot"><img src="squat-after.jpg" alt="Squat depth, after" loading="lazy"><span class="tag after">After</span></div>
-        </figure>
-        <div class="cap"><span class="cap-title">Squat depth</span><span class="cap-sub">Bodyweight squat</span></div>
-      </div>
-      <div class="slide" role="group" aria-roledescription="slide" aria-label="6 of 6">
-        <figure class="pair">
           <div class="shot"><img src="wall-before.jpg" alt="Overhead reach at the wall, before" loading="lazy"><span class="tag">Before</span></div>
           <div class="shot"><img src="wall-after.jpg" alt="Overhead reach at the wall, after" loading="lazy"><span class="tag after">After</span></div>
         </figure>
         <div class="cap"><span class="cap-title">Overhead reach at the wall</span><span class="cap-sub">Back flat, arms to the wall</span></div>
       </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="6 of 6">
+        <figure class="pair">
+          <div class="shot"><img src="ziad-before.jpg" alt="Ziad Elfeky, before" loading="lazy"><span class="tag">Before</span></div>
+          <div class="shot"><img src="ziad-after.jpg" alt="Ziad Elfeky, after" loading="lazy"><span class="tag after">After</span></div>
+        </figure>
+        <div class="cap"><span class="cap-title">Ziad Elfeky</span><span class="cap-sub">My own training</span></div>
+      </div>
     </div>
-    <div class="rail-foot"><div class="dots" id="rdots" aria-label="Results"></div><span class="count" id="rcount" aria-hidden="true">1 / 6</span></div>
-    <p class="note">Individual results. Every program is individual. Client photos shared with permission, faces hidden.</p>
+    <div class="rail-foot"><div class="dots" id="rdots" aria-label="Results"></div></div>
+    <p class="note">Individual results; every program is individual. Client photos shared with permission, faces hidden.</p>
   </section>
 
-  <section class="section" aria-labelledby="rev-title">
-    <div class="label" id="rev-title">In their words</div>
+  <section class="sec" aria-labelledby="rev-title">
+    <div class="sec-head"><p class="label" id="rev-title">In their words</p></div>
     <div class="quotes" id="quotes">
-      <blockquote class="q"><p>I honestly thought my arm would never feel normal again. I was so frustrated at the beginning and didn't know if I would get better, but seeing the progress step by step gave me hope again. Still have work to do, but I'm so happy with how far I've come.</p><footer><span class="who">Arm recovery</span></footer></blockquote>
-      <blockquote class="q"><p>Honestly, the difference isn't just in shape. I've become more dedicated, and I understand why and how I train. The program is built around my goal and there's always follow-up. It's the first time I feel there's a real plan I'm following, and I'm training pain-free.</p><footer><span class="who">Training pain-free</span><span class="tr">Translated from Arabic</span></footer></blockquote>
-      <blockquote class="q"><p>Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts. My strength has improved a lot and I feel the difference in my performance too. The follow-up and feedback really make a difference.</p><footer><span class="who">Strength and performance</span></footer></blockquote>
-      <blockquote class="q"><p>I started just wanting to change my body, but honestly gained so much more than that. I feel stronger, more confident and finally comfortable with myself. I used to start and stop all the time, but this time it's different. Thank you Ziad.</p><footer><span class="who">Body and confidence</span></footer></blockquote>
-      <blockquote class="q"><p>Not gonna lie, I was expecting results but I didn't expect to enjoy the process this much. The plan fits my lifestyle and I don't feel lost anymore. Still not at my final goal, but the progress so far makes me wanna keep going.</p><footer><span class="who">A plan that fits life</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I honestly thought my arm would never feel normal again. I was so frustrated at the beginning and didn't know if I would get better, but seeing the progress step by step gave me hope again. Still have work to do, but I'm so happy with how far I've come.</p><footer><span class="who">Arm recovery</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Honestly, the difference isn't just in shape. I've become more dedicated, and I understand why and how I train. The program is built around my goal and there's always follow-up. It's the first time I feel there's a real plan I'm following, and I'm training pain-free.</p><footer><span class="who">Training pain-free</span><span class="tr">Translated from Arabic</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts. My strength has improved a lot and I feel the difference in my performance too. The follow-up and feedback really make a difference.</p><footer><span class="who">Strength and performance</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I started just wanting to change my body, but honestly gained so much more than that. I feel stronger, more confident and finally comfortable with myself. I used to start and stop all the time, but this time it's different. Thank you Ziad.</p><footer><span class="who">Body and confidence</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Not gonna lie, I was expecting results but I didn't expect to enjoy the process this much. The plan fits my lifestyle and I don't feel lost anymore. Still not at my final goal, but the progress so far makes me wanna keep going.</p><footer><span class="who">A plan that fits life</span></footer></blockquote>
     </div>
     <div class="dots" id="dots" aria-label="Reviews"></div>
   </section>
 
-  <section class="section" aria-labelledby="alx-title">
-    <div class="label" id="alx-title">In Alexandria</div>
-    <nav class="rows">
-      <a class="row" href="https://ziadelfeky.github.io/ZE-KraftPT"><div class="row-text"><div class="row-title">Kraft Fitness</div><div class="row-sub">VIP 1-on-1 and private training · Ganaklis</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
-      <a class="row" href="https://ziadelfeky.github.io/Home-Training/"><div class="row-text"><div class="row-title">Home Private Training</div><div class="row-sub">VIP and Duo, at your home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
-      <a class="row" href="https://ziadelfeky.github.io/Muscle-Release-/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue and myofascial release, studio or home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
-      <a class="row" href="https://ziadelfeky.github.io/ZE-Credentials/"><div class="row-text"><div class="row-title">Credentials</div><div class="row-sub">Certifications across S&amp;C, rehabilitation and nutrition</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
-    </nav>
-  </section>
-
   <footer class="foot">
     <span class="foot-name">Ziad Elfeky</span>
-    <span>10 years coaching · 20+ years in sport</span>
-    <span>Alexandria, Egypt</span>
+    <span class="foot-tag">Fix the root cause. Build the body. Perform for life.</span>
+    <span>Alexandria, Egypt · Online worldwide</span>
+    <div class="foot-links">
+      <a href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply online</a>
+      <a href="https://ziadelfeky.github.io/ZE-Credentials/">Credentials</a>
+      <a href="https://www.instagram.com/kraftfitness.eg/" target="_blank" rel="noopener">Kraft on Instagram</a>
+    </div>
   </footer>
 
 </main>
