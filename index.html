@@ -89,10 +89,13 @@ img{max-width:100%;display:block;}
 .cred span{display:block;margin-top:5px;font-size:12px;color:var(--muted);}
 
 /* HOW I WORK */
-.how{display:flex;flex-direction:column;gap:22px;}
-.how-card{margin:0;display:flex;flex-direction:column;gap:12px;}
-.how-img{border-radius:16px;overflow:hidden;background:var(--panel-2);aspect-ratio:3/2;}
+.how{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-left:22px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;margin:0 -22px;padding:0 22px;}
+.how::-webkit-scrollbar{display:none;}
+.how:focus-visible{outline-offset:6px;}
+.how-card{flex:0 0 84%;min-width:0;scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:12px;}
+.how-img{border-radius:16px;overflow:hidden;background:var(--panel-2);aspect-ratio:4/3;}
 .how-img img{width:100%;height:100%;object-fit:cover;}
+.how-foot{display:flex;justify-content:space-between;align-items:center;}
 .how-card figcaption{display:flex;gap:12px;}
 .how-num{font-size:12px;font-weight:500;color:var(--gold);padding-top:4px;font-variant-numeric:tabular-nums;}
 .how-title{display:block;font-family:var(--serif);font-size:19px;line-height:1.3;}
@@ -172,6 +175,7 @@ img{max-width:100%;display:block;}
   .hero h1{font-size:64px;}
   .wrap > :not(.hero){grid-column:2;width:min(560px, calc(100% - 112px));justify-self:center;}
   .wrap > :nth-child(2){margin-top:96px;}
+  .how{margin:0;padding:0;scroll-padding-left:0;}
   .wrap > .foot{margin-bottom:72px;}
   .ctas{max-width:440px;}
 }
@@ -209,17 +213,30 @@ img{max-width:100%;display:block;}
   </section>
 
   <section class="sec" aria-labelledby="how-title">
-    <div class="sec-head"><p class="label" id="how-title">How I work</p></div>
-    <div class="how">
-      <figure class="how-card">
-        <div class="how-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment" loading="lazy"></div>
+    <div class="sec-head"><p class="label" id="how-title">How I work</p><span class="count" id="hcount" aria-hidden="true">1 / 5</span></div>
+    <div class="how" id="how" tabindex="0" aria-roledescription="carousel" aria-label="How I work. Swipe for more.">
+      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="1 of 5">
+        <div class="how-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment"></div>
         <figcaption><span class="how-num">01</span><span><span class="how-title">Assess before we load</span><span class="how-text">Every program starts with a movement assessment. I find what is limiting you, fix it, then build strength on top of it.</span></span></figcaption>
       </figure>
-      <figure class="how-card">
+      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="2 of 5">
+        <div class="how-img"><img src="how-hands.jpg" alt="Ziad cueing a client’s shoulder position against the wall" loading="lazy"></div>
+        <figcaption><span class="how-num">02</span><span><span class="how-title">Hands-on coaching</span><span class="how-text">Cues are hands-on and specific. Position, range and breathing are corrected in the moment, not after the set.</span></span></figcaption>
+      </figure>
+      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="3 of 5">
+        <div class="how-img"><img src="how-teach.jpg" alt="Ziad explaining how a training program is built" loading="lazy"></div>
+        <figcaption><span class="how-num">03</span><span><span class="how-title">You learn the why</span><span class="how-text">I explain the reasoning behind your program, so you understand how you train and can keep progressing on your own.</span></span></figcaption>
+      </figure>
+      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="4 of 5">
         <div class="how-img"><img src="how-pitch.jpg" alt="Ziad coaching footballers on the pitch" loading="lazy"></div>
-        <figcaption><span class="how-num">02</span><span><span class="how-title">Built on performance</span><span class="how-text">Years coaching footballers set my standard. Every client, athlete or not, gets the same structure, measurement and progression.</span></span></figcaption>
+        <figcaption><span class="how-num">04</span><span><span class="how-title">Built on performance</span><span class="how-text">Years coaching footballers set my standard. Every client, athlete or not, gets the same structure, measurement and progression.</span></span></figcaption>
+      </figure>
+      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="5 of 5">
+        <div class="how-img"><img src="how-athlete.jpg" alt="Ziad training on the gymnastic rings, his competition poster on the wall" loading="lazy"></div>
+        <figcaption><span class="how-num">05</span><span><span class="how-title">Lived it as an athlete</span><span class="how-text">From football to competitive fitness, I have trained under the same demands I prescribe.</span></span></figcaption>
       </figure>
     </div>
+    <div class="how-foot"><div class="dots" id="hdots" aria-label="How I work"></div></div>
   </section>
 
   <section class="sec" aria-labelledby="oc-title">
@@ -363,6 +380,8 @@ img{max-width:100%;display:block;}
   }
   var results = document.getElementById('results');
   swipe(results, Array.prototype.slice.call(results.querySelectorAll('.slide')), document.getElementById('rdots'), 'Result', document.getElementById('rcount'), true);
+  var how = document.getElementById('how');
+  swipe(how, Array.prototype.slice.call(how.querySelectorAll('.how-card')), document.getElementById('hdots'), 'Card', document.getElementById('hcount'), false);
   var quotes = document.getElementById('quotes');
   swipe(quotes, Array.prototype.slice.call(quotes.querySelectorAll('.q')), document.getElementById('dots'), 'Review', null, false);
 })();
