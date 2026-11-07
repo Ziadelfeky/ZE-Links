@@ -116,6 +116,22 @@ img{max-width:100%;display:block;}
 .ready{display:flex;flex-direction:column;margin-top:4px;}
 .ready-title{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line);}
 
+/* HERO home link */
+.home-link{display:inline-flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--muted);text-decoration:none;}
+.home-link b{font-weight:400;color:var(--text);border-bottom:1px solid var(--line-strong);padding-bottom:1px;transition:color .2s,border-color .2s;}
+.home-link:hover b{color:var(--gold);border-color:var(--gold);}
+
+/* IN PERSON: two equal choices */
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.choice{display:flex;flex-direction:column;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 16px 16px;text-decoration:none;min-height:100%;transition:border-color .2s;}
+.choice:hover{border-color:var(--gold);}
+.choice-where{font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.choice-title{font-family:var(--serif);font-size:21px;line-height:1.2;}
+.choice-text{font-size:12.5px;line-height:1.6;color:var(--muted);flex:1;}
+.choice-go{font-size:12.5px;font-weight:500;color:var(--text);margin-top:6px;}
+.choice:hover .choice-go{color:var(--gold);}
+.also{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:8px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+
 /* ROWS (Alexandria, ready-made) */
 .rows{display:flex;flex-direction:column;}
 .row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 2px;border-bottom:1px solid var(--line);text-decoration:none;}
@@ -195,6 +211,7 @@ img{max-width:100%;display:block;}
       <a class="btn btn-primary" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
       <a class="btn btn-ghost" href="#alexandria">Train in Alexandria</a>
     </div>
+    <a class="home-link" href="https://ziadelfeky.github.io/Home-Training/">Prefer to train at home? <b>Home private training in Alexandria &rarr;</b></a>
     <div class="stats">
       <div class="stat"><b>10</b><span>Years<br>coaching</span></div>
       <div class="stat"><b>20+</b><span>Years<br>in sport</span></div>
@@ -269,9 +286,12 @@ img{max-width:100%;display:block;}
 
   <section class="sec" id="alexandria" aria-labelledby="alx-title">
     <div class="sec-head"><p class="label" id="alx-title">In person · Alexandria</p></div>
-    <nav class="rows" aria-label="In Alexandria">
-      <a class="row" href="https://ziadelfeky.github.io/ZE-KraftPT"><div class="row-text"><div class="row-title">Kraft Fitness</div><div class="row-sub">VIP 1-on-1, Semi-Private and Associate Coaching · Ganaklis</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
-      <a class="row" href="https://ziadelfeky.github.io/Home-Training/"><div class="row-text"><div class="row-title">Home Private Training</div><div class="row-sub">VIP and Duo, at your home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
+    <div class="choices">
+      <a class="choice" href="https://ziadelfeky.github.io/ZE-KraftPT"><span class="choice-where">Ganaklis</span><span class="choice-title">At Kraft</span><span class="choice-text">VIP 1-on-1, Semi-Private or Associate Coaching at Kraft Fitness.</span><span class="choice-go">Apply &rarr;</span></a>
+      <a class="choice" href="https://ziadelfeky.github.io/Home-Training/"><span class="choice-where">Alexandria</span><span class="choice-title">At your home</span><span class="choice-text">Private training at your home: VIP 1-on-1 or Duo.</span><span class="choice-go">Apply &rarr;</span></a>
+    </div>
+    <div class="also">Recovery</div>
+    <nav class="rows" aria-label="Recovery">
       <a class="row" href="https://ziadelfeky.github.io/Muscle-Release-/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue and myofascial release, studio or home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
     </nav>
   </section>
