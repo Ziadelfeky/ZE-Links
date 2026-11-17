@@ -25,7 +25,7 @@
 :root, [data-theme="dark"]{
   --bg:#0c0b0a; --panel:#161411; --panel-2:#1d1a16;
   --line:rgba(242,237,228,.10); --line-strong:rgba(242,237,228,.18);
-  --text:#f2ede4; --muted:#b0a99c; --soft:#938c7f;
+  --text:#f2ede4; --muted:#c0b9ac; --soft:#a49d90; --band:#141210;
   --gold:#cfb27c; --gold-soft:rgba(207,178,124,.14);
   --cta-bg:#cfb27c; --cta-ink:#14110d;
   --tag-bg:rgba(12,11,10,.74); --tag-ink:#f2ede4;
@@ -35,7 +35,7 @@
 [data-theme="ivory"]{
   --bg:#f3efe7; --panel:#fbf9f5; --panel-2:#ece6da;
   --line:rgba(23,21,18,.11); --line-strong:rgba(23,21,18,.20);
-  --text:#171512; --muted:#4e4941; --soft:#665f55;
+  --text:#171512; --muted:#4e4941; --soft:#665f55; --band:#ebe5d9;
   --gold:#7a5c2b; --gold-soft:rgba(122,92,43,.10);
   --cta-bg:#171512; --cta-ink:#f3efe7;
   --tag-bg:rgba(23,21,18,.70); --tag-ink:#f3efe7;
@@ -49,7 +49,7 @@
 *,*::before,*::after{box-sizing:border-box;}
 html,body{margin:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;}
 a{color:inherit;}
 img{max-width:100%;display:block;}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px;}
@@ -57,6 +57,7 @@ img{max-width:100%;display:block;}
 .wrap{max-width:520px;margin:0 auto;padding:44px 22px 40px;display:flex;flex-direction:column;gap:72px;}
 .label{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0;}
 .sec{display:flex;flex-direction:column;gap:18px;}
+.sec.band{background:var(--band);margin:0 -22px;padding:44px 22px;}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line);}
 .sec-link{font-size:12.5px;color:var(--muted);text-decoration:none;white-space:nowrap;}
 .sec-link:hover{color:var(--gold);}
@@ -94,7 +95,8 @@ img{max-width:100%;display:block;}
 .how:focus-visible{outline-offset:6px;}
 .how-card{flex:0 0 84%;min-width:0;scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:12px;}
 .how-img{border-radius:16px;overflow:hidden;background:var(--panel-2);aspect-ratio:4/3;}
-.how-img img{width:100%;height:100%;object-fit:cover;}
+.how-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) sepia(.1);}
+.how-img img[src*="how-kraft"]{filter:saturate(.6) sepia(.16);}
 .how-foot{display:flex;justify-content:space-between;align-items:center;}
 .how-card figcaption{display:flex;gap:12px;}
 .how-num{font-size:12px;font-weight:500;color:var(--gold);padding-top:4px;font-variant-numeric:tabular-nums;}
@@ -153,7 +155,7 @@ img{max-width:100%;display:block;}
 .slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;gap:14px;}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0;}
 .shot{position:relative;border-radius:14px;overflow:hidden;background:var(--panel-2);aspect-ratio:4/5;}
-.shot img{width:100%;height:100%;object-fit:cover;}
+.shot img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) sepia(.1);}
 .tag{position:absolute;left:8px;bottom:8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--tag-bg);color:var(--tag-ink);}
 .tag.after{background:var(--cta-bg);color:var(--cta-ink);}
 .cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
@@ -193,6 +195,7 @@ img{max-width:100%;display:block;}
   .wrap > :nth-child(2){margin-top:96px;}
   .how{margin:0;padding:0;scroll-padding-left:0;}
   .wrap > .foot{margin-bottom:72px;}
+  .wrap > .sec.band{width:min(624px, calc(100% - 48px));margin:0;padding:40px 32px;border-radius:22px;}
   .ctas{max-width:440px;}
 }
 @media (prefers-reduced-motion: reduce){*{transition:none !important;scroll-behavior:auto !important;}}
@@ -229,7 +232,7 @@ img{max-width:100%;display:block;}
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="how-title">
+  <section class="sec band" aria-labelledby="how-title">
     <div class="sec-head"><p class="label" id="how-title">How I work</p><span class="count" id="hcount" aria-hidden="true">1 / 6</span></div>
     <div class="how" id="how" tabindex="0" aria-roledescription="carousel" aria-label="How I work. Swipe for more.">
       <figure class="how-card" role="group" aria-roledescription="slide" aria-label="1 of 6">
@@ -296,7 +299,7 @@ img{max-width:100%;display:block;}
     </nav>
   </section>
 
-  <section class="sec" aria-labelledby="res-title">
+  <section class="sec band" aria-labelledby="res-title">
     <div class="sec-head"><p class="label" id="res-title">Results</p><span class="count" id="rcount" aria-hidden="true">1 / 6</span></div>
     <div class="rail" id="results" tabindex="0" aria-roledescription="carousel" aria-label="Before and after results. Swipe for more.">
       <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 6">
