@@ -101,6 +101,24 @@ img{max-width:100%;display:block;}
 .how-img{border-radius:16px;overflow:hidden;background:var(--panel-2);aspect-ratio:4/3;}
 .how-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) sepia(.1);}
 .how-img img[src*="how-kraft"]{filter:saturate(.6) sepia(.16);}
+.path{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:34px;position:relative;}
+.path::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--line),var(--line) 85%,transparent);}
+.step{position:relative;padding-left:30px;}
+.step::before{content:"";position:absolute;left:0;top:4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--gold);}
+.step.now::before{background:var(--gold);box-shadow:0 0 0 4px rgba(207,178,124,.16);}
+.step-year{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.step-title{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.25;margin:6px 0 0;}
+.step-text{font-size:14px;line-height:1.7;color:var(--muted);margin:6px 0 0;max-width:46ch;}
+.step-img{margin-top:14px;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:var(--panel-2);}
+.step-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) sepia(.1);}
+.step-img img[src*="how-kraft"]{filter:saturate(.6) sepia(.16);}
+.method{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px;}
+.m-row{display:grid;grid-template-columns:38% 1fr;gap:16px;align-items:center;}
+.m-img{border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:var(--panel-2);}
+.m-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) sepia(.1);}
+.m-num{display:block;font-size:12px;font-weight:500;color:var(--gold);font-variant-numeric:tabular-nums;}
+.m-title{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.3;margin:4px 0 0;}
+.m-text{font-size:13.5px;line-height:1.65;color:var(--muted);margin:6px 0 0;}
 .how-foot{display:flex;justify-content:space-between;align-items:center;}
 .how-card figcaption{display:flex;gap:12px;}
 .how-num{font-size:12px;font-weight:500;color:var(--gold);padding-top:4px;font-variant-numeric:tabular-nums;}
@@ -193,8 +211,10 @@ img{max-width:100%;display:block;}
 /* WIDE SCREENS: identity fixed on the left, content scrolls on the right */
 @media (min-width: 900px){
   .wrap{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:clamp(380px,42vw,600px) minmax(0,1fr);column-gap:0;row-gap:88px;align-items:start;}
-  main.wrap > .hero-photo{grid-column:1;grid-row:1 / span 8;position:sticky;top:0;width:auto;height:100vh;margin:0;border-right:1px solid var(--line);justify-self:stretch;}
-  .hero-photo img{object-position:50% 40%;}
+  main.wrap > .hero-photo{grid-column:1;grid-row:1 / span 9;position:sticky;top:0;width:auto;height:100vh;margin:0;border-right:1px solid var(--line);justify-self:stretch;}
+  .hero-photo img{object-position:40% 40%;}
+  .m-row{grid-template-columns:200px 1fr;gap:24px;}
+  .m-img{aspect-ratio:1/1;}
   .hero-photo::after{background:linear-gradient(to bottom, rgba(12,11,10,.4) 0%, rgba(12,11,10,0) 18%, rgba(12,11,10,0) 72%, rgba(12,11,10,.6) 100%);}
   .hero-photo figcaption{left:36px;top:auto;bottom:30px;}
   .hero h1{font-size:64px;}
@@ -213,7 +233,7 @@ img{max-width:100%;display:block;}
 <main class="wrap">
 
   <figure class="hero-photo">
-    <img src="hero-race.jpg" alt="Ziad Elfeky on the farmers carry at HYROX Cairo, November 2026" fetchpriority="high">
+    <img src="hero-race.jpg" alt="Ziad Elfeky on the sled pull at HYROX Cairo, November 2026" fetchpriority="high">
     <figcaption>HYROX Cairo &middot; November 2026</figcaption>
   </figure>
 
@@ -245,35 +265,57 @@ img{max-width:100%;display:block;}
     </div>
   </section>
 
+  <section class="sec" aria-labelledby="path-title">
+    <div class="sec-head"><p class="label" id="path-title">My path</p></div>
+    <ol class="path">
+      <li class="step">
+        <span class="step-year">2016</span>
+        <h3 class="step-title">Coach and athlete</h3>
+        <p class="step-text">Coaching independently in Alexandria while competing in functional fitness. I have trained under the same demands I prescribe.</p>
+        <div class="step-img"><img src="how-athlete.jpg" alt="Ziad training on the gymnastic rings, his competition poster on the wall" loading="lazy"></div>
+      </li>
+      <li class="step">
+        <span class="step-year">2023 &ndash; 2025</span>
+        <h3 class="step-title">Club football</h3>
+        <p class="step-text">Strength and conditioning in club football. The pitch set my standard: structure, measurement and progression for every client, athlete or not.</p>
+        <div class="step-img"><img src="how-pitch.jpg" alt="Ziad coaching footballers on the pitch" loading="lazy"></div>
+      </li>
+      <li class="step">
+        <span class="step-year">2023</span>
+        <h3 class="step-title">Founded Kraft Fitness</h3>
+        <p class="step-text">Kraft in Ganaklis is where I coach in person: small sessions, every client on their own program.</p>
+        <div class="step-img"><img src="how-kraft.jpg" alt="Ziad coaching a client through a banded exercise at Kraft Fitness" loading="lazy"></div>
+      </li>
+      <li class="step">
+        <span class="step-year">2024 &ndash; 2025</span>
+        <h3 class="step-title">The clinic</h3>
+        <p class="step-text">Rehabilitation specialist at a clinic in Alexandria. It is why every program I write starts by finding the root cause.</p>
+      </li>
+      <li class="step now">
+        <span class="step-year">2026</span>
+        <h3 class="step-title">Back on a start line</h3>
+        <p class="step-text">Egypt&rsquo;s first HYROX, Cairo, November 2026. Four years after my last competition.</p>
+        <div class="step-img"><img src="path-hyrox.jpg" alt="Ziad on the farmers carry at HYROX Cairo, November 2026" loading="lazy"></div>
+      </li>
+    </ol>
+  </section>
+
   <section class="sec band" aria-labelledby="how-title">
-    <div class="sec-head"><p class="label" id="how-title">How I work</p><span class="count" id="hcount" aria-hidden="true">1 / 6</span></div>
-    <div class="how" id="how" tabindex="0" aria-roledescription="carousel" aria-label="How I work. Swipe for more.">
-      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="1 of 6">
-        <div class="how-img"><img src="how-kraft.jpg" alt="Ziad coaching a client through a banded exercise at Kraft Fitness"></div>
-        <figcaption><span class="how-num">01</span><span><span class="how-title">Coached at Kraft</span><span class="how-text">Kraft Fitness in Ganaklis is where I coach in person: small sessions, every client on their own program.</span></span></figcaption>
-      </figure>
-      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="2 of 6">
-        <div class="how-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment" loading="lazy"></div>
-        <figcaption><span class="how-num">02</span><span><span class="how-title">Assess before we load</span><span class="how-text">Every program starts with a movement assessment. I find what is limiting you, fix it, then build strength on top of it.</span></span></figcaption>
-      </figure>
-      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="3 of 6">
-        <div class="how-img"><img src="how-hands.jpg" alt="Ziad cueing a client’s shoulder position against the wall" loading="lazy"></div>
-        <figcaption><span class="how-num">03</span><span><span class="how-title">Hands-on coaching</span><span class="how-text">Cues are hands-on and specific. Position, range and breathing are corrected in the moment, not after the set.</span></span></figcaption>
-      </figure>
-      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="4 of 6">
-        <div class="how-img"><img src="how-teach.jpg" alt="Ziad explaining how a training program is built" loading="lazy"></div>
-        <figcaption><span class="how-num">04</span><span><span class="how-title">You learn the why</span><span class="how-text">I explain the reasoning behind your program, so you understand how you train and can keep progressing on your own.</span></span></figcaption>
-      </figure>
-      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="5 of 6">
-        <div class="how-img"><img src="how-pitch.jpg" alt="Ziad coaching footballers on the pitch" loading="lazy"></div>
-        <figcaption><span class="how-num">05</span><span><span class="how-title">Built on performance</span><span class="how-text">Years coaching footballers set my standard. Every client, athlete or not, gets the same structure, measurement and progression.</span></span></figcaption>
-      </figure>
-      <figure class="how-card" role="group" aria-roledescription="slide" aria-label="6 of 6">
-        <div class="how-img"><img src="how-race.jpg" alt="Ziad on the sled pull at HYROX Cairo, November 2026" loading="lazy"></div>
-        <figcaption><span class="how-num">06</span><span><span class="how-title">Lived it as an athlete</span><span class="how-text">From football to competitive fitness, and back on a start line at Egypt&rsquo;s first HYROX in November 2026. I train under the same demands I prescribe.</span></span></figcaption>
-      </figure>
-    </div>
-    <div class="how-foot"><div class="dots" id="hdots" aria-label="How I work"></div></div>
+    <div class="sec-head"><p class="label" id="how-title">How I coach</p></div>
+    <ol class="method">
+      <li class="m-row">
+        <div class="m-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment" loading="lazy"></div>
+        <div><span class="m-num">01</span><h3 class="m-title">Assess before we load</h3><p class="m-text">Every program starts with a movement assessment. I find what is limiting you, fix it, then build strength on top of it.</p></div>
+      </li>
+      <li class="m-row">
+        <div class="m-img"><img src="how-hands.jpg" alt="Ziad cueing a client&rsquo;s shoulder position against the wall" loading="lazy"></div>
+        <div><span class="m-num">02</span><h3 class="m-title">Hands-on coaching</h3><p class="m-text">Cues are hands-on and specific. Position, range and breathing are corrected in the moment, not after the set.</p></div>
+      </li>
+      <li class="m-row">
+        <div class="m-img"><img src="how-teach.jpg" alt="Ziad explaining how a training program is built" loading="lazy" style="object-position:30% 50%"></div>
+        <div><span class="m-num">03</span><h3 class="m-title">You learn the why</h3><p class="m-text">I explain the reasoning behind your program, so you understand how you train and can keep progressing on your own.</p></div>
+      </li>
+    </ol>
   </section>
 
   <section class="sec" aria-labelledby="oc-title">
@@ -420,8 +462,6 @@ img{max-width:100%;display:block;}
   }
   var results = document.getElementById('results');
   swipe(results, Array.prototype.slice.call(results.querySelectorAll('.slide')), document.getElementById('rdots'), 'Result', document.getElementById('rcount'), true);
-  var how = document.getElementById('how');
-  swipe(how, Array.prototype.slice.call(how.querySelectorAll('.how-card')), document.getElementById('hdots'), 'Card', document.getElementById('hcount'), false);
   var quotes = document.getElementById('quotes');
   swipe(quotes, Array.prototype.slice.call(quotes.querySelectorAll('.q')), document.getElementById('dots'), 'Review', null, false);
 })();
