@@ -63,7 +63,11 @@ img{max-width:100%;display:block;}
 .sec-link:hover{color:var(--gold);}
 
 /* HERO */
-.hero{display:flex;flex-direction:column;gap:0;}
+.hero-photo{position:relative;margin:-44px -22px -120px;height:min(122vw,600px);overflow:hidden;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;display:block;}
+.hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom, rgba(12,11,10,.45) 0%, rgba(12,11,10,0) 20%, rgba(12,11,10,0) 50%, var(--bg) 97%);}
+.hero-photo figcaption{position:absolute;left:22px;top:22px;z-index:1;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,237,228,.82);}
+.hero{display:flex;flex-direction:column;gap:0;position:relative;z-index:1;}
 .mark{width:64px;margin-bottom:34px;}
 .mark svg{width:100%;height:auto;display:block;}
 .mark .z{stroke:var(--text);} .mark .f{stroke:var(--gold);}
@@ -189,10 +193,14 @@ img{max-width:100%;display:block;}
 /* WIDE SCREENS: identity fixed on the left, content scrolls on the right */
 @media (min-width: 900px){
   .wrap{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:clamp(380px,42vw,600px) minmax(0,1fr);column-gap:0;row-gap:88px;align-items:start;}
-  .hero{grid-column:1;grid-row:1 / span 7;position:sticky;top:0;min-height:100vh;justify-content:center;padding:64px clamp(36px,4.5vw,80px);border-right:1px solid var(--line);background:radial-gradient(80% 55% at 30% 35%, var(--glow), transparent 72%), var(--bg);}
+  main.wrap > .hero-photo{grid-column:1;grid-row:1 / span 8;position:sticky;top:0;width:auto;height:100vh;margin:0;border-right:1px solid var(--line);justify-self:stretch;}
+  .hero-photo img{object-position:50% 40%;}
+  .hero-photo::after{background:linear-gradient(to bottom, rgba(12,11,10,.4) 0%, rgba(12,11,10,0) 18%, rgba(12,11,10,0) 72%, rgba(12,11,10,.6) 100%);}
+  .hero-photo figcaption{left:36px;top:auto;bottom:30px;}
   .hero h1{font-size:64px;}
   .wrap > :not(.hero){grid-column:2;width:min(560px, calc(100% - 112px));justify-self:center;}
   .wrap > :nth-child(2){margin-top:96px;}
+  .wrap > .hero{grid-column:2;width:min(560px, calc(100% - 112px));justify-self:center;}
   .how{margin:0;padding:0;scroll-padding-left:0;}
   .wrap > .foot{margin-bottom:72px;}
   .wrap > .sec.band{width:min(624px, calc(100% - 48px));margin:0;padding:40px 32px;border-radius:22px;}
@@ -203,6 +211,11 @@ img{max-width:100%;display:block;}
 </head>
 <body>
 <main class="wrap">
+
+  <figure class="hero-photo">
+    <img src="hero-race.jpg" alt="Ziad Elfeky on the farmers carry at HYROX Cairo, November 2026" fetchpriority="high">
+    <figcaption>HYROX Cairo &middot; November 2026</figcaption>
+  </figure>
 
   <header class="hero">
     <div class="mark"><svg role="img" aria-label="ZF, Ziad Elfeky" viewBox="4 46 228 160"><defs><mask id="zfcut" maskUnits="userSpaceOnUse" x="0" y="0" width="240" height="240"><rect width="240" height="240" fill="#fff"></rect><path d="M20 168 L224 92" stroke="#000" stroke-width="6"></path></mask></defs><g mask="url(#zfcut)"><g transform="skewX(-10) translate(18 0)"><g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="24"><path class="z" d="M36 66 H130 L46 174 H140"></path><path class="f" d="M168 186 V66 H216 M168 120 H206"></path></g></g></g></svg></div>
@@ -256,8 +269,8 @@ img{max-width:100%;display:block;}
         <figcaption><span class="how-num">05</span><span><span class="how-title">Built on performance</span><span class="how-text">Years coaching footballers set my standard. Every client, athlete or not, gets the same structure, measurement and progression.</span></span></figcaption>
       </figure>
       <figure class="how-card" role="group" aria-roledescription="slide" aria-label="6 of 6">
-        <div class="how-img"><img src="how-athlete.jpg" alt="Ziad training on the gymnastic rings, his competition poster on the wall" loading="lazy"></div>
-        <figcaption><span class="how-num">06</span><span><span class="how-title">Lived it as an athlete</span><span class="how-text">From football to competitive fitness, I have trained under the same demands I prescribe.</span></span></figcaption>
+        <div class="how-img"><img src="how-race.jpg" alt="Ziad on the sled pull at HYROX Cairo, November 2026" loading="lazy"></div>
+        <figcaption><span class="how-num">06</span><span><span class="how-title">Lived it as an athlete</span><span class="how-text">From football to competitive fitness, and back on a start line at Egypt&rsquo;s first HYROX in November 2026. I train under the same demands I prescribe.</span></span></figcaption>
       </figure>
     </div>
     <div class="how-foot"><div class="dots" id="hdots" aria-label="How I work"></div></div>
