@@ -9,7 +9,7 @@
 <meta property="og:description" content="Online coaching worldwide, by application, and in-person training in Alexandria."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://ziadelfeky.github.io/ZE-Links/"/>
-<meta property="og:image" content="https://ziadelfeky.github.io/ZE-Links/zf-og.png"/>
+<meta property="og:image" content="https://ziadelfeky.github.io/ZE-Links/zf-og.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -17,6 +17,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="zf-favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="zf-icon-192.png">
 <link rel="apple-touch-icon" href="zf-apple-touch.png">
+<link rel="canonical" href="https://ziadelfeky.github.io/ZE-Links/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Ziad Elfeky", "jobTitle": "Performance & Rehabilitation Coach", "description": "Strength and conditioning coach and sports rehabilitation specialist. Online coaching and in-person training in Alexandria, Egypt.", "url": "https://ziadelfeky.github.io/ZE-Links/", "image": "https://ziadelfeky.github.io/ZE-Links/zf-og.jpg", "address": {"@type": "PostalAddress", "addressLocality": "Alexandria", "addressCountry": "EG"}, "worksFor": {"@type": "ExerciseGym", "name": "Kraft Fitness", "address": {"@type": "PostalAddress", "addressLocality": "Ganaklis, Alexandria", "addressCountry": "EG"}, "sameAs": ["https://www.instagram.com/kraftfitness.eg/"]}, "sameAs": ["https://www.instagram.com/ziad_elfeky/", "https://www.tiktok.com/@ziad_elfeky"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap">
@@ -55,7 +57,7 @@ img{max-width:100%;display:block;}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px;}
 
 .wrap{max-width:520px;margin:0 auto;padding:44px 22px 40px;display:flex;flex-direction:column;gap:72px;}
-.label{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0;}
+.label{font-family:var(--sans);line-height:inherit;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0;}
 .sec{display:flex;flex-direction:column;gap:18px;}
 .sec.band{background:var(--band);margin:0 -22px;padding:44px 22px;}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line);}
@@ -199,6 +201,8 @@ img{max-width:100%;display:block;}
 .dots{display:flex;gap:6px;}
 .dot{width:18px;height:2px;border-radius:2px;background:var(--line-strong);border:0;padding:0;cursor:pointer;transition:background .2s,width .2s;}
 .dot.on{background:var(--gold);width:28px;}
+.dot{position:relative;}
+.dot::after{content:"";position:absolute;left:-3px;right:-3px;top:-16px;bottom:-16px;}
 
 /* FOOTER */
 .foot{display:flex;flex-direction:column;gap:6px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:var(--muted);}
@@ -248,15 +252,10 @@ img{max-width:100%;display:block;}
       <a class="btn btn-ghost" href="#alexandria">Train in Alexandria</a>
     </div>
     <a class="home-link" href="https://ziadelfeky.github.io/Home-Training/">Prefer to train at home? <b>Home private training in Alexandria &rarr;</b></a>
-    <div class="stats">
-      <div class="stat"><b>10</b><span>Years<br>coaching</span></div>
-      <div class="stat"><b>20+</b><span>Years<br>in sport</span></div>
-      <div class="stat"><b>16</b><span>Certifi&shy;cations</span></div>
-    </div>
   </header>
 
   <section class="sec" aria-labelledby="cred-title">
-    <div class="sec-head"><p class="label" id="cred-title">Credentials</p><a class="sec-link" href="https://ziadelfeky.github.io/ZE-Credentials/">All 16 &rarr;</a></div>
+    <div class="sec-head"><h2 class="label" id="cred-title">Credentials</h2><a class="sec-link" href="https://ziadelfeky.github.io/ZE-Credentials/">16 across 6 countries &rarr;</a></div>
     <div class="creds">
       <div class="cred"><b>Level 4 S&amp;C</b><span>United Kingdom</span></div>
       <div class="cred"><b>Performance Specialist</b><span>EXOS, USA</span></div>
@@ -266,7 +265,7 @@ img{max-width:100%;display:block;}
   </section>
 
   <section class="sec" aria-labelledby="path-title">
-    <div class="sec-head"><p class="label" id="path-title">My path</p></div>
+    <div class="sec-head"><h2 class="label" id="path-title">My path</h2></div>
     <ol class="path">
       <li class="step">
         <span class="step-year">2016</span>
@@ -284,7 +283,6 @@ img{max-width:100%;display:block;}
         <span class="step-year">2023</span>
         <h3 class="step-title">Founded Kraft Fitness</h3>
         <p class="step-text">Kraft in Ganaklis is where I coach in person: small sessions, every client on their own program.</p>
-        <div class="step-img"><img src="how-kraft.jpg" alt="Ziad coaching a client through a banded exercise at Kraft Fitness" loading="lazy"></div>
       </li>
       <li class="step">
         <span class="step-year">2024 &ndash; 2025</span>
@@ -301,7 +299,7 @@ img{max-width:100%;display:block;}
   </section>
 
   <section class="sec band" aria-labelledby="how-title">
-    <div class="sec-head"><p class="label" id="how-title">How I coach</p></div>
+    <div class="sec-head"><h2 class="label" id="how-title">How I coach</h2></div>
     <ol class="method">
       <li class="m-row">
         <div class="m-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment" loading="lazy"></div>
@@ -343,7 +341,7 @@ img{max-width:100%;display:block;}
   </section>
 
   <section class="sec" id="alexandria" aria-labelledby="alx-title">
-    <div class="sec-head"><p class="label" id="alx-title">In person · Alexandria</p></div>
+    <div class="sec-head"><h2 class="label" id="alx-title">In person · Alexandria</h2></div>
     <div class="choices">
       <a class="choice" href="https://ziadelfeky.github.io/ZE-KraftPT"><span class="choice-where">Ganaklis</span><span class="choice-title">At Kraft</span><span class="choice-text">VIP 1-on-1, Semi-Private or Associate Coaching at Kraft Fitness.</span><span class="choice-go">Apply &rarr;</span></a>
       <a class="choice" href="https://ziadelfeky.github.io/Home-Training/"><span class="choice-where">Alexandria</span><span class="choice-title">At your home</span><span class="choice-text">Private training at your home: VIP 1-on-1 or Duo.</span><span class="choice-go">Apply &rarr;</span></a>
@@ -355,7 +353,7 @@ img{max-width:100%;display:block;}
   </section>
 
   <section class="sec band" aria-labelledby="res-title">
-    <div class="sec-head"><p class="label" id="res-title">Results</p><span class="count" id="rcount" aria-hidden="true">1 / 6</span></div>
+    <div class="sec-head"><h2 class="label" id="res-title">Results</h2><span class="count" id="rcount" aria-hidden="true">1 / 6</span></div>
     <div class="rail" id="results" tabindex="0" aria-roledescription="carousel" aria-label="Before and after results. Swipe for more.">
       <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 6">
         <figure class="pair">
@@ -405,7 +403,7 @@ img{max-width:100%;display:block;}
   </section>
 
   <section class="sec" aria-labelledby="rev-title">
-    <div class="sec-head"><p class="label" id="rev-title">In their words</p></div>
+    <div class="sec-head"><h2 class="label" id="rev-title">In their words</h2></div>
     <div class="quotes" id="quotes">
       <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I honestly thought my arm would never feel normal again. I was so frustrated at the beginning and didn't know if I would get better, but seeing the progress step by step gave me hope again. Still have work to do, but I'm so happy with how far I've come.</p><footer><span class="who">Arm recovery</span></footer></blockquote>
       <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Honestly, the difference isn't just in shape. I've become more dedicated, and I understand why and how I train. The program is built around my goal and there's always follow-up. It's the first time I feel there's a real plan I'm following, and I'm training pain-free.</p><footer><span class="who">Training pain-free</span><span class="tr">Translated from Arabic</span></footer></blockquote>
@@ -423,6 +421,7 @@ img{max-width:100%;display:block;}
     <div class="foot-links">
       <a href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply online</a>
       <a href="https://ziadelfeky.github.io/ZE-Credentials/">Credentials</a>
+      <a href="https://www.instagram.com/ziad_elfeky/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.instagram.com/kraftfitness.eg/" target="_blank" rel="noopener">Kraft on Instagram</a>
     </div>
   </footer>
