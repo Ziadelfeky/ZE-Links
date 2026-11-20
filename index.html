@@ -162,6 +162,7 @@ img{max-width:100%;display:block;}
 .coach-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, transparent 70%, rgba(12,11,10,.6));pointer-events:none;}
 .bio{font-size:15px;line-height:1.75;color:var(--muted);margin:0;}
 .bio strong{color:var(--text);font-weight:500;}
+.bio + .bio{margin-top:12px;}
 .tagline{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.45;color:var(--text);margin:0;}
 .nw{white-space:nowrap;}
 .creds{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -377,7 +378,8 @@ details.more[open] summary .plus{transform:rotate(45deg);}
     <p class="label">Meet your coach</p>
     <h2 class="sec-title" id="coach-title">I'm Ziad.</h2>
     <figure class="coach-photo"><img src="coach-carry.jpg" alt="Ziad Elfeky on the farmers carry at HYROX Cairo, November 2026" loading="lazy"><figcaption>HYROX Cairo &middot; November 2026</figcaption></figure>
-    <p class="bio">Twenty years in sport as an athlete, ten as a coach. I founded <strong>Kraft Fitness</strong> in Alexandria, worked as a rehabilitation specialist, and in 2026 I raced Egypt's first HYROX. I train under the same demands I give my clients.</p>
+    <p class="bio">I've been an athlete since I was seven. Football, kung fu, boxing, track and field and swimming, then years competing in CrossFit.</p>
+    <p class="bio">I started coaching at 18. I founded <strong>Kraft Fitness</strong> in Alexandria and worked as a rehabilitation specialist, so I know how to build a body and how to bring it back after an injury.</p>
     <p class="tagline"><span class="nw">Fix the root cause.</span> <span class="nw">Build the body.</span> <span class="nw">Perform for life.</span></p>
     <div class="creds">
       <div class="cred"><b>Level 4 S&amp;C</b><span>United Kingdom</span></div>
@@ -390,10 +392,20 @@ details.more[open] summary .plus{transform:rotate(45deg);}
       <summary>My path <span class="plus" aria-hidden="true">+</span></summary>
       <ol class="path">
         <li class="step">
+          <span class="step-year">Age 7</span>
+          <h3 class="step-title">Where it started</h3>
+          <p class="step-text">Football first, then kung fu, boxing, track and field and swimming. Sport has been part of every year since.</p>
+        </li>
+        <li class="step">
           <span class="step-year">2016</span>
           <h3 class="step-title">Coach and athlete</h3>
-          <p class="step-text">Coaching independently in Alexandria while competing in functional fitness. The coach and the athlete grew up together.</p>
+          <p class="step-text">Coaching independently in Alexandria while competing in CrossFit. First place at ELFIT Fest, scaled division.</p>
           <div class="step-img"><img src="how-athlete.jpg" alt="Ziad training on the gymnastic rings, his competition poster on the wall" loading="lazy"></div>
+        </li>
+        <li class="step">
+          <span class="step-year">2023</span>
+          <h3 class="step-title">Founded Kraft Fitness</h3>
+          <p class="step-text">Kraft in Ganaklis is where I coach in person: small sessions, every client on their own program.</p>
         </li>
         <li class="step">
           <span class="step-year">2023 &ndash; 2025</span>
@@ -402,20 +414,14 @@ details.more[open] summary .plus{transform:rotate(45deg);}
           <div class="step-img"><img src="how-pitch.jpg" alt="Ziad coaching footballers on the pitch" loading="lazy"></div>
         </li>
         <li class="step">
-          <span class="step-year">2023</span>
-          <h3 class="step-title">Founded Kraft Fitness</h3>
-          <p class="step-text">Kraft in Ganaklis is where I coach in person: small sessions, every client on their own program.</p>
-        </li>
-        <li class="step">
           <span class="step-year">2024 &ndash; 2025</span>
           <h3 class="step-title">The clinic</h3>
           <p class="step-text">Rehabilitation specialist at a clinic in Alexandria. It is why every program I write starts by finding the root cause.</p>
         </li>
         <li class="step now">
-          <span class="step-year">2026</span>
-          <h3 class="step-title">Back on a start line</h3>
-          <p class="step-text">Egypt&rsquo;s first HYROX, Cairo, November 2026. Four years after my last competition.</p>
-          <div class="step-img"><img src="path-hyrox.jpg" alt="Ziad on the farmers carry at HYROX Cairo, November 2026" loading="lazy"></div>
+          <span class="step-year">Today</span>
+          <h3 class="step-title">Kraft and online</h3>
+          <p class="step-text">Coaching in person at Kraft and online, wherever you are. Every client gets a plan built for them, checked by me.</p>
         </li>
       </ol>
     </details>
