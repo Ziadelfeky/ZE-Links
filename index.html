@@ -2,11 +2,11 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-<title>Ziad Elfeky · Performance &amp; Rehabilitation Coach</title>
-<meta name="description" content="Performance and rehabilitation coach. Online coaching worldwide, by application, and in-person training in Alexandria. Fix the root cause. Build the body. Perform for life."/>
-<meta property="og:title" content="Ziad Elfeky · Performance &amp; Rehabilitation Coach"/>
-<meta property="og:description" content="Online coaching worldwide, by application, and in-person training in Alexandria."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ziad Elfeky · Personal Coaching in Alexandria and Online</title>
+<meta name="description" content="One-to-one coaching for beginners, busy people and athletes. Fat loss, strength, training with pain and sport performance. Online anywhere, or in person in Alexandria."/>
+<meta property="og:title" content="Ziad Elfeky · Personal Coaching"/>
+<meta property="og:description" content="A plan built for you, checked by your coach. Online anywhere, or in person in Alexandria."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://ziadelfeky.com/"/>
 <meta property="og:image" content="https://ziadelfeky.com/zf-og.jpg"/>
@@ -23,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap">
 <style>
-/* Ziad Elfeky · one page, two themes (dark is live). Single column on phones; on wide screens the identity stays fixed on the left. */
-:root, [data-theme="dark"]{
+/* Ziad Elfeky · client-first version. Single column on phones; on wide screens the photo stays fixed on the left. */
+:root{
   --bg:#0c0b0a; --panel:#161411; --panel-2:#1d1a16;
   --line:rgba(242,237,228,.10); --line-strong:rgba(242,237,228,.18);
   --text:#f2ede4; --muted:#c0b9ac; --soft:#a49d90; --band:#141210;
@@ -32,21 +32,9 @@
   --cta-bg:#cfb27c; --cta-ink:#14110d;
   --tag-bg:rgba(12,11,10,.74); --tag-ink:#f2ede4;
   --glow:rgba(207,178,124,.07);
-  color-scheme:dark;
-}
-[data-theme="ivory"]{
-  --bg:#f3efe7; --panel:#fbf9f5; --panel-2:#ece6da;
-  --line:rgba(23,21,18,.11); --line-strong:rgba(23,21,18,.20);
-  --text:#171512; --muted:#4e4941; --soft:#665f55; --band:#ebe5d9;
-  --gold:#7a5c2b; --gold-soft:rgba(122,92,43,.10);
-  --cta-bg:#171512; --cta-ink:#f3efe7;
-  --tag-bg:rgba(23,21,18,.70); --tag-ink:#f3efe7;
-  --glow:rgba(122,92,43,.06);
-  color-scheme:light;
-}
-:root{
   --serif:'Lora', Georgia, 'Times New Roman', serif;
   --sans:'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box;}
 html,body{margin:0;}
@@ -56,64 +44,52 @@ a{color:inherit;}
 img{max-width:100%;display:block;}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px;}
 
-.wrap{max-width:520px;margin:0 auto;padding:44px 22px 40px;display:flex;flex-direction:column;gap:72px;}
+.wrap{max-width:520px;margin:0 auto;padding:0 22px 40px;display:flex;flex-direction:column;gap:72px;}
 .label{font-family:var(--sans);line-height:inherit;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0;}
-.sec{display:flex;flex-direction:column;gap:18px;}
+.sec{display:flex;flex-direction:column;gap:18px;scroll-margin-top:20px;}
 .sec.band{background:var(--band);margin:0 -22px;padding:44px 22px;}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line);}
+.sec-title{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.2;margin:0;}
+.sec-lead{font-size:14.5px;line-height:1.7;color:var(--muted);margin:-6px 0 0;}
 .sec-link{font-size:12.5px;color:var(--muted);text-decoration:none;white-space:nowrap;}
 .sec-link:hover{color:var(--gold);}
 
 /* HERO */
-.hero-photo{position:relative;margin:-44px -22px -120px;height:min(122vw,600px);overflow:hidden;}
+.hero-photo{position:relative;margin:0 -22px -64px;height:min(96vw,470px);overflow:hidden;}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;display:block;}
-.hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom, rgba(12,11,10,.45) 0%, rgba(12,11,10,0) 20%, rgba(12,11,10,0) 50%, var(--bg) 97%);}
-.hero-photo figcaption{position:absolute;left:22px;top:22px;z-index:1;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,237,228,.82);}
-.hero{display:flex;flex-direction:column;gap:0;position:relative;z-index:1;}
-.mark{width:64px;margin-bottom:34px;}
+.hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom, rgba(12,11,10,.55) 0%, rgba(12,11,10,0) 26%, rgba(12,11,10,0) 52%, var(--bg) 98%);}
+.topbar{position:absolute;left:22px;right:22px;top:20px;z-index:1;display:flex;align-items:center;gap:14px;}
+.topbar .mark{width:40px;}
+.topbar .who{font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,237,228,.86);}
 .mark svg{width:100%;height:auto;display:block;}
 .mark .z{stroke:var(--text);} .mark .f{stroke:var(--gold);}
-.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,13vw,58px);line-height:1;letter-spacing:-.02em;margin:14px 0 0;}
-.tagline{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.45;color:var(--text);margin:18px 0 0;}
-.nw{white-space:nowrap;}
-.intro{font-size:15px;line-height:1.75;color:var(--muted);margin:16px 0 0;max-width:38ch;}
-.ctas{display:flex;flex-direction:column;gap:10px;margin-top:30px;}
+.hero{display:flex;flex-direction:column;position:relative;z-index:1;}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,10.4vw,46px);line-height:1.08;letter-spacing:-.015em;margin:12px 0 0;}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:400;}
+.intro{font-size:15.5px;line-height:1.72;color:var(--muted);margin:16px 0 0;max-width:40ch;}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:26px;}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:12px;text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.01em;transition:filter .2s,border-color .2s,color .2s;}
 .btn-primary{background:var(--cta-bg);color:var(--cta-ink);}
 .btn-primary:hover{filter:brightness(1.07);}
 .btn-ghost{border:1px solid var(--line-strong);color:var(--text);}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:36px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.stat{padding:18px 4px 16px;text-align:center;}
-.stat + .stat{border-left:1px solid var(--line);}
-.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:34px;line-height:1;color:var(--text);}
-.stat span{display:block;margin-top:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.4;}
+.wa{display:inline-flex;align-items:center;gap:8px;justify-content:center;font-size:13.5px;color:var(--muted);text-decoration:none;margin-top:4px;}
+.wa svg{width:16px;height:16px;fill:currentColor;}
+.wa b{font-weight:400;color:var(--text);border-bottom:1px solid var(--line-strong);padding-bottom:1px;}
+.wa:hover b{color:var(--gold);border-color:var(--gold);}
+.trust{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--soft);letter-spacing:.02em;}
+.trust span{white-space:nowrap;}
+.trust span + span::before{content:"·";margin:0 9px;color:var(--gold);}
 
-/* CREDENTIALS */
-.creds{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.cred{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;}
-.cred b{display:block;font-family:var(--serif);font-weight:500;font-size:16.5px;line-height:1.25;}
-.cred span{display:block;margin-top:5px;font-size:12px;color:var(--muted);}
+/* GOALS */
+.goals{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.goal{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 15px 16px;display:flex;flex-direction:column;gap:8px;}
+.goal-ico{width:34px;height:34px;border-radius:50%;background:var(--gold-soft);display:grid;place-items:center;}
+.goal-ico svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.goal b{font-family:var(--serif);font-weight:500;font-size:17.5px;line-height:1.25;}
+.goal span{font-size:12.5px;line-height:1.55;color:var(--muted);}
 
-/* HOW I WORK */
-.how{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-left:22px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;margin:0 -22px;padding:0 22px;}
-.how::-webkit-scrollbar{display:none;}
-.how:focus-visible{outline-offset:6px;}
-.how-card{flex:0 0 84%;min-width:0;scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:12px;}
-.how-img{border-radius:16px;overflow:hidden;background:var(--panel-2);aspect-ratio:4/3;}
-.how-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) sepia(.1);}
-.how-img img[src*="how-kraft"]{filter:saturate(.6) sepia(.16);}
-.path{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:34px;position:relative;}
-.path::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--line),var(--line) 85%,transparent);}
-.step{position:relative;padding-left:30px;}
-.step::before{content:"";position:absolute;left:0;top:4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--gold);}
-.step.now::before{background:var(--gold);box-shadow:0 0 0 4px rgba(207,178,124,.16);}
-.step-year{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
-.step-title{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.25;margin:6px 0 0;}
-.step-text{font-size:14px;line-height:1.7;color:var(--muted);margin:6px 0 0;max-width:46ch;}
-.step-img{margin-top:14px;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:var(--panel-2);}
-.step-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) sepia(.1);}
-.step-img img[src*="how-kraft"]{filter:saturate(.6) sepia(.16);}
+/* HOW IT WORKS */
 .method{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px;}
 .m-row{display:grid;grid-template-columns:38% 1fr;gap:16px;align-items:center;}
 .m-img{border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:var(--panel-2);}
@@ -121,64 +97,14 @@ img{max-width:100%;display:block;}
 .m-num{display:block;font-size:12px;font-weight:500;color:var(--gold);font-variant-numeric:tabular-nums;}
 .m-title{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.3;margin:4px 0 0;}
 .m-text{font-size:13.5px;line-height:1.65;color:var(--muted);margin:6px 0 0;}
-.how-foot{display:flex;justify-content:space-between;align-items:center;}
-.how-card figcaption{display:flex;gap:12px;}
-.how-num{font-size:12px;font-weight:500;color:var(--gold);padding-top:4px;font-variant-numeric:tabular-nums;}
-.how-title{display:block;font-family:var(--serif);font-size:19px;line-height:1.3;}
-.how-text{display:block;margin-top:4px;font-size:13.5px;line-height:1.7;color:var(--muted);}
-
-/* ONLINE COACHING */
-.feature{background:var(--panel);border:1px solid var(--line-strong);border-radius:20px;padding:28px 22px 22px;display:flex;flex-direction:column;gap:16px;background-image:radial-gradient(90% 60% at 100% 0%, var(--glow), transparent 70%);}
-.feature h2{font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.1;margin:0;}
-.feature p{margin:0;font-size:14.5px;line-height:1.75;color:var(--muted);}
-.feature .label{font-size:11px;line-height:1.4;color:var(--gold);}
-.price-line{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.price-line small{font-size:12px;color:var(--muted);}
-.price-line b{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1;color:var(--gold);}
-.price-line em{font-style:normal;font-size:12.5px;color:var(--muted);}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;}
-.steps li{display:flex;gap:10px;font-size:12.5px;line-height:1.5;color:var(--muted);min-width:0;}
-.steps b{font-weight:500;color:var(--gold);font-variant-numeric:tabular-nums;}
-.ready{display:flex;flex-direction:column;margin-top:4px;}
-.ready-title{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line);}
-
-/* HERO home link */
-.home-link{display:inline-flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--muted);text-decoration:none;}
-.home-link b{font-weight:400;color:var(--text);border-bottom:1px solid var(--line-strong);padding-bottom:1px;transition:color .2s,border-color .2s;}
-.home-link:hover b{color:var(--gold);border-color:var(--gold);}
-
-/* IN PERSON: two equal choices */
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.choice{display:flex;flex-direction:column;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 16px 16px;text-decoration:none;min-height:100%;transition:border-color .2s;}
-.choice:hover{border-color:var(--gold);}
-.choice-where{font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
-.choice-title{font-family:var(--serif);font-size:21px;line-height:1.2;}
-.choice-text{font-size:12.5px;line-height:1.6;color:var(--muted);flex:1;}
-.choice-go{font-size:12.5px;font-weight:500;color:var(--text);margin-top:6px;}
-.choice:hover .choice-go{color:var(--gold);}
-.also{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:8px;padding-bottom:10px;border-bottom:1px solid var(--line);}
-
-/* ROWS (Alexandria, ready-made) */
-.rows{display:flex;flex-direction:column;}
-.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 2px;border-bottom:1px solid var(--line);text-decoration:none;}
-.row-text{min-width:0;}
-.row-title{font-family:var(--serif);font-size:19px;line-height:1.3;}
-.row-sub{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5;}
-.row-end{display:flex;align-items:center;gap:12px;flex-shrink:0;}
-.row-price{font-size:12.5px;color:var(--gold);white-space:nowrap;}
-.arrow{color:var(--soft);font-size:18px;transition:transform .2s,color .2s;}
-.row:hover .arrow{color:var(--gold);transform:translateX(3px);}
-.row:hover .row-title{color:var(--gold);}
-.row.compact{padding:13px 2px;}
-.row.compact .row-title{font-size:16.5px;}
 
 /* RESULTS */
 .rail{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;transition:height .35s ease;}
 .rail::-webkit-scrollbar{display:none;}
-.rail:focus-visible{outline-offset:6px;}
 .slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;gap:14px;}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0;}
-.shot{position:relative;border-radius:14px;overflow:hidden;background:var(--panel-2);aspect-ratio:4/5;}
+.shot{position:relative;border-radius:14px;overflow:hidden;background:var(--panel-2);aspect-ratio:1/1;}
+.pair.tall .shot{aspect-ratio:4/5;}
 .shot img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) sepia(.1);}
 .tag{position:absolute;left:8px;bottom:8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--tag-bg);color:var(--tag-ink);}
 .tag.after{background:var(--cta-bg);color:var(--cta-ink);}
@@ -199,10 +125,79 @@ img{max-width:100%;display:block;}
 .q .who{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
 .q .tr{font-size:11.5px;color:var(--soft);font-style:italic;}
 .dots{display:flex;gap:6px;}
-.dot{width:18px;height:2px;border-radius:2px;background:var(--line-strong);border:0;padding:0;cursor:pointer;transition:background .2s,width .2s;}
+.dot{width:18px;height:2px;border-radius:2px;background:var(--line-strong);border:0;padding:0;cursor:pointer;transition:background .2s,width .2s;position:relative;}
 .dot.on{background:var(--gold);width:28px;}
-.dot{position:relative;}
 .dot::after{content:"";position:absolute;left:-3px;right:-3px;top:-16px;bottom:-16px;}
+
+/* WAYS TO TRAIN */
+.ways{display:flex;flex-direction:column;gap:10px;}
+.way{display:flex;flex-direction:column;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 18px 18px;text-decoration:none;transition:border-color .2s;}
+.way:hover{border-color:var(--gold);}
+.way.main{border-color:var(--line-strong);background-image:radial-gradient(90% 70% at 100% 0%, var(--glow), transparent 70%);}
+.way-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+.way-where{font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.way-title{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.2;}
+.way-text{font-size:13px;line-height:1.6;color:var(--muted);}
+.way-foot{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:6px;padding-top:12px;border-top:1px solid var(--line);}
+.way-price{font-size:13px;color:var(--text);}
+.way-price b{font-family:var(--serif);font-weight:500;font-size:19px;color:var(--gold);}
+.way-go{font-size:13px;font-weight:500;color:var(--text);white-space:nowrap;}
+.way:hover .way-go{color:var(--gold);}
+.also{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:14px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+.rows{display:flex;flex-direction:column;}
+.row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 2px;border-bottom:1px solid var(--line);text-decoration:none;}
+.row-text{min-width:0;}
+.row-title{font-family:var(--serif);font-size:17px;line-height:1.3;}
+.row-sub{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5;}
+.row-end{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.row-price{font-size:12.5px;color:var(--gold);white-space:nowrap;}
+.arrow{color:var(--soft);font-size:18px;transition:transform .2s,color .2s;}
+.row:hover .arrow{color:var(--gold);transform:translateX(3px);}
+.row:hover .row-title{color:var(--gold);}
+
+/* MEET YOUR COACH */
+.coach-photo{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--panel-2);position:relative;}
+.coach-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;}
+.coach-photo figcaption{position:absolute;left:14px;bottom:12px;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,237,228,.86);}
+.coach-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, transparent 70%, rgba(12,11,10,.6));pointer-events:none;}
+.bio{font-size:15px;line-height:1.75;color:var(--muted);margin:0;}
+.bio strong{color:var(--text);font-weight:500;}
+.tagline{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.45;color:var(--text);margin:0;}
+.nw{white-space:nowrap;}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.cred{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 15px 13px;}
+.cred b{display:block;font-family:var(--serif);font-weight:500;font-size:16px;line-height:1.25;}
+.cred span{display:block;margin-top:5px;font-size:12px;color:var(--muted);}
+details.more{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+details.more summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 2px;font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--text);}
+details.more summary::-webkit-details-marker{display:none;}
+details.more summary .plus{color:var(--gold);font-size:20px;line-height:1;transition:transform .2s;}
+details.more[open] summary .plus{transform:rotate(45deg);}
+.path{list-style:none;margin:6px 0 26px;padding:0;display:flex;flex-direction:column;gap:30px;position:relative;}
+.path::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--line),var(--line) 85%,transparent);}
+.step{position:relative;padding-left:30px;}
+.step::before{content:"";position:absolute;left:0;top:4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--gold);}
+.step.now::before{background:var(--gold);box-shadow:0 0 0 4px rgba(207,178,124,.16);}
+.step-year{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.step-title{font-family:var(--serif);font-weight:500;font-size:20px;line-height:1.25;margin:6px 0 0;}
+.step-text{font-size:13.5px;line-height:1.7;color:var(--muted);margin:6px 0 0;max-width:46ch;}
+.step-img{margin-top:12px;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:var(--panel-2);}
+.step-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) sepia(.1);}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;}
+.faq details{border-bottom:1px solid var(--line);}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px 2px;font-family:var(--serif);font-size:17px;line-height:1.35;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary .plus{color:var(--gold);font-size:20px;line-height:1;flex-shrink:0;transition:transform .2s;}
+.faq details[open] summary .plus{transform:rotate(45deg);}
+.faq p{margin:0 0 18px;font-size:14px;line-height:1.7;color:var(--muted);padding-right:24px;}
+
+/* FINAL */
+.final{background:var(--panel);border:1px solid var(--line-strong);border-radius:20px;padding:30px 22px 24px;display:flex;flex-direction:column;gap:14px;background-image:radial-gradient(90% 60% at 100% 0%, var(--glow), transparent 70%);}
+.final h2{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.15;margin:0;}
+.final p{margin:0;font-size:14.5px;line-height:1.7;color:var(--muted);}
+.final .ctas{margin-top:8px;}
 
 /* FOOTER */
 .foot{display:flex;flex-direction:column;gap:6px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:var(--muted);}
@@ -212,23 +207,21 @@ img{max-width:100%;display:block;}
 .foot-links a{text-decoration:none;color:var(--muted);border-bottom:1px solid var(--line-strong);padding-bottom:1px;}
 .foot-links a:hover{color:var(--gold);border-color:var(--gold);}
 
-/* WIDE SCREENS: identity fixed on the left, content scrolls on the right */
+/* WIDE SCREENS: photo fixed on the left, content scrolls on the right */
 @media (min-width: 900px){
-  .wrap{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:clamp(380px,42vw,600px) minmax(0,1fr);column-gap:0;row-gap:88px;align-items:start;}
-  main.wrap > .hero-photo{grid-column:1;grid-row:1 / span 9;position:sticky;top:0;width:auto;height:100vh;margin:0;border-right:1px solid var(--line);justify-self:stretch;}
+  .wrap{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:clamp(380px,42vw,600px) minmax(0,1fr);row-gap:88px;align-items:start;}
+  main.wrap > .hero-photo{grid-column:1;grid-row:1 / span 12;position:sticky;top:0;height:100vh;margin:0;border-right:1px solid var(--line);}
   .hero-photo img{object-position:40% 40%;}
+  .hero-photo::after{background:linear-gradient(to bottom, rgba(12,11,10,.45) 0%, rgba(12,11,10,0) 18%, rgba(12,11,10,0) 75%, rgba(12,11,10,.55) 100%);}
+  .topbar{left:36px;right:36px;top:30px;}
+  .wrap > :not(.hero-photo){grid-column:2;width:min(560px, calc(100% - 112px));justify-self:center;}
+  .wrap > .hero{margin-top:96px;}
+  .hero h1{font-size:52px;}
+  .wrap > .sec.band{width:min(624px, calc(100% - 48px));margin:0;padding:40px 32px;border-radius:22px;}
+  .wrap > .foot{margin-bottom:72px;}
+  .ctas{max-width:440px;}
   .m-row{grid-template-columns:200px 1fr;gap:24px;}
   .m-img{aspect-ratio:1/1;}
-  .hero-photo::after{background:linear-gradient(to bottom, rgba(12,11,10,.4) 0%, rgba(12,11,10,0) 18%, rgba(12,11,10,0) 72%, rgba(12,11,10,.6) 100%);}
-  .hero-photo figcaption{left:36px;top:auto;bottom:30px;}
-  .hero h1{font-size:64px;}
-  .wrap > :not(.hero){grid-column:2;width:min(560px, calc(100% - 112px));justify-self:center;}
-  .wrap > :nth-child(2){margin-top:96px;}
-  .wrap > .hero{grid-column:2;width:min(560px, calc(100% - 112px));justify-self:center;}
-  .how{margin:0;padding:0;scroll-padding-left:0;}
-  .wrap > .foot{margin-bottom:72px;}
-  .wrap > .sec.band{width:min(624px, calc(100% - 48px));margin:0;padding:40px 32px;border-radius:22px;}
-  .ctas{max-width:440px;}
 }
 @media (prefers-reduced-motion: reduce){*{transition:none !important;scroll-behavior:auto !important;}}
 </style>
@@ -238,118 +231,64 @@ img{max-width:100%;display:block;}
 
   <figure class="hero-photo">
     <img src="hero-race.jpg" alt="Ziad Elfeky on the sled pull at HYROX Cairo, November 2026" fetchpriority="high">
-    <figcaption>HYROX Cairo &middot; November 2026</figcaption>
+    <div class="topbar">
+      <div class="mark"><svg role="img" aria-label="ZF, Ziad Elfeky" viewBox="4 46 228 160"><defs><mask id="zfcut" maskUnits="userSpaceOnUse" x="0" y="0" width="240" height="240"><rect width="240" height="240" fill="#fff"></rect><path d="M20 168 L224 92" stroke="#000" stroke-width="6"></path></mask></defs><g mask="url(#zfcut)"><g transform="skewX(-10) translate(18 0)"><g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="24"><path class="z" d="M36 66 H130 L46 174 H140"></path><path class="f" d="M168 186 V66 H216 M168 120 H206"></path></g></g></g></svg></div>
+      <span class="who">Ziad Elfeky &middot; Coach</span>
+    </div>
   </figure>
 
   <header class="hero">
-    <div class="mark"><svg role="img" aria-label="ZF, Ziad Elfeky" viewBox="4 46 228 160"><defs><mask id="zfcut" maskUnits="userSpaceOnUse" x="0" y="0" width="240" height="240"><rect width="240" height="240" fill="#fff"></rect><path d="M20 168 L224 92" stroke="#000" stroke-width="6"></path></mask></defs><g mask="url(#zfcut)"><g transform="skewX(-10) translate(18 0)"><g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="24"><path class="z" d="M36 66 H130 L46 174 H140"></path><path class="f" d="M168 186 V66 H216 M168 120 H206"></path></g></g></g></svg></div>
-    <p class="label">Performance &amp; Rehabilitation Coach</p>
-    <h1>Ziad Elfeky</h1>
-    <p class="tagline"><span class="nw">Fix the root cause.</span> <span class="nw">Build the body.</span> <span class="nw">Perform for life.</span></p>
-    <p class="intro">Twenty years as an athlete, ten as a coach. I train under the same demands I prescribe. Online wherever you are, in person in Alexandria.</p>
+    <p class="label">Personal coaching &middot; Alexandria &amp; online</p>
+    <h1>Get fit, get strong, <em>move better.</em></h1>
+    <p class="intro">A plan built for you, and a coach who checks it. For beginners, busy people and athletes. Online wherever you are, or in person in Alexandria.</p>
     <div class="ctas">
-      <a class="btn btn-primary" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
-      <a class="btn btn-ghost" href="#alexandria">Train in Alexandria</a>
+      <a class="btn btn-primary" href="#ways">Find your plan <span aria-hidden="true">&darr;</span></a>
+      <a class="wa" href="#faq">Have questions? <b>See the answers</b> <span aria-hidden="true">&darr;</span></a>
     </div>
-    <a class="home-link" href="https://ziadelfeky.github.io/Home-Training/">Prefer to train at home? <b>Home private training in Alexandria &rarr;</b></a>
+    <div class="trust"><span>10 years coaching</span><span>16 certifications</span></div>
   </header>
 
-  <section class="sec" aria-labelledby="cred-title">
-    <div class="sec-head"><h2 class="label" id="cred-title">Credentials</h2><a class="sec-link" href="https://ziadelfeky.github.io/ZE-Credentials/">16 across 6 countries &rarr;</a></div>
-    <div class="creds">
-      <div class="cred"><b>Level 4 S&amp;C</b><span>United Kingdom</span></div>
-      <div class="cred"><b>Performance Specialist</b><span>EXOS, USA</span></div>
-      <div class="cred"><b>Football Medicine</b><span>FIFA Diploma</span></div>
-      <div class="cred"><b>Founder</b><span>Kraft Fitness, Alexandria</span></div>
+  <section class="sec" id="goals" aria-labelledby="goals-title">
+    <p class="label">What I help with</p>
+    <h2 class="sec-title" id="goals-title">Whatever your starting point</h2>
+    <div class="goals">
+      <div class="goal"><span class="goal-ico"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><b>Lose fat and get in shape</b><span>Training built for fat loss, with nutrition support when you need it.</span></div>
+      <div class="goal"><span class="goal-ico"><svg viewBox="0 0 24 24"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg></span><b>Build muscle and strength</b><span>You always know what to lift, and when to add more.</span></div>
+      <div class="goal"><span class="goal-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9-9.2C1.6 8.4 3.8 5 7.2 5c2 0 3.3 1.1 4.8 2.8C13.5 6.1 14.8 5 16.8 5c3.4 0 5.6 3.4 4.2 6.8C19 16.6 12 21 12 21z"/></svg></span><b>Train with pain or after injury</b><span>We find the cause first, then build you back up step by step.</span></div>
+      <div class="goal"><span class="goal-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2.5h5M12 2.5V5"/></svg></span><b>Perform in your sport</b><span>Strength, speed and conditioning for athletes and active people.</span></div>
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="path-title">
-    <div class="sec-head"><h2 class="label" id="path-title">My path</h2></div>
-    <ol class="path">
-      <li class="step">
-        <span class="step-year">2016</span>
-        <h3 class="step-title">Coach and athlete</h3>
-        <p class="step-text">Coaching independently in Alexandria while competing in functional fitness. The coach and the athlete grew up together.</p>
-        <div class="step-img"><img src="how-athlete.jpg" alt="Ziad training on the gymnastic rings, his competition poster on the wall" loading="lazy"></div>
-      </li>
-      <li class="step">
-        <span class="step-year">2023 &ndash; 2025</span>
-        <h3 class="step-title">Club football</h3>
-        <p class="step-text">Strength and conditioning in club football. The pitch set my standard: structure, measurement and progression for every client, athlete or not.</p>
-        <div class="step-img"><img src="how-pitch.jpg" alt="Ziad coaching footballers on the pitch" loading="lazy"></div>
-      </li>
-      <li class="step">
-        <span class="step-year">2023</span>
-        <h3 class="step-title">Founded Kraft Fitness</h3>
-        <p class="step-text">Kraft in Ganaklis is where I coach in person: small sessions, every client on their own program.</p>
-      </li>
-      <li class="step">
-        <span class="step-year">2024 &ndash; 2025</span>
-        <h3 class="step-title">The clinic</h3>
-        <p class="step-text">Rehabilitation specialist at a clinic in Alexandria. It is why every program I write starts by finding the root cause.</p>
-      </li>
-      <li class="step now">
-        <span class="step-year">2026</span>
-        <h3 class="step-title">Back on a start line</h3>
-        <p class="step-text">Egypt&rsquo;s first HYROX, Cairo, November 2026. Four years after my last competition.</p>
-        <div class="step-img"><img src="path-hyrox.jpg" alt="Ziad on the farmers carry at HYROX Cairo, November 2026" loading="lazy"></div>
-      </li>
-    </ol>
-  </section>
-
-  <section class="sec band" aria-labelledby="how-title">
-    <div class="sec-head"><h2 class="label" id="how-title">How I coach</h2></div>
+  <section class="sec band" id="how" aria-labelledby="how-title">
+    <p class="label">How it works</p>
+    <h2 class="sec-title" id="how-title">Three steps, no guesswork</h2>
     <ol class="method">
       <li class="m-row">
-        <div class="m-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment" loading="lazy"></div>
-        <div><span class="m-num">01</span><h3 class="m-title">Assess before we load</h3><p class="m-text">Every program starts with a movement assessment. I find what is limiting you, fix it, then build strength on top of it.</p></div>
-      </li>
-      <li class="m-row">
-        <div class="m-img"><img src="how-hands.jpg" alt="Ziad cueing a client&rsquo;s shoulder position against the wall" loading="lazy"></div>
-        <div><span class="m-num">02</span><h3 class="m-title">Hands-on coaching</h3><p class="m-text">Cues are hands-on and specific. Position, range and breathing are corrected in the moment, not after the set.</p></div>
-      </li>
-      <li class="m-row">
         <div class="m-img"><img src="how-teach.jpg" alt="Ziad explaining how a training program is built" loading="lazy" style="object-position:30% 50%"></div>
-        <div><span class="m-num">03</span><h3 class="m-title">You learn the why</h3><p class="m-text">I explain the reasoning behind your program, so you understand how you train and can keep progressing on your own.</p></div>
+        <div><span class="m-num">01</span><h3 class="m-title">Tell me about you</h3><p class="m-text">A short form: your goal, your schedule, and any pain or injuries. I read every one myself.</p></div>
+      </li>
+      <li class="m-row">
+        <div class="m-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment" loading="lazy"></div>
+        <div><span class="m-num">02</span><h3 class="m-title">We assess where you start</h3><p class="m-text">How you move, what limits you, what you can do today. Your plan is built on that, not on a template.</p></div>
+      </li>
+      <li class="m-row">
+        <div class="m-img"><img src="how-hands.jpg" alt="Ziad cueing a client&rsquo;s shoulder position at the wall" loading="lazy"></div>
+        <div><span class="m-num">03</span><h3 class="m-title">Train, check, adjust</h3><p class="m-text">With me in person, or with your program in the app. I check your progress and adjust the plan as you improve.</p></div>
       </li>
     </ol>
   </section>
 
-  <section class="sec" aria-labelledby="oc-title">
-    <div class="sec-head"><p class="label">Online · Worldwide</p></div>
-    <div class="feature">
-      <p class="label">By application</p>
-      <h2 id="oc-title">Online Coaching</h2>
-      <p>A program built from your assessment, written and supervised by me in the training app, and adjusted as you progress. The same standard as my in-person clients.</p>
-      <div class="price-line"><small>Four plans from</small><b>$60</b><em>a month · 3,400 EGP</em></div>
-      <ol class="steps">
-        <li><b>01</b>Apply and choose your plan</li>
-        <li><b>02</b>I review every application myself</li>
-        <li><b>03</b>Your program is ready 1 to 2 days after you register</li>
-        <li><b>04</b>Check-ins and adjustments as you progress</li>
-      </ol>
-      <a class="btn btn-primary" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
+  <section class="sec" aria-labelledby="rev-title">
+    <p class="label">In their words</p>
+    <h2 class="sec-title" id="rev-title">What clients say</h2>
+    <div class="quotes" id="quotes">
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Not gonna lie, I was expecting results but I didn't expect to enjoy the process this much. The plan fits my lifestyle and I don't feel lost anymore. Still not at my final goal, but the progress so far makes me wanna keep going.</p><footer><span class="who">A plan that fits life</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I started just wanting to change my body, but honestly gained so much more than that. I feel stronger, more confident and finally comfortable with myself. I used to start and stop all the time, but this time it's different. Thank you Ziad.</p><footer><span class="who">Body and confidence</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Honestly, the difference isn't just in shape. I've become more dedicated, and I understand why and how I train. The program is built around my goal and there's always follow-up. It's the first time I feel there's a real plan I'm following, and I'm training pain-free.</p><footer><span class="who">Training pain-free</span><span class="tr">Translated from Arabic</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I honestly thought my arm would never feel normal again. I was so frustrated at the beginning and didn't know if I would get better, but seeing the progress step by step gave me hope again. Still have work to do, but I'm so happy with how far I've come.</p><footer><span class="who">Arm recovery</span></footer></blockquote>
+      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts. My strength has improved a lot and I feel the difference in my performance too. The follow-up and feedback really make a difference.</p><footer><span class="who">Strength and performance</span></footer></blockquote>
     </div>
-    <div class="ready">
-      <div class="ready-title">Ready-made programs · no follow-up</div>
-      <nav class="rows" aria-label="Ready-made programs">
-        <a class="row compact" href="https://traintrackmarketplace.com/en/programmes/8875ef1e-eef0-4ee3-8598-9eece0f9536e" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Shape Over Scale</div><div class="row-sub">6 weeks · women · fat loss, glutes and shape</div></div><div class="row-end"><span class="row-price">2,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
-        <a class="row compact" href="https://traintrackmarketplace.com/en/programmes/6bf557c1-8dd6-401a-8319-14fee54be2fd" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Lean Engine</div><div class="row-sub">12 weeks · fat loss, beginners or after a break</div></div><div class="row-end"><span class="row-price">4,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
-      </nav>
-    </div>
-  </section>
-
-  <section class="sec" id="alexandria" aria-labelledby="alx-title">
-    <div class="sec-head"><h2 class="label" id="alx-title">In person · Alexandria</h2></div>
-    <div class="choices">
-      <a class="choice" href="https://ziadelfeky.github.io/ZE-KraftPT"><span class="choice-where">Ganaklis</span><span class="choice-title">At Kraft</span><span class="choice-text">VIP 1-on-1, Semi-Private or Associate Coaching at Kraft Fitness.</span><span class="choice-go">Apply &rarr;</span></a>
-      <a class="choice" href="https://ziadelfeky.github.io/Home-Training/"><span class="choice-where">Alexandria</span><span class="choice-title">At your home</span><span class="choice-text">Private training at your home: VIP 1-on-1 or Duo.</span><span class="choice-go">Apply &rarr;</span></a>
-    </div>
-    <div class="also">Recovery</div>
-    <nav class="rows" aria-label="Recovery">
-      <a class="row" href="https://ziadelfeky.github.io/Muscle-Release-/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue and myofascial release, studio or home</div></div><span class="arrow" aria-hidden="true">&rarr;</span></a>
-    </nav>
+    <div class="dots" id="dots" aria-label="Reviews"></div>
   </section>
 
   <section class="sec band" aria-labelledby="res-title">
@@ -357,17 +296,17 @@ img{max-width:100%;display:block;}
     <div class="rail" id="results" tabindex="0" aria-roledescription="carousel" aria-label="Before and after results. Swipe for more.">
       <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 6">
         <figure class="pair">
-          <div class="shot"><img src="squat-before.jpg" alt="Squat depth, before"><span class="tag">Before</span></div>
-          <div class="shot"><img src="squat-after.jpg" alt="Squat depth, after"><span class="tag after">After</span></div>
+          <div class="shot"><img src="client-before.jpg" alt="Physique, before"><span class="tag">Before</span></div>
+          <div class="shot"><img src="client-after.jpg" alt="Physique, after"><span class="tag after">After</span></div>
         </figure>
-        <div class="cap"><span class="cap-title">Squat depth</span><span class="cap-sub">Bodyweight squat</span></div>
+        <div class="cap"><span class="cap-title">Physique</span><span class="cap-sub">Client, front view</span></div>
       </div>
       <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 6">
         <figure class="pair">
-          <div class="shot"><img src="client-before.jpg" alt="Physique, before" loading="lazy"><span class="tag">Before</span></div>
-          <div class="shot"><img src="client-after.jpg" alt="Physique, after" loading="lazy"><span class="tag after">After</span></div>
+          <div class="shot"><img src="squat-before.jpg" alt="Squat depth, before" loading="lazy"><span class="tag">Before</span></div>
+          <div class="shot"><img src="squat-after.jpg" alt="Squat depth, after" loading="lazy"><span class="tag after">After</span></div>
         </figure>
-        <div class="cap"><span class="cap-title">Physique</span><span class="cap-sub">Client, front view</span></div>
+        <div class="cap"><span class="cap-title">Squat depth</span><span class="cap-sub">Bodyweight squat</span></div>
       </div>
       <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 6">
         <figure class="pair">
@@ -391,7 +330,7 @@ img{max-width:100%;display:block;}
         <div class="cap"><span class="cap-title">Overhead reach at the wall</span><span class="cap-sub">Back flat, arms to the wall</span></div>
       </div>
       <div class="slide" role="group" aria-roledescription="slide" aria-label="6 of 6">
-        <figure class="pair">
+        <figure class="pair tall">
           <div class="shot"><img src="ziad-before.jpg" alt="Ziad Elfeky, before" loading="lazy"><span class="tag">Before</span></div>
           <div class="shot"><img src="ziad-after.jpg" alt="Ziad Elfeky, after" loading="lazy"><span class="tag after">After</span></div>
         </figure>
@@ -402,16 +341,108 @@ img{max-width:100%;display:block;}
     <p class="note">Individual results; every program is individual. Client photos shared with permission, faces hidden.</p>
   </section>
 
-  <section class="sec" aria-labelledby="rev-title">
-    <div class="sec-head"><h2 class="label" id="rev-title">In their words</h2></div>
-    <div class="quotes" id="quotes">
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I honestly thought my arm would never feel normal again. I was so frustrated at the beginning and didn't know if I would get better, but seeing the progress step by step gave me hope again. Still have work to do, but I'm so happy with how far I've come.</p><footer><span class="who">Arm recovery</span></footer></blockquote>
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Honestly, the difference isn't just in shape. I've become more dedicated, and I understand why and how I train. The program is built around my goal and there's always follow-up. It's the first time I feel there's a real plan I'm following, and I'm training pain-free.</p><footer><span class="who">Training pain-free</span><span class="tr">Translated from Arabic</span></footer></blockquote>
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts. My strength has improved a lot and I feel the difference in my performance too. The follow-up and feedback really make a difference.</p><footer><span class="who">Strength and performance</span></footer></blockquote>
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I started just wanting to change my body, but honestly gained so much more than that. I feel stronger, more confident and finally comfortable with myself. I used to start and stop all the time, but this time it's different. Thank you Ziad.</p><footer><span class="who">Body and confidence</span></footer></blockquote>
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Not gonna lie, I was expecting results but I didn't expect to enjoy the process this much. The plan fits my lifestyle and I don't feel lost anymore. Still not at my final goal, but the progress so far makes me wanna keep going.</p><footer><span class="who">A plan that fits life</span></footer></blockquote>
+  <section class="sec" id="ways" aria-labelledby="ways-title">
+    <p class="label">Ways to train</p>
+    <h2 class="sec-title" id="ways-title">Choose what fits your life</h2>
+    <p class="sec-lead">Every option starts with an assessment and a plan built for you. You'll know the price before you pay anything.</p>
+    <div class="ways">
+      <a class="way main" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">
+        <div class="way-top"><span class="way-where">Online &middot; anywhere</span></div>
+        <span class="way-title">Online coaching</span>
+        <span class="way-text">Your program in a training app, built and supervised by me, with video for every exercise and regular check-ins. At home or in any gym.</span>
+        <div class="way-foot"><span class="way-price">from <b>$60</b> a month &middot; 3,400 EGP</span><span class="way-go">Apply &rarr;</span></div>
+      </a>
+      <a class="way" href="https://ziadelfeky.github.io/ZE-KraftPT">
+        <div class="way-top"><span class="way-where">Ganaklis, Alexandria</span></div>
+        <span class="way-title">At Kraft Fitness</span>
+        <span class="way-text">Coaching in person at my studio: 1-on-1, a small group of up to four, or with my associate coach on my program.</span>
+        <div class="way-foot"><span class="way-price">from <b>1,800</b> EGP a month</span><span class="way-go">Apply &rarr;</span></div>
+      </a>
+      <a class="way" href="https://ziadelfeky.github.io/Home-Training/">
+        <div class="way-top"><span class="way-where">Alexandria</span></div>
+        <span class="way-title">At your home</span>
+        <span class="way-text">Private training at your home, 1-on-1 or with a partner. No gym needed.</span>
+        <div class="way-foot"><span class="way-price">Price on request</span><span class="way-go">Apply &rarr;</span></div>
+      </a>
     </div>
-    <div class="dots" id="dots" aria-label="Reviews"></div>
+    <div class="also">Also available</div>
+    <nav class="rows" aria-label="Also available">
+      <a class="row" href="https://traintrackmarketplace.com/en/programmes/6bf557c1-8dd6-401a-8319-14fee54be2fd" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Lean Engine</div><div class="row-sub">Ready-made · 12 weeks · fat loss, beginners or after a break</div></div><div class="row-end"><span class="row-price">4,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+      <a class="row" href="https://traintrackmarketplace.com/en/programmes/8875ef1e-eef0-4ee3-8598-9eece0f9536e" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Shape Over Scale</div><div class="row-sub">Ready-made · 6 weeks · women · fat loss, glutes and shape</div></div><div class="row-end"><span class="row-price">2,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+      <a class="row" href="https://ziadelfeky.github.io/Muscle-Release-/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue release, studio or home</div></div><div class="row-end"><span class="row-price">from 1,200 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+    </nav>
+  </section>
+
+  <section class="sec" id="coach" aria-labelledby="coach-title">
+    <p class="label">Meet your coach</p>
+    <h2 class="sec-title" id="coach-title">I'm Ziad.</h2>
+    <figure class="coach-photo"><img src="coach-carry.jpg" alt="Ziad Elfeky on the farmers carry at HYROX Cairo, November 2026" loading="lazy"><figcaption>HYROX Cairo &middot; November 2026</figcaption></figure>
+    <p class="bio">Twenty years in sport as an athlete, ten as a coach. I founded <strong>Kraft Fitness</strong> in Alexandria, worked as a rehabilitation specialist, and in 2026 I raced Egypt's first HYROX. I train under the same demands I give my clients.</p>
+    <p class="tagline"><span class="nw">Fix the root cause.</span> <span class="nw">Build the body.</span> <span class="nw">Perform for life.</span></p>
+    <div class="creds">
+      <div class="cred"><b>Level 4 S&amp;C</b><span>United Kingdom</span></div>
+      <div class="cred"><b>Performance Specialist</b><span>EXOS, USA</span></div>
+      <div class="cred"><b>Football Medicine</b><span>FIFA Diploma</span></div>
+      <div class="cred"><b>Certified Nutritionist</b><span>ISSA, USA</span></div>
+    </div>
+    <a class="sec-link" href="https://ziadelfeky.github.io/ZE-Credentials/">All 16 certifications, from 6 countries &rarr;</a>
+    <details class="more">
+      <summary>My path <span class="plus" aria-hidden="true">+</span></summary>
+      <ol class="path">
+        <li class="step">
+          <span class="step-year">2016</span>
+          <h3 class="step-title">Coach and athlete</h3>
+          <p class="step-text">Coaching independently in Alexandria while competing in functional fitness. The coach and the athlete grew up together.</p>
+          <div class="step-img"><img src="how-athlete.jpg" alt="Ziad training on the gymnastic rings, his competition poster on the wall" loading="lazy"></div>
+        </li>
+        <li class="step">
+          <span class="step-year">2023 &ndash; 2025</span>
+          <h3 class="step-title">Club football</h3>
+          <p class="step-text">Strength and conditioning in club football. The pitch set my standard: structure, measurement and progression for every client, athlete or not.</p>
+          <div class="step-img"><img src="how-pitch.jpg" alt="Ziad coaching footballers on the pitch" loading="lazy"></div>
+        </li>
+        <li class="step">
+          <span class="step-year">2023</span>
+          <h3 class="step-title">Founded Kraft Fitness</h3>
+          <p class="step-text">Kraft in Ganaklis is where I coach in person: small sessions, every client on their own program.</p>
+        </li>
+        <li class="step">
+          <span class="step-year">2024 &ndash; 2025</span>
+          <h3 class="step-title">The clinic</h3>
+          <p class="step-text">Rehabilitation specialist at a clinic in Alexandria. It is why every program I write starts by finding the root cause.</p>
+        </li>
+        <li class="step now">
+          <span class="step-year">2026</span>
+          <h3 class="step-title">Back on a start line</h3>
+          <p class="step-text">Egypt&rsquo;s first HYROX, Cairo, November 2026. Four years after my last competition.</p>
+          <div class="step-img"><img src="path-hyrox.jpg" alt="Ziad on the farmers carry at HYROX Cairo, November 2026" loading="lazy"></div>
+        </li>
+      </ol>
+    </details>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="faq-title">
+    <p class="label">Questions</p>
+    <h2 class="sec-title" id="faq-title">Before you start</h2>
+    <div class="faq">
+      <details><summary>I'm a complete beginner. Is this for me? <span class="plus" aria-hidden="true">+</span></summary><p>Yes. Your plan starts from where you are today, not where an athlete is. You don't need to be fit to start.</p></details>
+      <details><summary>I have back, knee or shoulder pain. <span class="plus" aria-hidden="true">+</span></summary><p>Tell me in the form. We assess it first and train around it, then build it up. If something needs a doctor or a scan first, I'll tell you before we start.</p></details>
+      <details><summary>I don't have a gym. <span class="plus" aria-hidden="true">+</span></summary><p>Online plans can be built for home with little equipment. In Alexandria, I can also train you at your home.</p></details>
+      <details><summary>How much does it cost? <span class="plus" aria-hidden="true">+</span></summary><p>Online coaching from $60 (3,400 EGP) a month. Training at Kraft from 1,800 EGP a month. You'll know the exact price before you pay anything.</p></details>
+      <details><summary>How fast will I see results? <span class="plus" aria-hidden="true">+</span></summary><p>It depends on where you start and how consistent you are, so I won't promise a number. What I do promise is that your progress is measured and checked, so we always know what's working.</p></details>
+      <details><summary>Do you coach in Arabic? <span class="plus" aria-hidden="true">+</span></summary><p>Yes. Arabic or English, whichever you prefer.</p></details>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-title">
+    <p class="label">Ready when you are</p>
+    <h2 id="final-title">Start with one step.</h2>
+    <p>Fill in a short form and I'll read it myself. No commitment until you choose a plan.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://ziadelfeky.github.io/ZE-OnlineTraining/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" href="https://ziadelfeky.github.io/ZE-KraftPT">Train with me in Alexandria</a>
+      <a class="wa" href="https://wa.me/201501545118" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Or <b>message me on WhatsApp</b></a>
+    </div>
   </section>
 
   <footer class="foot">
