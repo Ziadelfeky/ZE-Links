@@ -74,7 +74,7 @@ img{max-width:100%;display:block;}
 .btn-ghost{border:1px solid var(--line-strong);color:var(--text);}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
 .wa{display:inline-flex;align-items:center;gap:8px;justify-content:center;font-size:13.5px;color:var(--muted);text-decoration:none;margin-top:4px;}
-.wa svg{width:16px;height:16px;fill:currentColor;}
+.wa svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;}
 .wa b{font-weight:400;color:var(--text);border-bottom:1px solid var(--line-strong);padding-bottom:1px;}
 .wa:hover b{color:var(--gold);border-color:var(--gold);}
 .trust{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--soft);letter-spacing:.02em;}
@@ -216,6 +216,69 @@ details.more[open] summary .plus{transform:rotate(45deg);}
 .foot-links a{text-decoration:none;color:var(--muted);border-bottom:1px solid var(--line-strong);padding-bottom:1px;}
 .foot-links a:hover{color:var(--gold);border-color:var(--gold);}
 
+
+/* CHOOSER */
+.choose-lbl{font-size:13px;font-weight:500;color:var(--text);margin:24px 0 10px;}
+.choose{display:flex;flex-direction:column;gap:8px;}
+.pick{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line-strong);border-radius:14px;padding:13px 14px;text-decoration:none;color:var(--text);transition:border-color .2s,background .2s;}
+.pick:hover,.pick:active{border-color:var(--gold);}
+.pick-ico{flex:0 0 40px;height:40px;border-radius:50%;background:var(--gold-soft);display:grid;place-items:center;}
+.pick-ico svg{width:19px;height:19px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.pick-text{display:flex;flex-direction:column;min-width:0;flex:1;}
+.pick-text b{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.25;}
+.pick-text span{font-size:12.5px;color:var(--muted);margin-top:2px;}
+.pick-go{color:var(--gold);font-size:18px;}
+.gchips{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.gchip{display:flex;align-items:center;gap:10px;text-align:left;background:var(--panel);border:1px solid var(--line-strong);border-radius:14px;padding:11px 12px;min-height:58px;color:var(--text);font:inherit;font-size:13.5px;font-weight:500;line-height:1.3;cursor:pointer;transition:border-color .2s,background .2s;}
+.gchip:hover{border-color:rgba(207,178,124,.6);}
+.gchip[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-soft);}
+.gchip-ico{flex:0 0 30px;height:30px;border-radius:50%;background:var(--gold-soft);display:grid;place-items:center;}
+.gchip-ico svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.gpanel{margin-top:14px;background:var(--panel);border:1px solid rgba(207,178,124,.45);border-radius:16px;padding:18px 16px 14px;scroll-margin-top:16px;}
+.gpanel-say{font-family:var(--serif);font-size:17px;line-height:1.5;margin:0;}
+.gpanel-q{margin:12px 0 0;padding-left:12px;border-left:2px solid var(--gold);font-size:13px;line-height:1.6;color:var(--muted);font-style:italic;}
+.gpanel-q span{display:block;font-style:normal;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-top:4px;}
+.gpanel-lbl{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:16px 0 8px;}
+.gpanel .pick{margin-bottom:8px;}
+.gpanel-all{display:inline-block;margin-top:4px;font-size:13px;color:var(--muted);text-decoration:none;}
+.gpanel-all b{font-weight:400;color:var(--text);border-bottom:1px solid var(--line-strong);}
+.shortcut{margin:14px 0 0;font-size:12.5px;color:var(--soft);}
+.shortcut a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--line-strong);margin-left:10px;}
+.shortcut a:hover{color:var(--gold);border-color:var(--gold);}
+/* GOALS: tappable */
+a.goal{text-decoration:none;color:var(--text);transition:border-color .2s;}
+a.goal:hover,a.goal:active{border-color:var(--gold);}
+.goal .goal-go{margin-top:auto;padding-top:6px;font-size:12px;font-weight:500;color:var(--gold);}
+.fit-note{background:var(--gold-soft);border:1px solid rgba(207,178,124,.35);border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.6;color:var(--text);margin:18px 0 12px;}
+.way.fit{border-color:var(--gold);}
+.way .fit-tag{display:none;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--cta-ink);padding:3px 8px;border-radius:6px;}
+.way.fit .fit-tag{display:inline-block;}
+/* MENU */
+.menu-btn{margin-left:auto;width:42px;height:42px;border-radius:50%;border:1px solid rgba(242,237,228,.28);background:rgba(12,11,10,.45);display:grid;place-items:center;cursor:pointer;padding:0;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+.menu-btn svg,.dock-menu svg,.menu-close svg{width:20px;height:20px;stroke:var(--text);fill:none;stroke-width:1.6;stroke-linecap:round;}
+.menu{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;display:flex;flex-direction:column;justify-content:center;padding:80px 32px 40px;gap:4px;}
+.menu[hidden]{display:none;}
+.menu a{font-family:var(--serif);font-size:28px;line-height:1.3;color:var(--text);text-decoration:none;padding:9px 0;border-bottom:1px solid var(--line);}
+.menu a:hover{color:var(--gold);}
+.menu .menu-wa{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:15px;color:var(--gold);border:0;margin-top:18px;}
+.menu .menu-wa svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;}
+.menu-close{position:absolute;top:20px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:none;display:grid;place-items:center;cursor:pointer;padding:0;}
+/* DOCK (phones) */
+.dock{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:flex;gap:8px;padding:8px;border-radius:18px;background:rgba(22,20,17,.92);border:1px solid var(--line-strong);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.45);transform:translateY(150%);transition:transform .3s ease;}
+.dock.on{transform:none;}
+.dock-menu,.dock-wa{flex:0 0 46px;height:46px;border-radius:12px;border:1px solid var(--line-strong);background:none;display:grid;place-items:center;cursor:pointer;padding:0;}
+.dock-wa svg{width:20px;height:20px;fill:none;stroke:var(--gold);stroke-width:1.6;}
+.dock-main{flex:1;height:46px;border-radius:12px;background:var(--cta-bg);color:var(--cta-ink);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:15px;text-decoration:none;}
+/* compact HOW IT WORKS on phones */
+@media (max-width: 899px){
+  .hero-photo{height:min(72vw,360px);}
+  .m-row{grid-template-columns:84px 1fr;gap:14px;align-items:start;}
+  .m-img{aspect-ratio:1/1;}
+  .method{gap:18px;}
+  .wrap{padding-bottom:96px;}
+}
+@media (min-width: 900px){ .dock{display:none;} }
+
 /* WIDE SCREENS: photo fixed on the left, content scrolls on the right */
 @media (min-width: 900px){
   .wrap{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:clamp(380px,42vw,600px) minmax(0,1fr);row-gap:88px;align-items:start;}
@@ -225,6 +288,7 @@ details.more[open] summary .plus{transform:rotate(45deg);}
   .topbar{left:36px;right:36px;top:30px;}
   .wrap > :not(.hero-photo){grid-column:2;width:min(560px, calc(100% - 112px));justify-self:center;}
   .wrap > .hero{margin-top:96px;}
+  .wrap > .menu{width:auto;justify-self:stretch;padding:80px max(32px, calc(50vw - 280px)) 40px;}
   .hero h1{font-size:52px;}
   .wrap > .sec.band{width:min(624px, calc(100% - 48px));margin:0;padding:40px 32px;border-radius:22px;}
   .wrap > .foot{margin-bottom:72px;}
@@ -243,6 +307,7 @@ details.more[open] summary .plus{transform:rotate(45deg);}
     <div class="topbar">
       <div class="mark"><svg role="img" aria-label="ZF, Ziad Elfeky" viewBox="4 46 228 160"><defs><mask id="zfcut" maskUnits="userSpaceOnUse" x="0" y="0" width="240" height="240"><rect width="240" height="240" fill="#fff"></rect><path d="M20 168 L224 92" stroke="#000" stroke-width="6"></path></mask></defs><g mask="url(#zfcut)"><g transform="skewX(-10) translate(18 0)"><g fill="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="24"><path class="z" d="M36 66 H130 L46 174 H140"></path><path class="f" d="M168 186 V66 H216 M168 120 H206"></path></g></g></g></svg></div>
       <span class="who">Ziad Elfeky &middot; Coach</span>
+      <button class="menu-btn" type="button" data-menu aria-label="Open menu" aria-controls="menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
     </div>
   </figure>
 
@@ -250,44 +315,23 @@ details.more[open] summary .plus{transform:rotate(45deg);}
     <p class="label">Personal coaching &middot; Alexandria &amp; online</p>
     <h1>Get fit, get strong, <em>move better.</em></h1>
     <p class="intro">A plan built for you, and a coach who checks it. For beginners, busy people and athletes. Online wherever you are, or in person in Alexandria.</p>
-    <div class="ctas">
-      <a class="btn btn-primary" href="#ways">Find your plan <span aria-hidden="true">&darr;</span></a>
-      <a class="wa" href="#faq">Have questions? <b>See the answers</b> <span aria-hidden="true">&darr;</span></a>
+    <div class="gpick" id="start">
+    <p class="choose-lbl">What do you want to work on?</p>
+    <div class="gchips" role="group" aria-label="Choose your goal">
+      <button class="gchip" type="button" data-goal="fat" aria-pressed="false"><span class="gchip-ico"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><span>Lose fat, feel good in my clothes</span></button>
+      <button class="gchip" type="button" data-goal="shape" aria-pressed="false"><span class="gchip-ico"><svg viewBox="0 0 24 24"><path d="M12 3c3 3 4.5 6 4.5 9a4.5 4.5 0 0 1-9 0C7.5 9 9 6 12 3z"/><path d="M12 21v-4.5"/></svg></span><span>Tone and shape my body</span></button>
+      <button class="gchip" type="button" data-goal="muscle" aria-pressed="false"><span class="gchip-ico"><svg viewBox="0 0 24 24"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg></span><span>Build muscle and strength</span></button>
+      <button class="gchip" type="button" data-goal="pain" aria-pressed="false"><span class="gchip-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9-9.2C1.6 8.4 3.8 5 7.2 5c2 0 3.3 1.1 4.8 2.8C13.5 6.1 14.8 5 16.8 5c3.4 0 5.6 3.4 4.2 6.8C19 16.6 12 21 12 21z"/></svg></span><span>Train without pain</span></button>
+      <button class="gchip" type="button" data-goal="restart" aria-pressed="false"><span class="gchip-ico"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg></span><span>Get back in shape after a break</span></button>
+      <button class="gchip" type="button" data-goal="sport" aria-pressed="false"><span class="gchip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2.5h5M12 2.5V5"/></svg></span><span>Perform better in my sport</span></button>
+    </div>
+    <div class="gpanel" id="gpanel" hidden aria-live="polite"></div>
+    <p class="shortcut">Already know? <a href="https://ziadelfeky.com/apply/">Online</a> <a href="https://ziadelfeky.com/kraft/">Kraft</a> <a href="https://ziadelfeky.com/home-training/">Home</a></p>
     </div>
     <div class="trust"><span>10 years coaching</span><span>16 certifications</span></div>
   </header>
 
-  <section class="sec" id="goals" aria-labelledby="goals-title">
-    <p class="label">What I help with</p>
-    <h2 class="sec-title" id="goals-title">Whatever your starting point</h2>
-    <div class="goals">
-      <div class="goal"><span class="goal-ico"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><b>Lose fat and get in shape</b><span>Training built for fat loss, with nutrition support when you need it.</span></div>
-      <div class="goal"><span class="goal-ico"><svg viewBox="0 0 24 24"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg></span><b>Build muscle and strength</b><span>You always know what to lift, and when to add more.</span></div>
-      <div class="goal"><span class="goal-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9-9.2C1.6 8.4 3.8 5 7.2 5c2 0 3.3 1.1 4.8 2.8C13.5 6.1 14.8 5 16.8 5c3.4 0 5.6 3.4 4.2 6.8C19 16.6 12 21 12 21z"/></svg></span><b>Train with pain or after injury</b><span>We find the cause first, then build you back up step by step.</span></div>
-      <div class="goal"><span class="goal-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2.5h5M12 2.5V5"/></svg></span><b>Perform in your sport</b><span>Strength, speed and conditioning for athletes and active people.</span></div>
-    </div>
-  </section>
-
-  <section class="sec band" id="how" aria-labelledby="how-title">
-    <p class="label">How it works</p>
-    <h2 class="sec-title" id="how-title">Three steps, no guesswork</h2>
-    <ol class="method">
-      <li class="m-row">
-        <div class="m-img"><img src="how-teach.jpg" alt="Ziad explaining how a training program is built" loading="lazy" style="object-position:30% 50%"></div>
-        <div><span class="m-num">01</span><h3 class="m-title">Tell me about you</h3><p class="m-text">A short form: your goal, your schedule, and any pain or injuries. I read every one myself.</p></div>
-      </li>
-      <li class="m-row">
-        <div class="m-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment" loading="lazy"></div>
-        <div><span class="m-num">02</span><h3 class="m-title">We assess where you start</h3><p class="m-text">How you move, what limits you, what you can do today. Your plan is built on that, not on a template.</p></div>
-      </li>
-      <li class="m-row">
-        <div class="m-img"><img src="how-hands.jpg" alt="Ziad cueing a client&rsquo;s shoulder position at the wall" loading="lazy"></div>
-        <div><span class="m-num">03</span><h3 class="m-title">Train, check, adjust</h3><p class="m-text">With me in person, or with your program in the app. I check your progress and adjust the plan as you improve.</p></div>
-      </li>
-    </ol>
-  </section>
-
-  <section class="sec" aria-labelledby="rev-title">
+  <section class="sec" id="reviews" aria-labelledby="rev-title">
     <p class="label">In their words</p>
     <h2 class="sec-title" id="rev-title">What clients say</h2>
     <div class="quotes" id="quotes">
@@ -298,10 +342,10 @@ details.more[open] summary .plus{transform:rotate(45deg);}
       <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts. My strength has improved a lot and I feel the difference in my performance too. The follow-up and feedback really make a difference.</p><footer><span class="who">Strength and performance</span></footer></blockquote>
     </div>
     <div class="dots" id="dots" aria-label="Reviews"></div>
-    <a class="rev-link" href="/review/">Trained with me? <b>Leave a review</b> &rarr;</a>
+    <a class="rev-link" href="https://ziadelfeky.com/review/">Trained with me? <b>Leave a review</b> &rarr;</a>
   </section>
 
-  <section class="sec band" aria-labelledby="res-title">
+  <section class="sec band" id="proof" aria-labelledby="res-title">
     <div class="sec-head"><h2 class="label" id="res-title">Results</h2><span class="count" id="rcount" aria-hidden="true">1 / 6</span></div>
     <div class="rail" id="results" tabindex="0" aria-roledescription="carousel" aria-label="Before and after results. Swipe for more.">
       <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 6">
@@ -356,20 +400,20 @@ details.more[open] summary .plus{transform:rotate(45deg);}
     <h2 class="sec-title" id="ways-title">Choose what fits your life</h2>
     <p class="sec-lead">Every option starts with an assessment and a plan built for you. You'll know the price before you pay anything.</p>
     <div class="ways">
-      <a class="way main" href="/apply/">
-        <div class="way-top"><span class="way-where">Online &middot; anywhere</span></div>
+      <a class="way main" data-k="online" href="https://ziadelfeky.com/apply/">
+        <div class="way-top"><span class="way-where">Online &middot; anywhere</span><span class="fit-tag">Good fit</span></div>
         <span class="way-title">Online coaching</span>
         <span class="way-text">Your program in a training app, built and supervised by me, with video for every exercise and regular check-ins. At home or in any gym.</span>
         <div class="way-foot"><span class="way-price">from <b>$60</b> a month &middot; 3,400 EGP</span><span class="way-go">Apply &rarr;</span></div>
       </a>
-      <a class="way" href="/kraft/">
-        <div class="way-top"><span class="way-where">Ganaklis, Alexandria</span></div>
+      <a class="way" data-k="kraft" href="https://ziadelfeky.com/kraft/">
+        <div class="way-top"><span class="way-where">Ganaklis, Alexandria</span><span class="fit-tag">Good fit</span></div>
         <span class="way-title">At Kraft Fitness</span>
         <span class="way-text">Coaching in person at my studio: 1-on-1, a small group of up to four, or with my associate coach on my program.</span>
         <div class="way-foot"><span class="way-price">from <b>1,800</b> EGP a month</span><span class="way-go">Apply &rarr;</span></div>
       </a>
-      <a class="way" href="/home-training/">
-        <div class="way-top"><span class="way-where">Alexandria</span></div>
+      <a class="way" data-k="home" href="https://ziadelfeky.com/home-training/">
+        <div class="way-top"><span class="way-where">Alexandria</span><span class="fit-tag">Good fit</span></div>
         <span class="way-title">At your home</span>
         <span class="way-text">Private training at your home, 1-on-1 or with a partner. No gym needed.</span>
         <div class="way-foot"><span class="way-price">Price on request</span><span class="way-go">Apply &rarr;</span></div>
@@ -379,8 +423,27 @@ details.more[open] summary .plus{transform:rotate(45deg);}
     <nav class="rows" aria-label="Also available">
       <a class="row" href="https://traintrackmarketplace.com/en/programmes/6bf557c1-8dd6-401a-8319-14fee54be2fd" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Lean Engine</div><div class="row-sub">Ready-made · 12 weeks · fat loss, beginners or after a break</div></div><div class="row-end"><span class="row-price">4,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
       <a class="row" href="https://traintrackmarketplace.com/en/programmes/8875ef1e-eef0-4ee3-8598-9eece0f9536e" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Shape Over Scale</div><div class="row-sub">Ready-made · 6 weeks · women · fat loss, glutes and shape</div></div><div class="row-end"><span class="row-price">2,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
-      <a class="row" href="/muscle-release/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue release, studio or home</div></div><div class="row-end"><span class="row-price">from 1,200 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+      <a class="row" href="https://ziadelfeky.com/muscle-release/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue release, studio or home</div></div><div class="row-end"><span class="row-price">from 1,200 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
     </nav>
+  </section>
+
+  <section class="sec band" id="how" aria-labelledby="how-title">
+    <p class="label">How it works</p>
+    <h2 class="sec-title" id="how-title">Three steps, no guesswork</h2>
+    <ol class="method">
+      <li class="m-row">
+        <div class="m-img"><img src="how-teach.jpg" alt="Ziad explaining how a training program is built" loading="lazy" style="object-position:30% 50%"></div>
+        <div><span class="m-num">01</span><h3 class="m-title">Tell me about you</h3><p class="m-text">A short form: your goal, your schedule, and any pain or injuries. I read every one myself.</p></div>
+      </li>
+      <li class="m-row">
+        <div class="m-img"><img src="how-assess.jpg" alt="Ziad guiding a client through a hands-on mobility assessment" loading="lazy"></div>
+        <div><span class="m-num">02</span><h3 class="m-title">We assess where you start</h3><p class="m-text">How you move, what limits you, what you can do today. Your plan is built on that, not on a template.</p></div>
+      </li>
+      <li class="m-row">
+        <div class="m-img"><img src="how-hands.jpg" alt="Ziad cueing a client&rsquo;s shoulder position at the wall" loading="lazy"></div>
+        <div><span class="m-num">03</span><h3 class="m-title">Train, check, adjust</h3><p class="m-text">With me in person, or with your program in the app. I check your progress and adjust the plan as you improve.</p></div>
+      </li>
+    </ol>
   </section>
 
   <section class="sec" id="coach" aria-labelledby="coach-title">
@@ -395,7 +458,7 @@ details.more[open] summary .plus{transform:rotate(45deg);}
       <div class="cred"><b>Football Medicine</b><span>FIFA Diploma</span></div>
       <div class="cred"><b>Certified Nutritionist</b><span>ISSA, USA</span></div>
     </div>
-    <a class="sec-link" href="/credentials/">All 16 certifications, from 6 countries &rarr;</a>
+    <a class="sec-link" href="https://ziadelfeky.com/credentials/">All 16 certifications, from 6 countries &rarr;</a>
     <details class="more">
       <summary>My path <span class="plus" aria-hidden="true">+</span></summary>
       <ol class="path">
@@ -453,9 +516,10 @@ details.more[open] summary .plus{transform:rotate(45deg);}
     <h2 id="final-title">Start with one step.</h2>
     <p>Fill in a short form and I'll read it myself. No commitment until you choose a plan.</p>
     <div class="ctas">
-      <a class="btn btn-primary" href="/apply/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
-      <a class="btn btn-ghost" href="/kraft/">Train with me in Alexandria</a>
-      <a class="wa" href="https://wa.me/201501545118" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Or <b>message me on WhatsApp</b></a>
+      <a class="btn btn-primary" href="https://ziadelfeky.com/apply/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" href="https://ziadelfeky.com/kraft/">Train with me at Kraft</a>
+      <a class="btn btn-ghost" href="https://ziadelfeky.com/home-training/">Train at your home</a>
+      <a class="wa" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg>Or <b>message me on Instagram</b></a>
     </div>
   </section>
 
@@ -464,13 +528,31 @@ details.more[open] summary .plus{transform:rotate(45deg);}
     <span class="foot-tag">Fix the root cause. Build the body. Perform for life.</span>
     <span>Alexandria, Egypt · Online worldwide</span>
     <div class="foot-links">
-      <a href="/apply/">Apply online</a>
-      <a href="/credentials/">Credentials</a>
+      <a href="https://ziadelfeky.com/apply/">Apply online</a>
+      <a href="https://ziadelfeky.com/credentials/">Credentials</a>
       <a href="https://www.instagram.com/ziad_elfeky/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.instagram.com/kraftfitness.eg/" target="_blank" rel="noopener">Kraft on Instagram</a>
     </div>
   </footer>
 
+
+  <nav class="menu" id="menu" aria-label="Menu" hidden>
+    <button class="menu-close" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <a href="#start">Find your plan</a>
+    <a href="#ways">All plans and prices</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#proof">Results</a>
+    <a href="#coach">About me</a>
+    <a href="#faq">Questions</a>
+    <a href="https://ziadelfeky.com/review/">Leave a review</a>
+    <a class="menu-wa" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg>Message me on Instagram</a>
+  </nav>
+
+  <div class="dock" id="dock">
+    <button class="dock-menu" type="button" data-menu aria-label="Open menu" aria-controls="menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+    <a class="dock-main" href="#start">Find your plan</a>
+    <a class="dock-wa" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener" aria-label="Message me on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg></a>
+  </div>
 </main>
 <script>
 (function () {
@@ -506,6 +588,61 @@ details.more[open] summary .plus{transform:rotate(45deg);}
   }
   var results = document.getElementById('results');
   swipe(results, Array.prototype.slice.call(results.querySelectorAll('.slide')), document.getElementById('rdots'), 'Result', document.getElementById('rcount'), true);
+
+  /* menu */
+  var menu = document.getElementById('menu');
+  function openMenu(){ menu.hidden = false; document.body.style.overflow = 'hidden'; Array.prototype.forEach.call(document.querySelectorAll('[data-menu]'), function(b){ b.setAttribute('aria-expanded','true'); }); }
+  function closeMenu(){ menu.hidden = true; document.body.style.overflow = ''; Array.prototype.forEach.call(document.querySelectorAll('[data-menu]'), function(b){ b.setAttribute('aria-expanded','false'); }); }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-menu]'), function(b){ b.addEventListener('click', openMenu); });
+  menu.querySelector('[data-close]').addEventListener('click', closeMenu);
+  Array.prototype.forEach.call(menu.querySelectorAll('a'), function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !menu.hidden) closeMenu(); });
+
+  /* dock: shows after the chooser, hides near the plans and the final buttons */
+  var dock = document.getElementById('dock');
+  if (window.IntersectionObserver) {
+    var seen = {choose: true, ways: false, final: false};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ seen[en.target.getAttribute('data-dock')] = en.isIntersecting; });
+      var pastTop = !seen.choose && document.querySelector('.gchips').getBoundingClientRect().top < 0;
+      dock.classList.toggle('on', pastTop && !seen.ways && !seen.final);
+    });
+    [['.gchips','choose'],['#ways .ways','ways'],['.final','final']].forEach(function(x){ var el = document.querySelector(x[0]); el.setAttribute('data-dock', x[1]); io.observe(el); });
+  }
+
+  /* goal-first picker: tap a goal, see where to start */
+  var WAYS = {
+    online: {u:'https://ziadelfeky.com/apply/', t:'Online coaching', s:'Anywhere &middot; from $60 a month', i:'<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/>'},
+    kraft:  {u:'https://ziadelfeky.com/kraft/', t:'At Kraft Fitness', s:'Ganaklis &middot; from 1,800 EGP a month', i:'<path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/>'},
+    home:   {u:'https://ziadelfeky.com/home-training/', t:'At your home', s:'Alexandria &middot; price on request', i:'<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/>'},
+    lean:   {u:'https://traintrackmarketplace.com/en/programmes/6bf557c1-8dd6-401a-8319-14fee54be2fd', t:'Lean Engine', s:'Ready-made &middot; 12 weeks &middot; 4,500 EGP', i:'<path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6"/>', ext:true},
+    sos:    {u:'https://traintrackmarketplace.com/en/programmes/8875ef1e-eef0-4ee3-8598-9eece0f9536e', t:'Shape Over Scale', s:'Ready-made &middot; 6 weeks &middot; for women &middot; 2,500 EGP', i:'<path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6"/>', ext:true}
+  };
+  var GOALS = {
+    fat:     {say:'Fat loss that lasts comes from training you can keep doing and food that fits your life. I build both around you.', q:['I started just wanting to change my body, but honestly gained so much more than that.'], w:['online','kraft','home'], x:'lean'},
+    shape:   {say:'Shape comes from building muscle where you want it, then losing the fat on top. Your plan does both, at your pace.', q:['I feel stronger, more confident and finally comfortable with myself.'], w:['online','kraft','home'], x:'sos'},
+    muscle:  {say:'You\'ll always know what to lift and when to add more. No guessing, no random workouts.', q:['Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts.'], w:['online','kraft']},
+    pain:    {say:'With pain or after an injury, I start in person so I can assess you hands-on. Then we build you back up step by step.', q:['It\'s the first time I feel there\'s a real plan I\'m following, and I\'m training pain-free.'], w:['kraft','home']},
+    restart: {say:'We start from where you are today, not where you used to be. The first weeks are built so you can keep going.', q:['I used to start and stop all the time, but this time it\'s different.'], w:['online','kraft','home'], x:'lean'},
+    sport:   {say:'Strength, speed and conditioning built around your sport and your season.', q:['My strength has improved a lot and I feel the difference in my performance too.'], w:['kraft','online']}
+  };
+  function pickHTML(k){ var w = WAYS[k]; return '<a class="pick" href="'+w.u+'"'+(w.ext?' target="_blank" rel="noopener"':'')+'><span class="pick-ico"><svg viewBox="0 0 24 24">'+w.i+'</svg></span><span class="pick-text"><b>'+w.t+'</b><span>'+w.s+'</span></span><span class="pick-go" aria-hidden="true">&rarr;</span></a>'; }
+  var gpanel = document.getElementById('gpanel');
+  Array.prototype.forEach.call(document.querySelectorAll('.gchip'), function(c){
+    c.addEventListener('click', function(){
+      var k = c.getAttribute('data-goal'), g = GOALS[k];
+      Array.prototype.forEach.call(document.querySelectorAll('.gchip'), function(x){ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      var h = '<p class="gpanel-say">'+g.say+'</p>';
+      h += '<p class="gpanel-q">&ldquo;'+g.q[0]+'&rdquo;<span>A client</span></p>';
+      h += '<p class="gpanel-lbl">Where I\'d start you</p>';
+      g.w.forEach(function(w){ h += pickHTML(w); });
+      if (g.x) { h += '<p class="gpanel-lbl">Lower-cost start</p>' + pickHTML(g.x); }
+      h += '<a class="gpanel-all" href="#ways">Compare <b>all plans and prices</b> &darr;</a>';
+      gpanel.innerHTML = h; gpanel.hidden = false;
+      Array.prototype.forEach.call(document.querySelectorAll('.way[data-k]'), function(w){ w.classList.toggle('fit', g.w.indexOf(w.getAttribute('data-k')) > -1); });
+      gpanel.scrollIntoView({behavior: smooth ? 'smooth' : 'auto', block: 'start'});
+    });
+  });
   var quotes = document.getElementById('quotes');
   var started = false;
   function startQuotes() {
