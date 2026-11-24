@@ -180,11 +180,18 @@ input::placeholder,textarea::placeholder{color:#6b665d;}
 .btn:disabled{background:#4a453d !important;color:#9a948a !important;}
 .tile.primary .badge{color:#15120e !important;}
 .inp{background:var(--white) !important;color:var(--ink) !important;}
+
+.home-link{display:inline-flex;align-items:center;gap:6px;margin:0 0 20px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;}
+.home-link:hover{color:var(--gold);}
+.home-foot{text-align:center;font-size:13px;line-height:1.6;color:var(--soft);margin:36px 0 0;}
+.home-foot a,.home-cta{color:var(--gold);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;}
+.home-cta{display:inline-block;margin-top:20px;font-size:13px;}
 </style>
 </head>
 <body>
 
 <div class="hdr" id="hdr">
+  <a class="home-link" href="https://ziadelfeky.com/"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>ziadelfeky.com</a>
   <div class="hdr-brand">
     <div class="hdr-eye">Muscle Release & Recovery</div>
     <div class="hdr-coach">Coached by Ziad Elfeky · Performance &amp; Rehabilitation Coach</div>
@@ -466,6 +473,7 @@ input::placeholder,textarea::placeholder{color:#6b665d;}
     <span class="submit-note">Your coach will review this before your session.</span>
   </div>
 </div>
+  <p class="home-foot">Want to know more about your coach? <a href="https://ziadelfeky.com/">Visit ziadelfeky.com</a></p>
 </div>
 
 <!-- SUCCESS -->
@@ -474,6 +482,7 @@ input::placeholder,textarea::placeholder{color:#6b665d;}
     <div class="success-icon"><svg width="28" height="28" fill="none" stroke="#86cfa6" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="success-title" id="success-title">You're all set.</div>
     <div class="success-body">Your intake has been received. Coach Ziad will review it before your session to ensure every detail is prepared for you.</div>
+    <a class="home-cta" href="https://ziadelfeky.com/">Visit ziadelfeky.com</a>
     <div class="next-steps">
       <div class="next-tag">Before your session</div>
       <div class="next-item"><span class="next-num">1.</span>Arrive well-hydrated — drink plenty of water before and after</div>
