@@ -116,7 +116,7 @@ img{max-width:100%;display:block;}
 .note{font-size:11.5px;line-height:1.6;color:var(--soft);margin:0;}
 
 /* REVIEWS */
-.quotes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;align-items:flex-start;}
+.quotes{display:flex;overflow-x:auto;overflow-anchor:none;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;align-items:flex-start;}
 .quotes::-webkit-scrollbar{display:none;}
 .q{flex:0 0 100%;scroll-snap-align:start;margin:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 22px 20px;}
 .q-mark{font-family:var(--serif);font-size:46px;line-height:.6;color:var(--gold);height:22px;display:block;}
@@ -127,6 +127,9 @@ img{max-width:100%;display:block;}
 .dots{display:flex;gap:6px;}
 .dot{width:18px;height:2px;border-radius:2px;background:var(--line-strong);border:0;padding:0;cursor:pointer;transition:background .2s,width .2s;position:relative;}
 .dot.on{background:var(--gold);width:28px;}
+.rev-link{display:inline-block;margin-top:22px;font-size:13.5px;color:var(--soft);text-decoration:none;}
+.rev-link b{font-weight:500;color:var(--gold);border-bottom:1px solid currentColor;}
+.q .stars{font-size:11px;letter-spacing:2px;color:var(--gold);}
 .dot::after{content:"";position:absolute;left:-3px;right:-3px;top:-16px;bottom:-16px;}
 
 /* WAYS TO TRAIN */
@@ -290,6 +293,7 @@ details.more[open] summary .plus{transform:rotate(45deg);}
       <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts. My strength has improved a lot and I feel the difference in my performance too. The follow-up and feedback really make a difference.</p><footer><span class="who">Strength and performance</span></footer></blockquote>
     </div>
     <div class="dots" id="dots" aria-label="Reviews"></div>
+    <a class="rev-link" href="/review/">Trained with me? <b>Leave a review</b> &rarr;</a>
   </section>
 
   <section class="sec band" aria-labelledby="res-title">
@@ -498,7 +502,38 @@ details.more[open] summary .plus{transform:rotate(45deg);}
   var results = document.getElementById('results');
   swipe(results, Array.prototype.slice.call(results.querySelectorAll('.slide')), document.getElementById('rdots'), 'Result', document.getElementById('rcount'), true);
   var quotes = document.getElementById('quotes');
-  swipe(quotes, Array.prototype.slice.call(quotes.querySelectorAll('.q')), document.getElementById('dots'), 'Review', null, false);
+  var started = false;
+  function startQuotes() {
+    if (started) return; started = true;
+    swipe(quotes, Array.prototype.slice.call(quotes.querySelectorAll('.q')), document.getElementById('dots'), 'Review', null, false);
+  }
+  function addReviews(rows) {
+    if (!Array.isArray(rows)) return;
+    rows.slice().reverse().forEach(function (r) {
+      if (!r || !r.review || !r.first_name) return;
+      var q = document.createElement('blockquote'); q.className = 'q';
+      var mark = document.createElement('span'); mark.className = 'q-mark'; mark.setAttribute('aria-hidden', 'true'); mark.textContent = '\u201C';
+      var p = document.createElement('p'); p.textContent = r.review;
+      var f = document.createElement('footer');
+      var who = document.createElement('span'); who.className = 'who'; who.textContent = r.first_name + ' \u00B7 ' + r.service;
+      var st = document.createElement('span'); st.className = 'stars'; st.setAttribute('aria-label', r.rating + ' out of 5');
+      st.textContent = '\u2605\u2605\u2605\u2605\u2605'.slice(0, r.rating);
+      f.appendChild(who); f.appendChild(st); q.appendChild(mark); q.appendChild(p); q.appendChild(f);
+      quotes.insertBefore(q, quotes.firstChild);
+    });
+    quotes.scrollLeft = 0;
+  }
+  try {
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); startQuotes(); }, 3000);
+    fetch('https://gndbfxwjcumkftbultkt.supabase.co/rest/v1/rpc/ze_public_reviews', {
+      method: 'POST', signal: ctrl ? ctrl.signal : undefined,
+      headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduZGJmeHdqY3Vta2Z0YnVsdGt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwMzc5NTAsImV4cCI6MjA5NzYxMzk1MH0.LLk6yk3kgyH5INPE60hU1tyAaKNCWF6Sdkoywg3kRjo', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduZGJmeHdqY3Vta2Z0YnVsdGt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwMzc5NTAsImV4cCI6MjA5NzYxMzk1MH0.LLk6yk3kgyH5INPE60hU1tyAaKNCWF6Sdkoywg3kRjo', 'Content-Type': 'application/json' },
+      body: '{}'
+    }).then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (rows) { clearTimeout(timer); if (!started) addReviews(rows); startQuotes(); })
+      .catch(function () { clearTimeout(timer); startQuotes(); });
+  } catch (e) { startQuotes(); }
 })();
 </script>
 </body>
