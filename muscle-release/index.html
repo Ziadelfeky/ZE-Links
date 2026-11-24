@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:title" content="Muscle Release & Recovery · Ziad Elfeky"/>
+<meta property="og:description" content="Book your Muscle Release & Recovery session with Coach Ziad Elfeky. Fill in your intake before we start."/>
+<meta name="description" content="Book your Muscle Release & Recovery session with Coach Ziad Elfeky."/>
+<meta name="theme-color" content="#0f0e0c"/>
+<title>Muscle Release & Recovery · Ziad Elfeky</title>
+<link rel="canonical" href="https://ziadelfeky.com/muscle-release/"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/zf-favicon-32.png">
+<link rel="apple-touch-icon" href="/zf-apple-touch.png">
+<meta property="og:url" content="https://ziadelfeky.com/muscle-release/"/>
+<meta property="og:image" content="https://ziadelfeky.com/zf-og.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--ink:#f1ece2;--mid:#a39d91;--soft:#7d776d;--rule:rgba(241,236,226,.12);--bg:#0f0e0c;--white:#181613;--gold:#c9a96e;--gold-dark:#dcc08e;--gold-faint:#211c15;--red:#e58a7a;--red-bg:#2a1713;--red-border:#5c2c24;--green:#86cfa6;--green-bg:#14251c;--amber:#e2b860;--amber-bg:#211a0e;--amber-border:#4d3b17;}
+body{font-family:'Poppins',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;min-height:100vh;}
+input,select,textarea,button{font-family:'Poppins',system-ui,-apple-system,sans-serif;touch-action:manipulation;}
+.hdr{background:var(--ink);color:#fff;padding:36px 24px 30px;}
+.hdr-brand{margin-bottom:12px;}
+.hdr-eye{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.hdr-coach{font-size:12px;color:rgba(255,255,255,.35);margin-top:2px;}
+.hdr h1{font-family:'Lora',Georgia,serif;font-size:clamp(24px,5vw,38px);font-weight:400;line-height:1.1;}
+.hdr-sub{font-size:13px;color:rgba(255,255,255,.35);font-style:italic;margin-top:5px;}
+.hdr-desc{font-size:13px;color:rgba(255,255,255,.42);margin-top:14px;max-width:520px;line-height:1.7;border-top:1px solid rgba(255,255,255,.08);padding-top:14px;}
+.nav{background:var(--white);border-bottom:1px solid var(--rule);padding:0 24px;}
+.nav-inner{max-width:720px;margin:0 auto;display:flex;}
+.nav-btn{background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;padding:13px 0;margin-right:28px;font-size:13px;font-weight:500;color:var(--soft);transition:all .14s;-webkit-tap-highlight-color:transparent;}
+.nav-btn.active{color:var(--ink);border-bottom-color:var(--gold);}
+.wrap{max-width:720px;margin:0 auto;padding:44px 20px 80px;}
+.sec{margin-bottom:48px;}
+.sec-hdr{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:11px;margin-bottom:22px;}
+.sec-num{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;}
+.sec-title{font-family:'Lora',Georgia,serif;font-size:20px;font-weight:400;}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.lbl{font-size:13px;font-weight:600;color:var(--ink);}
+.hint{font-weight:400;color:var(--soft);font-size:12px;margin-left:5px;}
+.req{color:var(--gold);margin-left:2px;}
+.err-msg{font-size:11px;color:var(--red);min-height:14px;}
+input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;background:var(--white);border:1px solid var(--rule);border-radius:7px;padding:11px 14px;font-size:14px;color:var(--ink);outline:none;transition:border-color .15s;-webkit-appearance:none;}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);}
+input.err,select.err,textarea.err{border-color:var(--red);}
+textarea{resize:vertical;min-height:80px;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-color:var(--white);padding-right:34px;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px;}
+.pill{display:inline-flex;align-items:center;gap:7px;background:var(--white);border:1px solid var(--rule);border-radius:20px;padding:7px 15px;font-size:13px;cursor:pointer;transition:all .13s;-webkit-tap-highlight-color:transparent;user-select:none;}
+.pill.on{background:var(--gold-faint);border-color:var(--gold);color:var(--gold-dark);font-weight:600;}
+.pill-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);flex-shrink:0;transition:background .13s;}
+.pill.on .pill-dot{background:var(--gold);}
+/* CLOTHING CARDS */
+.clothing-options{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+.clothing-card{background:var(--white);border:2px solid var(--rule);border-radius:10px;padding:16px 18px;cursor:pointer;transition:all .15s;-webkit-tap-highlight-color:transparent;}
+.clothing-card.selected{border-color:var(--gold);background:var(--gold-faint);}
+.clothing-card-top{display:flex;align-items:center;gap:12px;}
+.clothing-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--rule);flex-shrink:0;transition:all .15s;display:flex;align-items:center;justify-content:center;}
+.clothing-card.selected .clothing-radio{border-color:var(--gold);background:var(--gold);}
+.clothing-radio-dot{width:8px;height:8px;border-radius:50%;background:#fff;opacity:0;transition:opacity .15s;}
+.clothing-card.selected .clothing-radio-dot{opacity:1;}
+.clothing-card-title{font-size:14px;font-weight:600;color:var(--ink);}
+.clothing-card-subtitle{font-size:12px;color:var(--gold-dark);font-weight:500;margin-left:4px;}
+.clothing-card-body{font-size:13px;color:var(--mid);line-height:1.65;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);}
+.clothing-warning{background:var(--amber-bg);border:1px solid var(--amber-border);border-radius:7px;padding:11px 14px;margin-top:10px;display:none;}
+.clothing-warning.show{display:block;}
+.clothing-warning-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:4px;}
+.clothing-warning p{font-size:12.5px;color:#5a4200;line-height:1.65;}
+/* BODY MAP */
+.body-map{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:16px;margin-top:4px;}
+.body-map-title{font-size:12px;font-weight:600;color:var(--mid);margin-bottom:10px;}
+.body-areas{display:flex;flex-wrap:wrap;gap:7px;}
+.area-btn{background:var(--bg);border:1px solid var(--rule);border-radius:6px;padding:7px 13px;font-size:13px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all .13s;}
+.area-btn.on{background:var(--gold-faint);border-color:var(--gold);color:var(--gold-dark);font-weight:600;}
+/* INFO BOXES */
+.fees{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:6px 18px 14px;margin-bottom:20px;}
+.fees-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px solid var(--rule);}
+.fees-row:last-of-type{border-bottom:none;}
+.fees-name{font-size:14px;font-weight:500;color:var(--ink);}
+.fees-name small{display:block;font-size:12px;font-weight:400;color:var(--mid);margin-top:2px;}
+.fees-price{font-family:'Lora',Georgia,serif;font-size:20px;color:var(--gold-dark);white-space:nowrap;}
+.fees-price span{font-family:'Poppins',sans-serif;font-size:11px;color:var(--mid);margin-left:3px;}
+.fees-head{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding:12px 0 2px;}
+.fees-note{font-size:12px;color:var(--soft);line-height:1.6;margin-top:6px;}
+.info-box{background:var(--gold-faint);border-left:3px solid var(--gold);border-radius:0 7px 7px 0;padding:14px 16px;font-size:13px;color:var(--mid);line-height:1.75;margin-bottom:16px;}
+.info-box strong{color:var(--ink);}
+.info-box ul{margin-top:6px;margin-left:16px;}
+.info-box ul li{margin-bottom:4px;}
+/* DISCLAIMER */
+.disclaimer-box{background:var(--amber-bg);border:1px solid var(--amber-border);border-radius:10px;padding:20px 20px;margin-top:4px;}
+.disclaimer-section{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--amber-border);}
+.disclaimer-section:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.disclaimer-section-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
+.disclaimer-section p{font-size:13px;color:#4a3800;line-height:1.75;}
+.disclaimer-section ul{margin-top:6px;margin-left:16px;}
+.disclaimer-section ul li{font-size:13px;color:#4a3800;line-height:1.7;margin-bottom:3px;}
+.consent-check{display:flex;align-items:flex-start;gap:12px;margin-top:20px;cursor:pointer;background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;}
+.consent-check input{width:20px;height:20px;min-width:20px;margin-top:2px;accent-color:var(--gold);cursor:pointer;}
+.consent-check span{font-size:13px;color:var(--ink);line-height:1.65;font-weight:500;}
+/* SUBMIT */
+.submit-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:10px;}
+.btn-primary{background:var(--ink);color:#fff;border:none;border-radius:8px;padding:15px 52px;font-size:14px;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.btn-primary:disabled{background:var(--soft);}
+.submit-note{font-size:12px;color:var(--soft);}
+.err-banner{font-size:13px;color:var(--red);background:var(--red-bg);border:1px solid var(--red-border);border-radius:7px;padding:10px 16px;text-align:center;width:100%;}
+/* SUCCESS */
+.success-wrap{max-width:500px;margin:60px auto;padding:0 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px;}
+.success-icon{width:64px;height:64px;border-radius:50%;background:var(--green-bg);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;}
+.success-title{font-family:'Lora',Georgia,serif;font-size:28px;font-weight:400;}
+.success-body{font-size:14px;color:var(--mid);line-height:1.7;}
+.next-steps{background:var(--gold-faint);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;width:100%;text-align:left;}
+.next-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.next-item{display:flex;gap:10px;font-size:13px;color:var(--mid);margin-bottom:8px;}
+.next-num{color:var(--gold);font-weight:700;flex-shrink:0;}
+/* DASHBOARD */
+.pin-wrap{max-width:360px;margin:60px auto;padding:0 24px;display:flex;flex-direction:column;gap:18px;align-items:center;}
+.pin-title{font-family:'Lora',Georgia,serif;font-size:24px;text-align:center;}
+.pin-sub{font-size:13px;color:var(--mid);text-align:center;}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+.dash-title{font-family:'Lora',Georgia,serif;font-size:24px;}
+.dash-count{font-size:13px;color:var(--soft);margin-top:3px;}
+.btn-sm{background:none;border:1px solid var(--rule);border-radius:6px;padding:8px 14px;font-size:12px;color:var(--mid);cursor:pointer;}
+.btn-danger{border-color:var(--red-border);color:var(--red);}
+.empty-state{text-align:center;padding:60px 0;color:var(--soft);font-size:14px;}
+.loading{text-align:center;padding:40px;color:var(--soft);font-size:14px;}
+.client-card{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;cursor:pointer;display:flex;align-items:center;gap:15px;margin-bottom:10px;}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--gold-faint);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;font-weight:700;color:var(--gold);}
+.client-name{font-weight:600;font-size:14px;}
+.client-meta{font-size:12px;color:var(--soft);margin-top:2px;}
+.client-date{font-size:11px;color:var(--soft);flex-shrink:0;}
+.back-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:10px;}
+.detail-name{font-family:'Lora',Georgia,serif;font-size:26px;margin-bottom:4px;}
+.detail-meta{font-size:12px;color:var(--soft);margin-bottom:24px;}
+.detail-sec-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;margin-top:24px;}
+.detail-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.detail-key{font-size:12px;font-weight:600;color:var(--soft);min-width:160px;flex-shrink:0;}
+.detail-val{font-size:13px;color:var(--ink);flex:1;}
+.footer{background:var(--ink);color:rgba(255,255,255,.28);text-align:center;padding:18px;font-size:12px;letter-spacing:.04em;}
+.footer span{color:var(--gold);font-weight:500;}
+@media(max-width:580px){.row{grid-template-columns:1fr;}}
+.client-card.unread{border-color:var(--gold);background:var(--gold-faint);}
+.client-card.unread .client-name::after{content:'New';display:inline-block;margin-left:8px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--gold);padding:2px 7px;border-radius:10px;vertical-align:2px;}
+.unread-count{color:var(--gold-dark);font-weight:600;}
+.detail-actions{display:flex;gap:8px;flex-wrap:wrap;}
+
+/* ---- Dark brand layer ---- */
+:root{color-scheme:dark;}
+body{font-weight:300;-webkit-font-smoothing:antialiased;}
+input,select,textarea{color:var(--ink);}
+input::placeholder,textarea::placeholder{color:#6b665d;}
+.hdr,.hero{background:var(--bg) !important;color:var(--ink) !important;border-bottom:1px solid var(--rule);}
+.footer{background:var(--bg) !important;border-top:1px solid var(--rule);color:var(--soft) !important;}
+.btn-primary,.apply{background:var(--gold) !important;color:#15120e !important;font-weight:500 !important;}
+.btn-primary:disabled{background:#4a453d !important;color:#9a948a !important;}
+.apply:hover{filter:brightness(1.08);}
+.scale-btn.on,.rating-btn.on,.score-badge{background:var(--gold) !important;color:#15120e !important;border-color:var(--gold) !important;}
+.client-card.unread .client-name::after{color:#15120e !important;}
+.cat-icon{background:var(--white) !important;border:1px solid var(--rule);}
+.nav{border-bottom-color:var(--rule) !important;}
+.lbl,.cert-name{font-weight:500 !important;}
+/* Kraft, home and release forms */
+.day-btn.on,.duration-num{background:var(--gold) !important;color:#15120e !important;border-color:var(--gold) !important;}
+.medical-box,.consent-box{background:var(--amber-bg,#211a0e) !important;border-color:var(--amber-border,#4d3b17) !important;}
+.consent-title{color:var(--amber,#e2b860) !important;}
+.consent-text,.consent-check span,.service-card p,.clothing-warning p,.disclaimer-section p,.disclaimer-section ul li{color:var(--mid) !important;}
+.payment-banner{background:var(--white) !important;border:1px solid var(--rule);}
+.badge-new{background:#14212c !important;color:#8cc4ec !important;}
+.badge-ret{background:var(--green-bg) !important;color:var(--green) !important;}
+#desc-vip,#desc-private{background:var(--gold-faint) !important;border-color:rgba(201,169,110,.35) !important;}
+#desc-vip p,#desc-private p{color:var(--mid) !important;}
+.clothing-radio-dot{background:#15120e !important;}
+/* Coach hub */
+.tile.primary{background:var(--gold-faint) !important;border-color:var(--gold) !important;color:var(--ink) !important;}
+.tile.primary .t-desc{color:var(--mid) !important;}
+.t-icon{background:var(--bg) !important;border:1px solid var(--rule);}
+.tile.primary .t-icon{background:rgba(201,169,110,.12) !important;}
+.btn{background:var(--gold) !important;color:#15120e !important;}
+.btn:disabled{background:#4a453d !important;color:#9a948a !important;}
+.tile.primary .badge{color:#15120e !important;}
+.inp{background:var(--white) !important;color:var(--ink) !important;}
+</style>
+</head>
+<body>
+
+<div class="hdr" id="hdr">
+  <div class="hdr-brand">
+    <div class="hdr-eye">Muscle Release & Recovery</div>
+    <div class="hdr-coach">Coached by Ziad Elfeky · Performance &amp; Rehabilitation Coach</div>
+  </div>
+  <h1 id="hdr-title">Session Intake Form</h1>
+  <div class="hdr-sub">Restore movement. Release tension. Feel the difference.</div>
+  <div class="hdr-desc" id="hdr-desc">Fill this in before your first session. It helps your coach prepare specifically for you and ensures the session is safe, effective, and fully tailored.</div>
+</div>
+
+<div class="nav" id="nav" style="display:none">
+  <div class="nav-inner">
+    <button class="nav-btn active" id="nav-form" onclick="showView('form')">Intake Form</button>
+    <button class="nav-btn" id="nav-dash" onclick="showView('dashboard')">Coach Dashboard</button>
+    <a class="nav-btn" href="https://ziadelfeky.github.io/ze-coach/" style="text-decoration:none;margin-left:auto;margin-right:0;">All dashboards</a>
+  </div>
+</div>
+
+<div id="view-form">
+<div class="wrap">
+
+  <!-- 01 PERSONAL INFO -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="sec-num">01</span><span class="sec-title">Personal Info</span></div>
+    <div class="row">
+      <div class="field">
+        <label class="lbl">Full Name <span class="req">*</span></label>
+        <input type="text" id="f-name" placeholder="Your full name">
+        <span class="err-msg" id="e-name"></span>
+      </div>
+      <div class="field">
+        <label class="lbl">Date of Birth <span class="req">*</span></label>
+        <input type="date" id="f-dob" onchange="checkAge()">
+        <span class="err-msg" id="e-dob"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label class="lbl">Gender <span class="req">*</span></label>
+        <select id="f-gender">
+          <option value="">Select</option>
+          <option>Male</option><option>Female</option>
+          <option>Prefer not to say</option>
+        </select>
+        <span class="err-msg" id="e-gender"></span>
+      </div>
+      <div class="field">
+        <label class="lbl">Phone Number <span class="req">*</span></label>
+        <input type="tel" id="f-phone" placeholder="e.g. 010 0000 0000">
+        <span class="err-msg" id="e-phone"></span>
+      </div>
+    </div>
+  
+    <div id="guardian-wrap" style="display:none;margin-top:6px;">
+      <div class="info-box" style="margin-bottom:14px;">Clients under 18 need a parent or guardian's consent, and the parent or guardian must be present during the session.</div>
+      <div class="field">
+        <label class="lbl">Parent or guardian's full name <span class="req">*</span></label>
+        <input type="text" id="f-guardian" placeholder="Full name">
+      </div>
+      <label class="consent-check" style="margin-top:0;">
+        <input type="checkbox" id="guardian-check">
+        <span>I am the parent or guardian. I consent to this session and will be present during it.</span>
+      </label>
+      <span class="err-msg" id="e-guardian" style="display:block;margin-top:8px;"></span>
+    </div>
+  </div>
+
+  <!-- 02 SESSION -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="sec-num">02</span><span class="sec-title">Session Details</span></div>
+
+    <div class="fees" aria-label="Session fees">
+      <div class="fees-head">Single session</div>
+      <div class="fees-row"><span class="fees-name">Targeted release<small>45&ndash;60 min &middot; one priority area</small></span><span class="fees-price">1,200<span>EGP</span></span></div>
+      <div class="fees-row"><span class="fees-name">Full body release<small>90&ndash;120 min</small></span><span class="fees-price">2,200<span>EGP</span></span></div>
+      <div class="fees-head">4-session pack</div>
+      <div class="fees-row"><span class="fees-name">Targeted &times; 4<small>4 targeted sessions &middot; save 400</small></span><span class="fees-price">4,400<span>EGP</span></span></div>
+      <div class="fees-row"><span class="fees-name">Full body &times; 4<small>4 full body sessions &middot; save 800</small></span><span class="fees-price">8,000<span>EGP</span></span></div>
+      <p class="fees-note">Packs are valid for 8 weeks from your first session. Every session is performed personally by Coach Ziad.</p>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Session duration <span class="req">*</span></label>
+      <div class="pills" id="p-duration"></div>
+      <span class="err-msg" id="e-duration"></span>
+    </div>
+
+    <div class="info-box" style="margin-bottom:16px;">
+      Session durations are estimates. If an area has a lot of tension or restricted tissue, the session may need to run longer to finish the work properly. Coach Ziad will always tell you before extending, and any change to the fee is agreed with you first.
+    </div>
+
+    <div class="field">
+      <label class="lbl">Session location <span class="req">*</span></label>
+      <div class="pills" id="p-location"></div>
+      <span class="err-msg" id="e-location"></span>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Primary focus area(s) <span class="hint">— what brings you in today</span></label>
+      <div class="body-map">
+        <div class="body-map-title">Select all that apply</div>
+        <div class="body-areas" id="body-areas"></div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Describe your main complaint or goal for this session</label>
+      <textarea id="f-complaint" placeholder="e.g. Chronic tightness in upper back and neck from desk work, right hip restriction after football, general tension and fatigue…"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="lbl">How long have you been experiencing this?</label>
+      <div class="pills" id="p-duration-complaint"></div>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Have you had soft-tissue work or massage before?</label>
+      <div class="pills" id="p-prev-therapy"></div>
+    </div>
+  </div>
+
+  <!-- 03 HEALTH -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="sec-num">03</span><span class="sec-title">Health & Medical</span></div>
+
+    <div class="info-box">
+      This information is used solely to ensure your safety during the session. All details are kept strictly confidential.
+    </div>
+
+    <div class="field">
+      <label class="lbl">Do any of these apply to you right now? <span class="req">*</span></label>
+      <div class="pills" id="p-screen"></div>
+      <span class="err-msg" id="e-screen"></span>
+      <div class="info-box" style="margin-top:10px;margin-bottom:0;">If any apply, the session may be adapted, postponed, or need your doctor's clearance first. I'll go through it with you before we start.</div>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Any current pain, injuries, surgeries, or medical conditions? <span class="req">*</span></label>
+      <textarea id="f-pain" placeholder="e.g. Herniated disc L4–L5, recent knee surgery, fibromyalgia, osteoporosis — or write 'None'"></textarea>
+      <span class="err-msg" id="e-pain"></span>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Any areas that must NOT be worked on?</label>
+      <input type="text" id="f-avoid" placeholder="e.g. Avoid left shoulder — recent injury, no deep pressure on lower back…">
+    </div>
+
+    <div class="field">
+      <label class="lbl">Skin conditions or sensitivities <span class="hint">— relevant for oil use</span></label>
+      <div class="pills" id="p-skin"></div>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Any known oil or product allergies?</label>
+      <input type="text" id="f-allergies" placeholder="e.g. Allergic to nuts (nut-based oils), sensitive to fragrance — or None">
+    </div>
+
+    <div class="field">
+      <label class="lbl">Currently on blood thinners or medication affecting skin/tissue?</label>
+      <div class="pills" id="p-meds"></div>
+    </div>
+  </div>
+
+  <!-- 04 CLOTHING & OIL -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="sec-num">04</span><span class="sec-title">Session Preference</span></div>
+
+    <div class="info-box">
+      <strong>For best results</strong>, Muscle Release & Recovery is performed directly on skin with oil. This allows proper tissue depth, reduces friction, and maximizes the effectiveness of each technique. If clothing is preferred, please read the note carefully before choosing.<br><br><strong>Hips and glutes are always worked over shorts, with no exceptions.</strong>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
+      <div style="background:var(--white);border:1px solid var(--rule);border-radius:9px;padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Males — Recommended</div>
+        <p style="font-size:12.5px;color:var(--mid);line-height:1.65;">Compression shorts or fitted athletic shorts. No shirt needed for upper body work. For lower body — shorts only is ideal for full access.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--rule);border-radius:9px;padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Females — Recommended</div>
+        <p style="font-size:12.5px;color:var(--mid);line-height:1.65;">Sports bra + compression shorts or fitted leggings. Sports bra allows full access to back, shoulders, and neck for upper body work.</p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Clothing preference <span class="req">*</span></label>
+      <div class="clothing-options">
+
+        <div class="clothing-card" id="card-skin" onclick="selectClothing('skin')">
+          <div class="clothing-card-top">
+            <div class="clothing-radio"><div class="clothing-radio-dot"></div></div>
+            <div>
+              <span class="clothing-card-title">On skin with oil</span>
+              <span class="clothing-card-subtitle">— Recommended</span>
+            </div>
+          </div>
+          <div class="clothing-card-body">
+            Professional massage oil is applied directly to skin. Allows full tissue depth, maximum precision, and the most effective release. Please wear appropriate clothing you are comfortable removing for the areas being worked on. Hips and glutes are always worked over shorts.
+          </div>
+        </div>
+
+        <div class="clothing-card" id="card-clothes" onclick="selectClothing('clothes')">
+          <div class="clothing-card-top">
+            <div class="clothing-radio"><div class="clothing-radio-dot"></div></div>
+            <div>
+              <span class="clothing-card-title">On clothing</span>
+            </div>
+          </div>
+          <div class="clothing-card-body">
+            Work can be performed over clothing if preferred. Please note the limitations and risks below before choosing this option.
+          </div>
+          <div class="clothing-warning" id="clothing-warning">
+            <div class="clothing-warning-title">Important — Please Read</div>
+            <p>If you choose to keep clothing on:<br><br>
+            • Clothing must be <strong>tight-fitting</strong> — loose fabric prevents effective technique and reduces depth significantly<br>
+            • Friction from fabric during sustained pressure may cause <strong>temporary redness or mild skin irritation</strong> in treated areas<br>
+            • The depth and precision of the work will be reduced compared to skin sessions<br><br>
+            This preference will be fully respected. Please select tight sportswear if you choose this option.</p>
+          </div>
+        </div>
+
+      </div>
+      <span class="err-msg" id="e-clothing"></span>
+    </div>
+  </div>
+
+  <!-- 05 DISCLAIMER & CONSENT -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="sec-num">05</span><span class="sec-title">Disclaimer & Consent</span></div>
+
+    <div class="disclaimer-box">
+
+      <div class="disclaimer-section">
+        <div class="disclaimer-section-title">What to Expect During the Session</div>
+        <p>Muscle Release & Recovery is hands-on soft-tissue work, including myofascial release and targeted pressure techniques, performed by Coach Ziad Elfeky. All work is conducted professionally and with complete respect for personal boundaries at all times. Hips and glutes are always worked over shorts, with no exceptions.</p>
+      </div>
+
+      <div class="disclaimer-section">
+        <div class="disclaimer-section-title">Post-Session Effects</div>
+        <p>Many clients feel immediate relief, lightness, and easier movement after the session. However, the following may occur — particularly in individuals with sensitive skin or areas of dense tension:</p>
+        <ul>
+          <li>Temporary muscle soreness lasting 24–48 hours — similar to post-exercise soreness</li>
+          <li>Mild bruising in treated areas — uncommon but possible, especially with deep pressure or sensitive skin. It usually fades within a few days to a week. Tell me if you bruise easily or take blood thinners</li>
+          <li>Temporary redness in the treated area — normal and expected</li>
+        </ul>
+      </div>
+
+      <div class="disclaimer-section">
+        <div class="disclaimer-section-title">Oil & Skin</div>
+        <p>For skin sessions, a professional massage oil will be applied to the treated areas. Please ensure you have disclosed any known skin sensitivities, allergies, or skin conditions in the Health section above. If you experience unexpected irritation during the session, inform your coach immediately and the session will be adjusted.</p>
+      </div>
+
+      <div class="disclaimer-section">
+        <div class="disclaimer-section-title">Your Right to Stop</div>
+        <p>You may stop the session at any time, for any reason, without explanation. You are encouraged to communicate any discomfort, boundaries, or preferences before and during the session — they will be respected without question.</p>
+      </div>
+
+      <label class="consent-check">
+        <input type="checkbox" id="consent-check">
+        <span>I have read and understood all of the above. I consent to hands-on soft-tissue work performed by Coach Ziad Elfeky, including my chosen session and clothing preference, and I understand that hips and glutes are always worked over shorts. I confirm that the health information I have provided is accurate to the best of my knowledge, and I will communicate any concerns or boundaries before or during the session.</span>
+      </label>
+      <span class="err-msg" id="e-consent" style="display:block;margin-top:8px;"></span>
+    </div>
+  </div>
+
+  <!-- 06 NOTES -->
+  <div class="sec">
+    <div class="sec-hdr"><span class="sec-num">06</span><span class="sec-title">Final Notes</span></div>
+    <div class="field">
+      <label class="lbl">Anything else your coach should know before the session?</label>
+      <textarea id="f-notes" placeholder="Personal context, preferences, questions, concerns — anything relevant…"></textarea>
+    </div>
+    <div class="field">
+      <label class="lbl">How did you hear about this service?</label>
+      <div class="pills" id="p-referral"></div>
+    </div>
+  </div>
+
+  <div class="submit-wrap">
+    <div id="submit-err" class="err-banner" style="display:none">Please fill in all required fields and confirm consent before submitting.</div>
+    <button class="btn-primary" id="submit-btn" onclick="handleSubmit()">Submit Intake Form</button>
+    <span class="submit-note">Your coach will review this before your session.</span>
+  </div>
+</div>
+</div>
+
+<!-- SUCCESS -->
+<div id="view-success" style="display:none">
+  <div class="success-wrap">
+    <div class="success-icon"><svg width="28" height="28" fill="none" stroke="#86cfa6" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="success-title" id="success-title">You're all set.</div>
+    <div class="success-body">Your intake has been received. Coach Ziad will review it before your session to ensure every detail is prepared for you.</div>
+    <div class="next-steps">
+      <div class="next-tag">Before your session</div>
+      <div class="next-item"><span class="next-num">1.</span>Arrive well-hydrated — drink plenty of water before and after</div>
+      <div class="next-item"><span class="next-num">2.</span>Wear or bring appropriate clothing for your preference</div>
+      <div class="next-item"><span class="next-num">3.</span>Avoid heavy meals at least 1 hour before the session</div>
+    </div>
+    <button onclick="resetForm()" style="font-size:12px;color:var(--soft);background:none;border:none;cursor:pointer;text-decoration:underline;margin-top:8px;">Submit another response</button>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="view-dashboard" style="display:none">
+  <div id="dash-pin" style="display:none">
+    <div class="pin-wrap">
+      <div class="pin-title">Coach Access</div>
+      <div class="pin-sub">Sign in with your coach account.</div>
+      <div style="width:100%;display:flex;flex-direction:column;gap:10px">
+        <input type="email" id="login-email" placeholder="Email" autocomplete="username">
+        <input type="password" id="login-pass" placeholder="Password" autocomplete="current-password">
+        <div id="pin-err" style="font-size:12px;color:var(--red);text-align:center;display:none">Sign-in failed</div>
+        <button class="btn-primary" id="login-btn" onclick="signIn()">Sign in</button>
+      </div>
+      <button onclick="showView('form')" style="font-size:12px;color:var(--soft);background:none;border:none;cursor:pointer">Back to form</button>
+    </div>
+  </div>
+  <div id="dash-list" style="display:none">
+    <div class="wrap">
+      <div class="dash-header">
+        <div><div class="dash-title">Session Intakes</div><div class="dash-count" id="dash-count">Loading…</div></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn-sm" onclick="exportCSV()">Export CSV</button>
+          <button class="btn-sm" onclick="loadSubmissions()">Refresh</button>
+          <button class="btn-sm" onclick="dashLogout()">Lock</button>
+        </div>
+      </div>
+      <div id="clients-list"></div>
+    </div>
+  </div>
+  <div id="dash-detail" style="display:none">
+    <div class="wrap">
+      <div class="back-row">
+        <button class="btn-sm" onclick="showDashList()">← All intakes</button>
+        <button class="btn-sm btn-danger" id="detail-delete-btn">Delete record</button>
+      </div>
+      <div id="detail-content"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer"><span>Ziad Elfeky</span> · Muscle Release & Recovery · Alexandria</div>
+
+<script>
+var SUPABASE_URL = "https://gndbfxwjcumkftbultkt.supabase.co";
+var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduZGJmeHdqY3Vta2Z0YnVsdGt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwMzc5NTAsImV4cCI6MjA5NzYxMzk1MH0.LLk6yk3kgyH5INPE60hU1tyAaKNCWF6Sdkoywg3kRjo";
+var accessToken = null;
+var TABLE = "muscle_release_intake";
+var pillState = {};
+var bodyAreas = [];
+var clothingChoice = '';
+var dashUnlocked = false;
+var allSubmissions = [];
+
+function initPills(id, opts, multi) {
+  pillState[id] = multi ? [] : '';
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = '';
+  opts.forEach(function(opt) {
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'pill';
+    btn.innerHTML = '<span class="pill-dot"></span>' + opt;
+    btn.addEventListener('click', function() { togglePill(id, opt, multi, btn); });
+    el.appendChild(btn);
+  });
+}
+
+function togglePill(id, val, multi, btn) {
+  if (multi) {
+    var arr = pillState[id]; var idx = arr.indexOf(val);
+    if (idx > -1) { arr.splice(idx, 1); btn.classList.remove('on'); }
+    else { arr.push(val); btn.classList.add('on'); }
+  } else {
+    var same = pillState[id] === val;
+    pillState[id] = same ? '' : val;
+    var el = document.getElementById(id);
+    if (el) el.querySelectorAll('.pill').forEach(function(b) { b.classList.remove('on'); });
+    if (!same) btn.classList.add('on');
+  }
+}
+
+function getPill(id) { return pillState[id]; }
+
+// Multi-select where "None of these" clears the others, and any other choice clears "None of these"
+function initExclusive(id, opts, none) {
+  pillState[id] = [];
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = '';
+  opts.forEach(function(opt) {
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'pill'; btn.innerHTML = ' ' + opt;
+    btn.addEventListener('click', function() {
+      var arr = pillState[id], i = arr.indexOf(opt);
+      if (i > -1) arr.splice(i, 1);
+      else if (opt === none) pillState[id] = arr = [none];
+      else { var n = arr.indexOf(none); if (n > -1) arr.splice(n, 1); arr.push(opt); }
+      el.querySelectorAll('.pill').forEach(function(b, j) { b.classList.toggle('on', pillState[id].indexOf(opts[j]) > -1); });
+      var e = document.getElementById('e-' + id.replace('p-', '')); if (e && pillState[id].length) e.textContent = '';
+    });
+    el.appendChild(btn);
+  });
+}
+
+function ageFrom(v) {
+  var d = new Date(v); if (!v || isNaN(d)) return null;
+  var t = new Date(), a = t.getFullYear() - d.getFullYear(), m = t.getMonth() - d.getMonth();
+  if (m < 0 || (m === 0 && t.getDate() < d.getDate())) a--;
+  return a;
+}
+function checkAge() {
+  var a = ageFrom(document.getElementById('f-dob').value);
+  document.getElementById('guardian-wrap').style.display = (a !== null && a < 18) ? 'block' : 'none';
+}
+
+function selectClothing(choice) {
+  clothingChoice = choice;
+  document.getElementById('card-skin').classList.toggle('selected', choice === 'skin');
+  document.getElementById('card-clothes').classList.toggle('selected', choice === 'clothes');
+  document.getElementById('clothing-warning').classList.toggle('show', choice === 'clothes');
+  document.getElementById('e-clothing').textContent = '';
+}
+
+function initBodyAreas() {
+  bodyAreas = [];
+  var areas = ['Neck','Upper Back','Lower Back','Shoulders','Chest','Arms','Forearms','Glutes','Hips','Quads','Hamstrings','Calves','Full Body'];
+  var el = document.getElementById('body-areas');
+  if (!el) return;
+  el.innerHTML = '';
+  areas.forEach(function(a) {
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'area-btn'; btn.textContent = a;
+    btn.addEventListener('click', function() {
+      var idx = bodyAreas.indexOf(a);
+      if (idx > -1) { bodyAreas.splice(idx, 1); btn.classList.remove('on'); }
+      else { bodyAreas.push(a); btn.classList.add('on'); }
+    });
+    el.appendChild(btn);
+  });
+}
+
+function initAll() {
+  initPills('p-duration', ['45–60 min (Targeted)','90–120 min (Full Body)'], false);
+  initPills('p-location', ['Kraft Fitness — Ganaklis, Alexandria','Home visit'], false);
+  initPills('p-duration-complaint', ['Less than 1 week','1–4 weeks','1–3 months','3–6 months','6+ months','Chronic / ongoing'], false);
+  initPills('p-prev-therapy', ['Never','Yes — occasionally','Yes — regularly','Yes — with Coach Ziad before'], false);
+  initPills('p-skin', ['No conditions','Eczema','Psoriasis','Sensitive skin','Recent scars','Sunburn','Open wounds'], true);
+  initPills('p-meds', ['No','Yes — blood thinners','Yes — other medication','Prefer not to say'], false);
+  initPills('p-referral', ['Instagram','Friend / family referral','Kraft member','Google','Other'], false);
+  initExclusive('p-screen', ['Blood clot or DVT, now or in the past','Pregnant','Surgery, a fracture or stitches in the last 3 months','Fever, infection or feeling unwell','Cancer, or currently in treatment','Varicose veins in an area to be worked','None of these'], 'None of these');
+  initBodyAreas();
+}
+
+function showView(v) {
+  document.getElementById('view-form').style.display = 'none';
+  document.getElementById('view-success').style.display = 'none';
+  document.getElementById('view-dashboard').style.display = 'none';
+  document.getElementById('nav-form').classList.remove('active');
+  document.getElementById('nav-dash').classList.remove('active');
+  document.getElementById('view-' + v).style.display = 'block';
+  document.getElementById('nav').style.display = v === 'dashboard' ? 'block' : 'none';
+  if (v === 'dashboard') {
+    document.getElementById('nav-dash').classList.add('active');
+    document.getElementById('hdr-title').textContent = 'Coach Dashboard';
+    document.getElementById('hdr-desc').style.display = 'none';
+    if (!dashUnlocked) {
+      document.getElementById('dash-pin').style.display = 'block';
+      document.getElementById('dash-list').style.display = 'none';
+      document.getElementById('dash-detail').style.display = 'none';
+    } else { showDashList(); loadSubmissions(); }
+  } else {
+    document.getElementById('nav-form').classList.add('active');
+    document.getElementById('hdr-title').textContent = 'Session Intake Form';
+    document.getElementById('hdr-desc').style.display = 'block';
+  }
+}
+
+function authHeaders() {
+  return { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + accessToken };
+}
+
+function showLogin(msg) {
+  dashUnlocked = false;
+  accessToken = null;
+  try { sessionStorage.removeItem('ze_coach_token'); } catch (e) {}
+  document.getElementById('dash-list').style.display = 'none';
+  document.getElementById('dash-detail').style.display = 'none';
+  document.getElementById('dash-pin').style.display = 'block';
+  if (msg) {
+    var err = document.getElementById('pin-err');
+    err.textContent = msg;
+    err.style.display = 'block';
+  }
+}
+
+function signIn() {
+  var email = document.getElementById('login-email').value.trim();
+  var pass = document.getElementById('login-pass').value;
+  var err = document.getElementById('pin-err');
+  var btn = document.getElementById('login-btn');
+  err.style.display = 'none';
+  if (!email || !pass) { err.textContent = 'Enter your email and password'; err.style.display = 'block'; return; }
+  btn.disabled = true; btn.textContent = 'Signing in…';
+  fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY },
+    body: JSON.stringify({ email: email, password: pass })
+  })
+  .then(function(res) { return res.json().then(function(j) { return { ok: res.ok, j: j }; }); })
+  .then(function(r) {
+    btn.disabled = false; btn.textContent = 'Sign in';
+    if (!r.ok || !r.j.access_token) { err.textContent = 'Sign-in failed. Check your email and password.'; err.style.display = 'block'; return; }
+    accessToken = r.j.access_token;
+    try { sessionStorage.setItem('ze_coach_token', accessToken); } catch (e) {}
+    dashUnlocked = true;
+    document.getElementById('login-pass').value = '';
+    document.getElementById('dash-pin').style.display = 'none';
+    loadSubmissions();
+  })
+  .catch(function(e) {
+    btn.disabled = false; btn.textContent = 'Sign in';
+    err.textContent = 'Network error: ' + e.message; err.style.display = 'block';
+  });
+}
+
+function dashLogout() {
+  showLogin();
+  showView('form');
+  if (location.hash) history.replaceState(null, '', location.pathname);
+}
+
+function showDashList() {
+  document.getElementById('dash-pin').style.display = 'none';
+  document.getElementById('dash-list').style.display = 'block';
+  document.getElementById('dash-detail').style.display = 'none';
+}
+
+function loadSubmissions() {
+  showDashList();
+  document.getElementById('clients-list').innerHTML = '<div class="loading">Loading…</div>';
+  fetch(SUPABASE_URL + '/rest/v1/' + TABLE + '?select=*&order=submitted_at.desc', {
+    headers: authHeaders()
+  })
+  .then(function(res) { if (res.status === 401 || res.status === 403) { throw new Error('session'); } return res.json(); })
+  .then(function(d) { allSubmissions = Array.isArray(d) ? d : []; renderList(); })
+  .catch(function(e) { if (e.message === 'session') { showLogin('Session expired. Sign in again.'); return; } document.getElementById('clients-list').innerHTML = '<div class="empty-state">Error: ' + e.message + '</div>'; });
+}
+
+function renderList() {
+  var count = allSubmissions.length;
+  document.getElementById('dash-count').textContent = count + ' intake' + (count !== 1 ? 's' : '') + ' received';
+  var list = document.getElementById('clients-list');
+  if (!count) { list.innerHTML = '<div class="empty-state">No intakes yet.</div>'; return; }
+  var html = '';
+  allSubmissions.forEach(function(s, i) {
+    html += '<div class="client-card" onclick="showDetail(' + i + ')">' +
+      '<div class="avatar">' + (s.name || '?').charAt(0).toUpperCase() + '</div>' +
+      '<div style="flex:1;min-width:0"><div class="client-name">' + esc(s.name || '—') + '</div>' +
+      '<div class="client-meta">' + esc([s.session_duration, s.clothing_preference, s.focus_areas].filter(Boolean).join(' · ')) + '</div></div>' +
+      '<div class="client-date">' + fmtDate(s.submitted_at) + '</div>' +
+      '<svg width="16" height="16" fill="none" stroke="#999" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>';
+  });
+  list.innerHTML = html;
+}
+
+function showDetail(idx) {
+  var s = allSubmissions[idx];
+  document.getElementById('dash-list').style.display = 'none';
+  document.getElementById('dash-detail').style.display = 'block';
+  document.getElementById('detail-delete-btn').onclick = function() {
+    if (confirm('Delete ' + s.name + '\'s record?')) { deleteRecord(s.id); }
+  };
+  var rows = [
+    ['Name', s.name], ['DOB', s.dob], ['Gender', s.gender], ['Phone', s.phone],
+    ['Session duration', s.session_duration], ['Focus areas', s.focus_areas],
+    ['Main complaint', s.main_complaint], ['Duration of complaint', s.complaint_duration],
+    ['Previous therapy', s.prev_therapy], ['Pain / injuries', s.pain_injuries],
+    ['Areas to avoid', s.avoid_areas], ['Skin conditions', s.skin_conditions],
+    ['Oil allergies', s.oil_allergies], ['Medication', s.medications],
+    ['Clothing preference', s.clothing_preference], ['Consent given', s.consent ? 'Yes — confirmed' : 'No'],
+    ['Referral', s.referral], ['Notes', s.notes],
+  ];
+  var html = '<div class="detail-name">' + esc(s.name || '—') + '</div>';
+  html += '<div class="detail-meta">' + esc([s.session_duration, s.clothing_preference].filter(Boolean).join(' · ')) + ' · Submitted ' + fmtDate(s.submitted_at, true) + '</div>';
+  rows.forEach(function(r) {
+    if (r[1] && String(r[1]).trim()) {
+      html += '<div class="detail-row"><span class="detail-key">' + r[0] + '</span><span class="detail-val">' + esc(String(r[1])) + '</span></div>';
+    }
+  });
+  document.getElementById('detail-content').innerHTML = html;
+}
+
+function deleteRecord(id) {
+  fetch(SUPABASE_URL + '/rest/v1/' + TABLE + '?id=eq.' + id, {
+    method: 'DELETE', headers: authHeaders()
+  }).then(function(res) { if (res.status === 401 || res.status === 403) { showLogin('Session expired. Sign in again.'); return; } loadSubmissions(); }).catch(function(e) { alert('Error: ' + e.message); });
+}
+
+function validate() {
+  var ok = true;
+  [['f-name','e-name'],['f-phone','e-phone'],['f-gender','e-gender']].forEach(function(c) {
+    var el = document.getElementById(c[0]); var err = document.getElementById(c[1]);
+    if (!el.value.trim()) { el.classList.add('err'); err.textContent = 'Required'; ok = false; }
+    else { el.classList.remove('err'); err.textContent = ''; }
+  });
+  var dob = document.getElementById('f-dob'), dobErr = document.getElementById('e-dob'), age = ageFrom(dob.value);
+  if (age === null) { dob.classList.add('err'); dobErr.textContent = 'Required'; ok = false; }
+  else { dob.classList.remove('err'); dobErr.textContent = ''; }
+  var gErr = document.getElementById('e-guardian');
+  if (age !== null && age < 18 && (!document.getElementById('f-guardian').value.trim() || !document.getElementById('guardian-check').checked)) {
+    gErr.textContent = "A parent or guardian's name and consent are required for clients under 18"; ok = false;
+  } else { gErr.textContent = ''; }
+  var scr = getPill('p-screen'); var scrErr = document.getElementById('e-screen');
+  if (!scr.length) { scrErr.textContent = 'Required. Pick "None of these" if nothing applies'; ok = false; } else { scrErr.textContent = ''; }
+  var dur = getPill('p-duration'); var durErr = document.getElementById('e-duration');
+  if (!dur) { durErr.textContent = 'Required'; ok = false; } else { durErr.textContent = ''; }
+  var loc = getPill('p-location'); var locErr = document.getElementById('e-location');
+  if (!loc) { locErr.textContent = 'Required'; ok = false; } else { locErr.textContent = ''; }
+  var pain = document.getElementById('f-pain'); var painErr = document.getElementById('e-pain');
+  if (!pain.value.trim()) { pain.classList.add('err'); painErr.textContent = 'Required — write "None" if no issues'; ok = false; }
+  else { pain.classList.remove('err'); painErr.textContent = ''; }
+  var clothErr = document.getElementById('e-clothing');
+  if (!clothingChoice) { clothErr.textContent = 'Please select a session preference'; ok = false; }
+  else { clothErr.textContent = ''; }
+  var consent = document.getElementById('consent-check'); var consentErr = document.getElementById('e-consent');
+  if (!consent.checked) { consentErr.textContent = 'You must read and confirm the disclaimer to proceed'; ok = false; }
+  else { consentErr.textContent = ''; }
+  return ok;
+}
+
+function handleSubmit() {
+  if (!validate()) { document.getElementById('submit-err').style.display = 'block'; return; }
+  document.getElementById('submit-err').style.display = 'none';
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.textContent = 'Submitting…';
+  var data = {
+    name: document.getElementById('f-name').value.trim(),
+    dob: document.getElementById('f-dob').value,
+    gender: document.getElementById('f-gender').value,
+    phone: document.getElementById('f-phone').value.trim(),
+    session_duration: getPill('p-duration'),
+    session_location: getPill('p-location'),
+    focus_areas: bodyAreas.join(', '),
+    main_complaint: document.getElementById('f-complaint').value.trim(),
+    complaint_duration: getPill('p-duration-complaint'),
+    prev_therapy: getPill('p-prev-therapy'),
+    pain_injuries: ('[Screening: ' + getPill('p-screen').join('; ') + '] ' + document.getElementById('f-pain').value.trim()).trim(),
+    avoid_areas: document.getElementById('f-avoid').value.trim(),
+    skin_conditions: getPill('p-skin').join(', '),
+    oil_allergies: document.getElementById('f-allergies').value.trim(),
+    medications: getPill('p-meds'),
+    clothing_preference: clothingChoice === 'skin' ? 'On skin with oil' : 'On clothing',
+    consent: document.getElementById('consent-check').checked,
+    referral: getPill('p-referral'),
+    notes: ((function() { var a = ageFrom(document.getElementById('f-dob').value); return (a !== null && a < 18) ? '[Under 18 · guardian: ' + document.getElementById('f-guardian').value.trim() + ', consent confirmed] ' : ''; })() + document.getElementById('f-notes').value.trim()).trim(),
+    submitted_at: new Date().toISOString()
+  };
+  fetch(SUPABASE_URL + '/rest/v1/' + TABLE, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Prefer': 'return=minimal' },
+    body: JSON.stringify(data)
+  })
+  .then(function(r) {
+    if (!r.ok) { return r.text().then(function(t) { throw new Error(t); }); }
+    var first = data.name.split(' ')[0];
+    document.getElementById('success-title').textContent = "You're all set" + (first ? ', ' + first : '') + '.';
+    document.getElementById('view-form').style.display = 'none';
+    document.getElementById('view-success').style.display = 'block';
+  })
+  .catch(function(e) { btn.disabled = false; btn.textContent = 'Submit Intake Form'; alert('Error: ' + e.message); });
+}
+
+function resetForm() {
+  document.querySelectorAll('input[type=text],input[type=tel],input[type=date],textarea').forEach(function(el) { el.value = ''; });
+  document.querySelectorAll('select').forEach(function(el) { el.selectedIndex = 0; });
+  document.getElementById('consent-check').checked = false;
+  document.getElementById('guardian-check').checked = false;
+  document.getElementById('guardian-wrap').style.display = 'none';
+  document.getElementById('submit-btn').disabled = false;
+  document.getElementById('submit-btn').textContent = 'Submit Intake Form';
+  clothingChoice = ''; bodyAreas = [];
+  document.getElementById('card-skin').classList.remove('selected');
+  document.getElementById('card-clothes').classList.remove('selected');
+  document.getElementById('clothing-warning').classList.remove('show');
+  initAll();
+  document.getElementById('view-success').style.display = 'none';
+  document.getElementById('view-form').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function exportCSV() {
+  if (!allSubmissions.length) { alert('No data.'); return; }
+  var keys = Object.keys(allSubmissions[0]);
+  var rows = [keys.join(',')];
+  allSubmissions.forEach(function(s) {
+    rows.push(keys.map(function(k) { return '"' + String(s[k] || '').replace(/"/g, '""') + '"'; }).join(','));
+  });
+  var blob = new Blob([rows.join('\n')], { type: 'text/csv' });
+  var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'muscle_release_intake_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+}
+
+function fmtDate(iso, long) {
+  if (!iso) return '';
+  var d = new Date(iso);
+  if (long) return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+  return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+}
+
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+window.addEventListener('DOMContentLoaded', initAll);
+
+// ---------- Opened / unopened ----------
+function setOpened(s, value) {
+  return fetch(SUPABASE_URL + '/rest/v1/' + TABLE + '?id=eq.' + encodeURIComponent(s.id), {
+    method: 'PATCH',
+    headers: Object.assign({ 'Content-Type': 'application/json', 'Prefer': 'return=minimal' }, authHeaders()),
+    body: JSON.stringify({ opened_at: value })
+  })
+  .then(function(res) {
+    if (res.status === 401 || res.status === 403) { showLogin('Session expired. Sign in again.'); return false; }
+    return res.ok;
+  })
+  .catch(function() { return false; });
+}
+
+function decorateUnread() {
+  var unread = 0;
+  document.querySelectorAll('#clients-list .client-card').forEach(function(el, i) {
+    var s = allSubmissions[i];
+    var isNew = !!(s && !s.opened_at);
+    el.classList.toggle('unread', isNew);
+    if (isNew) unread++;
+  });
+  var dc = document.getElementById('dash-count');
+  if (dc && allSubmissions.length) {
+    dc.innerHTML = esc(dc.textContent) + (unread ? ' · <span class="unread-count">' + unread + ' unopened</span>' : ' · all opened');
+  }
+}
+
+function addUnreadButton(s) {
+  var del = document.getElementById('detail-delete-btn');
+  if (!del) return;
+  var btn = document.getElementById('detail-unread-btn');
+  if (!btn) {
+    var group = document.createElement('div');
+    group.className = 'detail-actions';
+    del.parentNode.insertBefore(group, del);
+    btn = document.createElement('button');
+    btn.id = 'detail-unread-btn';
+    btn.className = 'btn-sm';
+    group.appendChild(btn);
+    group.appendChild(del);
+  }
+  btn.textContent = 'Mark unopened';
+  btn.onclick = function() {
+    setOpened(s, null).then(function(ok) {
+      if (!ok) return;
+      s.opened_at = null;
+      renderList();
+      showDashList();
+    });
+  };
+}
+
+var baseRenderList = renderList;
+renderList = function() { baseRenderList(); decorateUnread(); };
+
+var baseShowDetail = showDetail;
+showDetail = function(idx) {
+  baseShowDetail(idx);
+  var s = allSubmissions[idx];
+  if (!s) return;
+  addUnreadButton(s);
+  if (!s.opened_at && s.id != null) {
+    var stamp = new Date().toISOString();
+    setOpened(s, stamp).then(function(ok) { if (ok) { s.opened_at = stamp; renderList(); } });
+  }
+};
+
+window.addEventListener('DOMContentLoaded', function() {
+  try { accessToken = sessionStorage.getItem('ze_coach_token'); } catch (e) { accessToken = null; }
+  if (accessToken) dashUnlocked = true;
+  if (location.hash === '#coach') showView('dashboard');
+});
+window.addEventListener('hashchange', function() {
+  if (location.hash === '#coach') showView('dashboard');
+});
+</script>
+</body>
+</html>
