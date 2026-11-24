@@ -186,6 +186,32 @@ input::placeholder,textarea::placeholder{color:#6b665d;}
 .home-foot{text-align:center;font-size:13px;line-height:1.6;color:var(--soft);margin:36px 0 0;}
 .home-foot a,.home-cta{color:var(--gold);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;}
 .home-cta{display:inline-block;margin-top:20px;font-size:13px;}
+
+/* STEP-BY-STEP */
+.stephead{padding:0 0 12px;margin:-14px 0 18px;scroll-margin-top:14px;}
+.stepbar{height:4px;border-radius:2px;background:var(--rule);overflow:hidden;}
+.stepbar-fill{height:100%;width:0;background:var(--gold);border-radius:2px;transition:width .3s ease;}
+.stepcount{font-size:12px;color:var(--mid);margin:8px 0 0;letter-spacing:.02em;}
+.step{display:none;}
+.step.on{display:block;animation:stepin .25s ease;}
+@keyframes stepin{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.step-t{font-family:'Lora',Georgia,serif;font-weight:500;font-size:26px;line-height:1.2;margin:0;color:var(--ink);}
+.step-s{font-size:13.5px;color:var(--mid);margin:6px 0 22px;}
+.stepnav{display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:center;gap:12px;margin-top:26px;}
+.step-next{flex:1;max-width:320px;height:52px;border:0;border-radius:10px;background:var(--gold);color:#14110d;font:inherit;font-size:15px;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.step-back{background:none;border:0;color:var(--mid);font:inherit;font-size:14px;cursor:pointer;padding:12px 4px;text-decoration:underline;text-underline-offset:3px;}
+.step:last-child .stepnav{justify-content:center;margin-top:14px;}
+#pain-yn{margin-bottom:10px;}
+.more-details{margin:8px 0 26px;border:1px solid var(--rule);border-radius:10px;background:var(--white);}
+.more-details summary{cursor:pointer;padding:15px 16px;font-size:14px;font-weight:500;color:var(--ink);list-style:none;}
+.more-details summary::-webkit-details-marker{display:none;}
+.more-details summary{position:relative;padding-right:40px !important;}
+.more-details summary::after{content:"+";position:absolute;right:16px;top:15px;color:var(--gold);font-size:18px;line-height:1;}
+.more-details[open] summary::after{content:"\2212";}
+.more-details summary span{display:block;font-size:12px;font-weight:400;color:var(--mid);margin-top:2px;}
+.more-body{padding:4px 16px 8px;}
+.more-h{font-size:13px;font-weight:600;color:var(--ink);margin:18px 0 10px;}
+.step .submit-wrap .btn-primary{background:var(--gold);color:#14110d;width:100%;max-width:360px;}
 </style>
 </head>
 <body>
@@ -825,6 +851,13 @@ function validate() {
 function handleSubmit() {
   if (!validate()) { document.getElementById('submit-err').style.display = 'block'; return; }
   document.getElementById('submit-err').style.display = 'none';
+  if (!/(^|\.)ziadelfeky\.com$/.test(location.hostname)) {
+    document.getElementById('success-title').textContent = 'Preview: nothing was sent.';
+    window.scrollTo(0, 0);
+    document.getElementById('view-form').style.display = 'none';
+    document.getElementById('view-success').style.display = 'block';
+    return;
+  }
   var btn = document.getElementById('submit-btn');
   btn.disabled = true; btn.textContent = 'Submitting…';
   var data = {
@@ -982,6 +1015,135 @@ window.addEventListener('hashchange', function() {
   if (location.hash === '#coach') showView('dashboard');
 });
 </script>
+<script>
+/* Step-by-step form: same questions and database fields, one topic per screen */
+(function (CFG) {
+  var wrap = document.querySelector('#view-form > .wrap');
+  if (!wrap) return;
+  var oldSecs = Array.prototype.slice.call(wrap.querySelectorAll(':scope > .sec'));
+  function secByTitle(t) { return oldSecs.filter(function (s) { var x = s.querySelector('.sec-title'); return x && x.textContent.trim() === t; })[0]; }
+  function fieldOf(id) {
+    var el = document.getElementById(id) || wrap.querySelector('#' + id);
+    if (!el) return null;
+    if (el.classList.contains('field')) return el;
+    return el.closest('.field') || el;
+  }
+  var submit = wrap.querySelector('.submit-wrap');
+  var head = document.createElement('div'); head.className = 'stephead';
+  head.innerHTML = '<div class="stepbar"><div class="stepbar-fill"></div></div><p class="stepcount"></p>';
+  var box = document.createElement('div'); box.className = 'steps';
+
+  var steps = CFG.steps.map(function (st, i) {
+    var el = document.createElement('section'); el.className = 'step'; el.setAttribute('data-step', i);
+    el.innerHTML = '<h2 class="step-t">' + st.t + '</h2>' + (st.s ? '<p class="step-s">' + st.s + '</p>' : '');
+    (st.extra || []).forEach(function (sel) { var x = wrap.querySelector(sel); if (x) el.appendChild(x); });
+    (st.secs || []).forEach(function (title) {
+      var sec = secByTitle(title); if (!sec) return;
+      Array.prototype.slice.call(sec.children).forEach(function (c) { if (!c.classList.contains('sec-hdr')) el.appendChild(c); });
+    });
+    (st.f || []).forEach(function (id) { var f = fieldOf(id); if (f) el.appendChild(f); });
+    box.appendChild(el); return el;
+  });
+
+  /* pain: two taps instead of typing "None" */
+  var pain = box.querySelector('#f-pain');
+  if (pain && CFG.painTaps) {
+    var yn = document.createElement('div'); yn.className = 'pills'; yn.id = 'pain-yn';
+    yn.innerHTML = '<div class="pill" data-v="no"><span class="pill-dot"></span>' + (CFG.painNo || 'No pain or injuries') + '</div><div class="pill" data-v="yes"><span class="pill-dot"></span>Yes, I have something</div>';
+    pain.parentNode.insertBefore(yn, pain);
+    pain.style.display = 'none';
+    if (CFG.painPlaceholder) pain.placeholder = CFG.painPlaceholder;
+    yn.addEventListener('click', function (e) {
+      var p = e.target.closest('.pill'); if (!p) return;
+      Array.prototype.forEach.call(yn.children, function (x) { x.classList.toggle('on', x === p); });
+      if (p.getAttribute('data-v') === 'no') { pain.value = 'None'; pain.style.display = 'none'; }
+      else { if (pain.value === 'None') pain.value = ''; pain.style.display = ''; pain.focus(); }
+      var e2 = document.getElementById('e-pain'); if (e2) e2.textContent = '';
+      pain.classList.remove('err');
+    });
+  }
+
+  /* optional extra details on the last step */
+  var last = steps[steps.length - 1];
+  if (CFG.more && CFG.more.length) {
+    var more = document.createElement('details'); more.className = 'more-details';
+    more.innerHTML = '<summary>Add more detail <span>optional, helps me plan your first sessions</span></summary><div class="more-body"></div>';
+    var mb = more.querySelector('.more-body');
+    CFG.more.forEach(function (id) { var f = fieldOf(id); if (f) mb.appendChild(f); });
+    last.appendChild(more);
+  }
+  if (submit) last.appendChild(submit);
+
+  /* anything not placed stays visible on the last step, so no question is ever lost */
+  oldSecs.forEach(function (s) {
+    var left = Array.prototype.slice.call(s.children).filter(function (c) { return !c.classList.contains('sec-hdr'); });
+    left.forEach(function (c) { last.insertBefore(c, submit || null); });
+    s.remove();
+  });
+  wrap.insertBefore(box, wrap.firstChild);
+  wrap.insertBefore(head, box);
+
+  steps.forEach(function (el, i) {
+    var nav = document.createElement('div'); nav.className = 'stepnav';
+    if (i > 0) nav.innerHTML += '<button type="button" class="step-back">Back</button>';
+    if (i < steps.length - 1) nav.innerHTML += '<button type="button" class="step-next">Continue</button>';
+    el.appendChild(nav);
+  });
+
+  /* checks: run the form's own validation, but only count (and show) problems on this step */
+  function clearAfter(i) {
+    steps.forEach(function (el, j) {
+      if (j <= i) return;
+      Array.prototype.forEach.call(el.querySelectorAll('[id^="e-"]'), function (e) { e.textContent = ''; });
+      Array.prototype.forEach.call(el.querySelectorAll('.err'), function (e) { e.classList.remove('err'); });
+    });
+    var banner = document.getElementById('submit-err'); if (banner && i < steps.length - 1) banner.style.display = 'none';
+  }
+  function stepOk(i) {
+    try { validate(); } catch (e) { return true; }
+    var bad = Array.prototype.some.call(steps[i].querySelectorAll('[id^="e-"]'), function (e) { return e.textContent.trim() !== ''; });
+    clearAfter(i);
+    return !bad;
+  }
+  var cur = 0, reached = {}, shown = false;
+  function show(i) {
+    cur = i;
+    steps.forEach(function (el, j) { el.classList.toggle('on', j === i); });
+    head.querySelector('.stepbar-fill').style.width = Math.round((i + 1) * 100 / steps.length) + '%';
+    head.querySelector('.stepcount').textContent = 'Step ' + (i + 1) + ' of ' + steps.length + (i === 0 && CFG.time ? ' · ' + CFG.time : '');
+    if (shown) head.scrollIntoView({ block: 'start' }); shown = true;
+    if (!reached[i]) { reached[i] = 1; if (window.zeTrack) zeTrack('form_step', String(i + 1)); }
+  }
+  box.addEventListener('click', function (e) {
+    if (e.target.closest('.step-next')) {
+      if (!stepOk(cur)) {
+        var er = Array.prototype.filter.call(steps[cur].querySelectorAll('[id^="e-"]'), function (x) { return x.textContent.trim() !== ''; })[0];
+        if (er) (er.closest('.field') || er).scrollIntoView({ block: 'center', behavior: 'smooth' });
+        return;
+      }
+      show(cur + 1);
+    }
+    if (e.target.closest('.step-back')) show(cur - 1);
+  });
+  /* if the final check fails, jump to the first step with a problem */
+  var btn = document.getElementById('submit-btn');
+  if (btn) btn.addEventListener('click', function () {
+    setTimeout(function () {
+      for (var i = 0; i < steps.length; i++) {
+        var bad = Array.prototype.some.call(steps[i].querySelectorAll('[id^="e-"]'), function (e) { return e.textContent.trim() !== ''; });
+        if (bad) { if (i !== cur) show(i); return; }
+      }
+    }, 0);
+  });
+  if (CFG.goalMap) window.addEventListener('DOMContentLoaded', function () {
+    var g = null; try { g = new URLSearchParams(location.search).get('goal'); } catch (e) {}
+    var want = CFG.goalMap[g]; if (!want) return;
+    Array.prototype.forEach.call(document.querySelectorAll('#p-goal .pill'), function (p) { if (p.textContent.trim() === want && !p.classList.contains('on')) p.click(); });
+  });
+  show(0);
+})({"time": "about 2 minutes", "painTaps": true, "painNo": "Nothing to report", "painPlaceholder": "What is it, where, and since when?", "steps": [{"t": "Your session", "s": "Choose your session and tell me what brings you in.", "secs": ["Session Details"]}, {"t": "About you", "s": "So I know who I am working with.", "secs": ["Personal Info"]}, {"t": "Your health", "s": "Be honest. It keeps the session safe.", "secs": ["Health & Medical"]}, {"t": "Session preference", "secs": ["Session Preference"]}, {"t": "Last step", "s": "Read and confirm, then send.", "secs": ["Disclaimer & Consent", "Final Notes"]}], "more": []});
+</script>
+
 <script src="https://ziadelfeky.com/t.js" defer></script>
 </body>
 </html>

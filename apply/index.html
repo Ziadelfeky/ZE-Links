@@ -198,6 +198,32 @@ input::placeholder,textarea::placeholder{color:#6b665d;}
 .home-foot{text-align:center;font-size:13px;line-height:1.6;color:var(--soft);margin:36px 0 0;}
 .home-foot a,.home-cta{color:var(--gold);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;}
 .home-cta{display:inline-block;margin-top:20px;font-size:13px;}
+
+/* STEP-BY-STEP */
+.stephead{padding:0 0 12px;margin:-14px 0 18px;scroll-margin-top:14px;}
+.stepbar{height:4px;border-radius:2px;background:var(--rule);overflow:hidden;}
+.stepbar-fill{height:100%;width:0;background:var(--gold);border-radius:2px;transition:width .3s ease;}
+.stepcount{font-size:12px;color:var(--mid);margin:8px 0 0;letter-spacing:.02em;}
+.step{display:none;}
+.step.on{display:block;animation:stepin .25s ease;}
+@keyframes stepin{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.step-t{font-family:'Lora',Georgia,serif;font-weight:500;font-size:26px;line-height:1.2;margin:0;color:var(--ink);}
+.step-s{font-size:13.5px;color:var(--mid);margin:6px 0 22px;}
+.stepnav{display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:center;gap:12px;margin-top:26px;}
+.step-next{flex:1;max-width:320px;height:52px;border:0;border-radius:10px;background:var(--gold);color:#14110d;font:inherit;font-size:15px;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.step-back{background:none;border:0;color:var(--mid);font:inherit;font-size:14px;cursor:pointer;padding:12px 4px;text-decoration:underline;text-underline-offset:3px;}
+.step:last-child .stepnav{justify-content:center;margin-top:14px;}
+#pain-yn{margin-bottom:10px;}
+.more-details{margin:8px 0 26px;border:1px solid var(--rule);border-radius:10px;background:var(--white);}
+.more-details summary{cursor:pointer;padding:15px 16px;font-size:14px;font-weight:500;color:var(--ink);list-style:none;}
+.more-details summary::-webkit-details-marker{display:none;}
+.more-details summary{position:relative;padding-right:40px !important;}
+.more-details summary::after{content:"+";position:absolute;right:16px;top:15px;color:var(--gold);font-size:18px;line-height:1;}
+.more-details[open] summary::after{content:"\2212";}
+.more-details summary span{display:block;font-size:12px;font-weight:400;color:var(--mid);margin-top:2px;}
+.more-body{padding:4px 16px 8px;}
+.more-h{font-size:13px;font-weight:600;color:var(--ink);margin:18px 0 10px;}
+.step .submit-wrap .btn-primary{background:var(--gold);color:#14110d;width:100%;max-width:360px;}
 </style>
 </head>
 <body>
@@ -1037,6 +1063,13 @@ function handleSubmit() {
     return;
   }
   document.getElementById('submit-err').style.display = 'none';
+  if (!/(^|\.)ziadelfeky\.com$/.test(location.hostname)) {
+    document.getElementById('success-title').textContent = 'Preview: nothing was sent.';
+    window.scrollTo(0, 0);
+    document.getElementById('view-form').style.display = 'none';
+    document.getElementById('view-success').style.display = 'block';
+    return;
+  }
   var btn = document.getElementById('submit-btn');
   btn.disabled = true;
   btn.textContent = 'Submitting…';
@@ -1351,6 +1384,135 @@ window.addEventListener('hashchange', function() {
   if (location.hash === '#coach') showView('dashboard');
 });
 </script>
+<script>
+/* Step-by-step application: same questions and database fields, one topic per screen */
+(function () {
+  var wrap = document.querySelector('#view-form > .wrap');
+  if (!wrap) return;
+  function fieldOf(id) { var el = document.getElementById(id); return el ? (el.classList.contains('field') ? el : el.closest('.field')) : null; }
+  var STEPS = [
+    { t: 'What do you want to work on?', s: 'Pick what matters most right now.', f: ['p-goal', 'p-start'] },
+    { t: 'Choose your plan', s: 'I confirm it with you before you pay anything.', f: ['p-plan', 'p-nutri-addon'], extra: ['.budget'] },
+    { t: 'About you', s: 'So I know who I am coaching.', f: ['f-name', 'f-gender', 'f-whatsapp', 'f-instagram', 'f-dob', 'f-location'] },
+    { t: 'Your training', s: 'Where you are today, not where you want to be.', f: ['p-exp', 'p-break', 'p-equipment', 'f-days', 'f-duration'] },
+    { t: 'Your health', s: 'Be honest. It keeps your training safe.', f: ['f-pain', 'p-meds', 'f-cycle-wrap', 'f-avoid'] },
+    { t: 'Last step', s: 'Almost done.', f: ['p-source', 'f-source-detail', 'f-other'] }
+  ];
+  var MORE = ['f-physique-goal', 'p-timeline', 'f-focus', 'f-height', 'f-weight', 'f-waist', 'f-occupation', 'f-break-activity', 'p-train-type', 'p-train-time',
+              'f-health-notes', 'p-sleep', 'scale-stress', 'p-nutrition', 'f-water', 'f-steps', 'p-prev-coach', 'f-what-worked', 'p-checkin'];
+
+  var oldSecs = Array.prototype.slice.call(wrap.querySelectorAll(':scope > .sec'));
+  var photoSec = oldSecs.filter(function (s) { return s.querySelector('#f-physique-self'); })[0];
+  var submit = wrap.querySelector('.submit-wrap');
+
+  var head = document.createElement('div'); head.className = 'stephead';
+  head.innerHTML = '<div class="stepbar"><div class="stepbar-fill" id="stepfill"></div></div><p class="stepcount" id="stepcount"></p>';
+  var box = document.createElement('div'); box.className = 'steps';
+  var steps = STEPS.map(function (st, i) {
+    var el = document.createElement('section'); el.className = 'step'; el.setAttribute('data-step', i);
+    el.innerHTML = '<h2 class="step-t">' + st.t + '</h2><p class="step-s">' + st.s + '</p>';
+    st.f.forEach(function (id) { var f = fieldOf(id); if (f) el.appendChild(f); });
+    (st.extra || []).forEach(function (sel) { var x = wrap.querySelector(sel); if (x) el.appendChild(x); });
+    box.appendChild(el); return el;
+  });
+
+  /* pain: two taps instead of typing "None" */
+  var pain = box.querySelector('#f-pain');
+  if (pain) {
+    var yn = document.createElement('div'); yn.className = 'pills'; yn.id = 'pain-yn';
+    yn.innerHTML = '<div class="pill" data-v="no"><span class="pill-dot"></span>No pain or injuries</div><div class="pill" data-v="yes"><span class="pill-dot"></span>Yes, I have something</div>';
+    pain.parentNode.insertBefore(yn, pain);
+    pain.style.display = 'none'; pain.placeholder = 'Where is it, since when, and what makes it worse?';
+    yn.addEventListener('click', function (e) {
+      var p = e.target.closest('.pill'); if (!p) return;
+      Array.prototype.forEach.call(yn.children, function (x) { x.classList.toggle('on', x === p); });
+      if (p.getAttribute('data-v') === 'no') { pain.value = 'None'; pain.style.display = 'none'; }
+      else { if (pain.value === 'None') pain.value = ''; pain.style.display = ''; pain.focus(); }
+      var e2 = document.getElementById('e-pain'); if (e2) e2.textContent = '';
+    });
+  }
+
+  /* optional extra details on the last step */
+  var more = document.createElement('details'); more.className = 'more-details';
+  more.innerHTML = '<summary>Add more detail <span>optional, helps me plan your first weeks</span></summary><div class="more-body"></div>';
+  var mb = more.querySelector('.more-body');
+  MORE.forEach(function (id) { var f = fieldOf(id); if (f) mb.appendChild(f); });
+  if (photoSec) {
+    var ph = document.createElement('div'); ph.className = 'more-photos';
+    ph.innerHTML = '<p class="more-h">Progress photos</p>';
+    Array.prototype.slice.call(photoSec.children).forEach(function (c) { if (!c.classList.contains('sec-hdr')) ph.appendChild(c); });
+    mb.appendChild(ph);
+  }
+  steps[5].appendChild(more);
+  if (submit) steps[5].appendChild(submit);
+
+  oldSecs.forEach(function (s) { s.remove(); });
+  wrap.insertBefore(box, wrap.firstChild);
+  wrap.insertBefore(head, box);
+
+  /* navigation */
+  steps.forEach(function (el, i) {
+    var nav = document.createElement('div'); nav.className = 'stepnav';
+    if (i > 0) nav.innerHTML += '<button type="button" class="step-back">Back</button>';
+    if (i < steps.length - 1) nav.innerHTML += '<button type="button" class="step-next">Continue</button>';
+    el.appendChild(nav);
+  });
+
+  var cur = 0, reached = {}, shown = false;
+  function req(id, errId, ok, msg) { var e = document.getElementById(errId); if (e) e.textContent = ok ? '' : (msg || 'Required'); return ok; }
+  function pillSet(id) { var v = typeof getPill === 'function' ? getPill(id) : null; return Array.isArray(v) ? v.length > 0 : !!v; }
+  function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  function check(i) {
+    var ok = true;
+    if (i === 0) ok = req('p-goal', 'e-goal', pillSet('p-goal')) && ok;
+    if (i === 1) ok = req('p-plan', 'e-plan', pillSet('p-plan'), 'Choose a plan') && ok;
+    if (i === 2) {
+      ok = req('f-name', 'e-name', !!val('f-name')) && ok;
+      ok = req('f-gender', 'e-gender', !!val('f-gender')) && ok;
+      ok = req('f-whatsapp', 'e-whatsapp', val('f-whatsapp').replace(/[^0-9]/g, '').length >= 8, 'Add your number with country code') && ok;
+    }
+    if (i === 3) {
+      ok = req('p-exp', 'e-exp', pillSet('p-exp')) && ok;
+      ok = req('p-break', 'e-break', pillSet('p-break')) && ok;
+      ok = req('p-equipment', 'e-equipment', pillSet('p-equipment')) && ok;
+      ok = req('f-days', 'e-days', !!val('f-days')) && ok;
+      ok = req('f-duration', 'e-duration', !!val('f-duration')) && ok;
+    }
+    if (i === 4) ok = req('f-pain', 'e-pain', !!val('f-pain'), 'Choose one') && ok;
+    return ok;
+  }
+  function show(i) {
+    cur = i;
+    steps.forEach(function (el, j) { el.classList.toggle('on', j === i); });
+    document.getElementById('stepfill').style.width = Math.round((i + 1) * 100 / steps.length) + '%';
+    document.getElementById('stepcount').textContent = 'Step ' + (i + 1) + ' of ' + steps.length + (i === 0 ? ' · about 3 minutes' : '');
+    if (shown) head.scrollIntoView({ block: 'start' }); shown = true;
+    if (!reached[i]) { reached[i] = 1; if (window.zeTrack) zeTrack('form_step', String(i + 1)); }
+  }
+  box.addEventListener('click', function (e) {
+    if (e.target.closest('.step-next')) {
+      if (!check(cur)) { var er = steps[cur].querySelector('.err-msg:not(:empty)'); if (er) er.closest('.field').scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+      show(cur + 1);
+    }
+    if (e.target.closest('.step-back')) show(cur - 1);
+  });
+  /* if the final check fails, jump to the step with the problem */
+  var btn = document.getElementById('submit-btn');
+  if (btn) btn.addEventListener('click', function () {
+    setTimeout(function () {
+      for (var i = 0; i < steps.length - 1; i++) { if (!check(i)) { show(i); return; } }
+    }, 0);
+  });
+  var GOALMAP = { fat: 'Fat loss', shape: 'Recomposition', muscle: 'Muscle gain', pain: 'Rehab / pain management', restart: 'Return to baseline', sport: 'Strength' };
+  window.addEventListener('DOMContentLoaded', function () {
+    var g = null; try { g = new URLSearchParams(location.search).get('goal'); } catch (e) {}
+    var want = GOALMAP[g]; if (!want) return;
+    Array.prototype.forEach.call(document.querySelectorAll('#p-goal .pill'), function (p) { if (p.textContent.trim() === want && !p.classList.contains('on')) p.click(); });
+  });
+  show(0);
+})();
+</script>
+
 <script src="https://ziadelfeky.com/t.js" defer></script>
 </body>
 </html>
