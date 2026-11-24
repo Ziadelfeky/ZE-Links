@@ -326,7 +326,7 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
       <button class="gchip" type="button" data-goal="sport" aria-pressed="false"><span class="gchip-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2.5h5M12 2.5V5"/></svg></span><span>Perform better in my sport</span></button>
     </div>
     <div class="gpanel" id="gpanel" hidden aria-live="polite"></div>
-    <p class="shortcut">Already know? <a href="https://ziadelfeky.com/apply/">Online</a> <a href="https://ziadelfeky.com/kraft/">Kraft</a> <a href="https://ziadelfeky.com/home-training/">Home</a></p>
+    <p class="shortcut">Already know? <a data-track="pick" data-track-label="online" href="https://ziadelfeky.com/apply/">Online</a> <a data-track="pick" data-track-label="kraft" href="https://ziadelfeky.com/kraft/">Kraft</a> <a data-track="pick" data-track-label="home" href="https://ziadelfeky.com/home-training/">Home</a></p>
     </div>
     <div class="trust"><span>10 years coaching</span><span>16 certifications</span></div>
   </header>
@@ -400,19 +400,19 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     <h2 class="sec-title" id="ways-title">Choose what fits your life</h2>
     <p class="sec-lead">Every option starts with an assessment and a plan built for you. You'll know the price before you pay anything.</p>
     <div class="ways">
-      <a class="way main" data-k="online" href="https://ziadelfeky.com/apply/">
+      <a class="way main" data-k="online" data-track="pick" data-track-label="online" href="https://ziadelfeky.com/apply/">
         <div class="way-top"><span class="way-where">Online &middot; anywhere</span><span class="fit-tag">Good fit</span></div>
         <span class="way-title">Online coaching</span>
         <span class="way-text">Your program in a training app, built and supervised by me, with video for every exercise and regular check-ins. At home or in any gym.</span>
         <div class="way-foot"><span class="way-price">from <b>$60</b> a month &middot; 3,400 EGP</span><span class="way-go">Apply &rarr;</span></div>
       </a>
-      <a class="way" data-k="kraft" href="https://ziadelfeky.com/kraft/">
+      <a class="way" data-k="kraft" data-track="pick" data-track-label="kraft" href="https://ziadelfeky.com/kraft/">
         <div class="way-top"><span class="way-where">Ganaklis, Alexandria</span><span class="fit-tag">Good fit</span></div>
         <span class="way-title">At Kraft Fitness</span>
         <span class="way-text">Coaching in person at my studio: 1-on-1, a small group of up to four, or with my associate coach on my program.</span>
         <div class="way-foot"><span class="way-price">from <b>1,800</b> EGP a month</span><span class="way-go">Apply &rarr;</span></div>
       </a>
-      <a class="way" data-k="home" href="https://ziadelfeky.com/home-training/">
+      <a class="way" data-k="home" data-track="pick" data-track-label="home" href="https://ziadelfeky.com/home-training/">
         <div class="way-top"><span class="way-where">Alexandria</span><span class="fit-tag">Good fit</span></div>
         <span class="way-title">At your home</span>
         <span class="way-text">Private training at your home, 1-on-1 or with a partner. No gym needed.</span>
@@ -421,9 +421,9 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     </div>
     <div class="also">Also available</div>
     <nav class="rows" aria-label="Also available">
-      <a class="row" href="https://traintrackmarketplace.com/en/programmes/6bf557c1-8dd6-401a-8319-14fee54be2fd" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Lean Engine</div><div class="row-sub">Ready-made · 12 weeks · fat loss, beginners or after a break</div></div><div class="row-end"><span class="row-price">4,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
-      <a class="row" href="https://traintrackmarketplace.com/en/programmes/8875ef1e-eef0-4ee3-8598-9eece0f9536e" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Shape Over Scale</div><div class="row-sub">Ready-made · 6 weeks · women · fat loss, glutes and shape</div></div><div class="row-end"><span class="row-price">2,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
-      <a class="row" href="https://ziadelfeky.com/muscle-release/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue release, studio or home</div></div><div class="row-end"><span class="row-price">from 1,200 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+      <a class="row" data-track="pick" data-track-label="lean" href="https://traintrackmarketplace.com/en/programmes/6bf557c1-8dd6-401a-8319-14fee54be2fd" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Lean Engine</div><div class="row-sub">Ready-made · 12 weeks · fat loss, beginners or after a break</div></div><div class="row-end"><span class="row-price">4,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+      <a class="row" data-track="pick" data-track-label="sos" href="https://traintrackmarketplace.com/en/programmes/8875ef1e-eef0-4ee3-8598-9eece0f9536e" target="_blank" rel="noopener"><div class="row-text"><div class="row-title">Shape Over Scale</div><div class="row-sub">Ready-made · 6 weeks · women · fat loss, glutes and shape</div></div><div class="row-end"><span class="row-price">2,500 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
+      <a class="row" data-track="pick" data-track-label="muscle-release" href="https://ziadelfeky.com/muscle-release/"><div class="row-text"><div class="row-title">Muscle Release &amp; Recovery</div><div class="row-sub">Soft tissue release, studio or home</div></div><div class="row-end"><span class="row-price">from 1,200 EGP</span><span class="arrow" aria-hidden="true">&rarr;</span></div></a>
     </nav>
   </section>
 
@@ -516,10 +516,10 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     <h2 id="final-title">Start with one step.</h2>
     <p>Fill in a short form and I'll read it myself. No commitment until you choose a plan.</p>
     <div class="ctas">
-      <a class="btn btn-primary" href="https://ziadelfeky.com/apply/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
-      <a class="btn btn-ghost" href="https://ziadelfeky.com/kraft/">Train with me at Kraft</a>
-      <a class="btn btn-ghost" href="https://ziadelfeky.com/home-training/">Train at your home</a>
-      <a class="wa" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg>Or <b>message me on Instagram</b></a>
+      <a class="btn btn-primary" data-track="pick" data-track-label="online" href="https://ziadelfeky.com/apply/">Apply for online coaching <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" data-track="pick" data-track-label="kraft" href="https://ziadelfeky.com/kraft/">Train with me at Kraft</a>
+      <a class="btn btn-ghost" data-track="pick" data-track-label="home" href="https://ziadelfeky.com/home-training/">Train at your home</a>
+      <a class="wa" data-track="dm" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg>Or <b>message me on Instagram</b></a>
     </div>
   </section>
 
@@ -545,13 +545,13 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     <a href="#coach">About me</a>
     <a href="#faq">Questions</a>
     <a href="https://ziadelfeky.com/review/">Leave a review</a>
-    <a class="menu-wa" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg>Message me on Instagram</a>
+    <a class="menu-wa" data-track="dm" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg>Message me on Instagram</a>
   </nav>
 
   <div class="dock" id="dock">
     <button class="dock-menu" type="button" data-menu aria-label="Open menu" aria-controls="menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
     <a class="dock-main" href="#start">Find your plan</a>
-    <a class="dock-wa" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener" aria-label="Message me on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg></a>
+    <a class="dock-wa" data-track="dm" href="https://ig.me/m/ziad_elfeky" target="_blank" rel="noopener" aria-label="Message me on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg></a>
   </div>
 </main>
 <script>
@@ -626,11 +626,12 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     restart: {say:'We start from where you are today, not where you used to be. The first weeks are built so you can keep going.', q:['I used to start and stop all the time, but this time it\'s different.'], w:['online','kraft','home'], x:'lean'},
     sport:   {say:'Strength, speed and conditioning built around your sport and your season.', q:['My strength has improved a lot and I feel the difference in my performance too.'], w:['kraft','online']}
   };
-  function pickHTML(k){ var w = WAYS[k]; return '<a class="pick" href="'+w.u+'"'+(w.ext?' target="_blank" rel="noopener"':'')+'><span class="pick-ico"><svg viewBox="0 0 24 24">'+w.i+'</svg></span><span class="pick-text"><b>'+w.t+'</b><span>'+w.s+'</span></span><span class="pick-go" aria-hidden="true">&rarr;</span></a>'; }
+  function pickHTML(k){ var w = WAYS[k]; return '<a class="pick" data-track="pick" data-track-label="'+k+'" href="'+w.u+'"'+(w.ext?' target="_blank" rel="noopener"':'')+'><span class="pick-ico"><svg viewBox="0 0 24 24">'+w.i+'</svg></span><span class="pick-text"><b>'+w.t+'</b><span>'+w.s+'</span></span><span class="pick-go" aria-hidden="true">&rarr;</span></a>'; }
   var gpanel = document.getElementById('gpanel');
   Array.prototype.forEach.call(document.querySelectorAll('.gchip'), function(c){
     c.addEventListener('click', function(){
       var k = c.getAttribute('data-goal'), g = GOALS[k];
+      if (window.zeTrack) zeTrack('goal', k);
       Array.prototype.forEach.call(document.querySelectorAll('.gchip'), function(x){ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
       var h = '<p class="gpanel-say">'+g.say+'</p>';
       h += '<p class="gpanel-q">&ldquo;'+g.q[0]+'&rdquo;<span>A client</span></p>';
@@ -696,5 +697,6 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
   } catch (e) { startQuotes(); }
 })();
 </script>
+<script src="https://ziadelfeky.com/t.js" defer></script>
 </body>
 </html>

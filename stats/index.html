@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stats · Ziad Elfeky</title>
+<meta name="robots" content="noindex, nofollow"/>
+<meta name="theme-color" content="#0c0b0a"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/zf-favicon-32.png">
+<link rel="apple-touch-icon" href="/zf-apple-touch.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap">
+<style>
+:root{--bg:#0c0b0a;--panel:#161411;--line:rgba(242,237,228,.10);--line-strong:rgba(242,237,228,.18);--text:#f2ede4;--muted:#c0b9ac;--soft:#a49d90;--gold:#cfb27c;--gold-soft:rgba(207,178,124,.14);--ink:#14110d;--red:#e08a7a;--serif:'Lora',Georgia,serif;--sans:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;}
+main{max-width:640px;margin:0 auto;padding:22px 20px 64px;}
+.home{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);text-decoration:none;}
+.label{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:30px 0 8px;}
+h1{font-family:var(--serif);font-weight:500;font-size:30px;margin:0;}
+h2{font-family:var(--serif);font-weight:500;font-size:19px;margin:0 0 4px;}
+.sub{font-size:12.5px;color:var(--soft);margin:0 0 14px;}
+input{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--panel);border:1px solid var(--line-strong);border-radius:12px;padding:13px 14px;outline:none;}
+input:focus{border-color:var(--gold);}
+.btn{height:52px;border:0;border-radius:12px;background:var(--gold);color:var(--ink);font:inherit;font-size:15px;font-weight:500;cursor:pointer;width:100%;}
+.signin{display:flex;flex-direction:column;gap:12px;margin-top:22px;}
+.err{color:var(--red);font-size:13.5px;margin:0;min-height:1em;}
+.tabs{display:flex;gap:8px;margin:20px 0 6px;}
+.tab{border:1px solid var(--line-strong);background:none;color:var(--muted);border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer;}
+.tab.on{border-color:var(--gold);color:var(--gold);}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;}
+.card b{display:block;font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.1;color:var(--text);}
+.card span{font-size:12px;color:var(--soft);}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 16px;margin-top:14px;}
+.bars{display:flex;flex-direction:column;gap:10px;}
+.bar-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:baseline;font-size:13.5px;}
+.bar-row .n{font-variant-numeric:tabular-nums;color:var(--text);font-weight:500;}
+.bar-row .n small{color:var(--soft);font-weight:400;margin-left:6px;}
+.track{grid-column:1 / -1;height:6px;border-radius:3px;background:rgba(242,237,228,.06);overflow:hidden;}
+.fill{height:100%;background:var(--gold);border-radius:3px;}
+.fill.dim{background:rgba(207,178,124,.45);}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{font-weight:500;color:var(--soft);text-align:right;padding:6px 4px;font-size:11.5px;letter-spacing:.04em;}
+th:first-child,td:first-child{text-align:left;}
+td{padding:9px 4px;border-top:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;}
+.days{display:flex;align-items:flex-end;gap:3px;height:90px;margin-top:6px;}
+.days div{flex:1;background:var(--gold);border-radius:2px 2px 0 0;min-height:2px;opacity:.85;}
+.days-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--soft);margin-top:6px;}
+.empty{color:var(--soft);font-size:13px;}
+.note{font-size:12px;color:var(--soft);margin-top:24px;line-height:1.6;}
+.out{background:none;border:0;color:var(--soft);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline;padding:0;margin-top:16px;}
+</style>
+</head>
+<body>
+<main>
+  <a class="home" href="https://ziadelfeky.com/">&larr; ziadelfeky.com</a>
+  <p class="label">Coach</p>
+  <h1>Website stats</h1>
+
+  <div class="signin" id="signin">
+    <input type="email" id="em" placeholder="Email" autocomplete="username">
+    <input type="password" id="pw" placeholder="Password" autocomplete="current-password">
+    <p class="err" id="lerr"></p>
+    <button class="btn" type="button" id="login">Sign in</button>
+  </div>
+
+  <div id="panel" style="display:none">
+    <div class="tabs" id="tabs">
+      <button class="tab on" data-d="7">7 days</button>
+      <button class="tab" data-d="30">30 days</button>
+      <button class="tab" data-d="90">90 days</button>
+    </div>
+    <p class="err" id="perr"></p>
+    <div id="out"></div>
+    <p class="note">A visitor is one browser visit. No names or personal data are collected. People who block trackers aren't counted, so real numbers are a little higher.</p>
+    <button class="out" id="logout" type="button">Sign out</button>
+  </div>
+</main>
+<script>
+(function () {
+  var URL_ = "https://gndbfxwjcumkftbultkt.supabase.co", KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduZGJmeHdqY3Vta2Z0YnVsdGt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwMzc5NTAsImV4cCI6MjA5NzYxMzk1MH0.LLk6yk3kgyH5INPE60hU1tyAaKNCWF6Sdkoywg3kRjo";
+  var $ = function (id) { return document.getElementById(id); };
+  var token = null, days = 7;
+  function store(k, v) { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} }
+  function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+
+  var NAMES = {
+    fat: 'Lose fat, feel good in my clothes', shape: 'Tone and shape my body', muscle: 'Build muscle and strength',
+    pain: 'Train without pain', restart: 'Back in shape after a break', sport: 'Perform better in my sport',
+    online: 'Online coaching', kraft: 'At Kraft Fitness', home: 'At your home', lean: 'Lean Engine', sos: 'Shape Over Scale',
+    'muscle-release': 'Muscle Release', apply: 'Online application', 'home-training': 'Home training form', review: 'Review form',
+    'muscle-release-form': 'Muscle Release form', credentials: 'Credentials page'
+  };
+  var FORMS = { apply: 'Online application', kraft: 'Kraft form', 'home-training': 'Home training form', 'muscle-release': 'Muscle Release form', review: 'Review form', credentials: 'Credentials page' };
+  function nm(k) { return NAMES[k] || k; }
+  function pct(a, b) { return b ? Math.round(a * 100 / b) + '%' : '–'; }
+
+  function bars(rows, total, dim) {
+    if (!rows || !rows.length) return '<p class="empty">Nothing yet.</p>';
+    var max = Math.max.apply(null, rows.map(function (r) { return r.n; })) || 1;
+    return '<div class="bars">' + rows.map(function (r) {
+      return '<div class="bar-row"><span>' + esc(nm(r.k)) + '</span><span class="n">' + r.n + (total ? '<small>' + pct(r.n, total) + '</small>' : '') + '</span>' +
+        '<div class="track"><div class="fill' + (dim ? ' dim' : '') + '" style="width:' + Math.max(2, Math.round(r.n * 100 / max)) + '%"></div></div></div>';
+    }).join('') + '</div>';
+  }
+
+  function render(d) {
+    var f = d.funnel || {};
+    var h = '';
+    h += '<div class="cards">' +
+      '<div class="card"><b>' + (d.visitors || 0) + '</b><span>visitors</span></div>' +
+      '<div class="card"><b>' + (f.sent || 0) + '</b><span>forms sent</span></div>' +
+      '<div class="card"><b>' + (f.goal || 0) + '</b><span>tapped a goal</span></div>' +
+      '<div class="card"><b>' + (d.dm || 0) + '</b><span>opened an Instagram DM</span></div></div>';
+
+    var steps = [
+      { k: 'Opened the homepage', n: f.visited || 0 },
+      { k: 'Tapped a goal', n: f.goal || 0 },
+      { k: 'Tapped a plan', n: f.pick || 0 },
+      { k: 'Started a form', n: f.started || 0 },
+      { k: 'Sent a form', n: f.sent || 0 }
+    ];
+    h += '<div class="box"><h2>From visit to form</h2><p class="sub">How many people reach each step. The biggest drop shows what to fix first.</p>' + bars(steps, f.visited || 0) + '</div>';
+
+    h += '<div class="box"><h2>Goals tapped</h2><p class="sub">What people want most.</p>' + bars(d.goals) + '</div>';
+    h += '<div class="box"><h2>Plans tapped</h2><p class="sub">Which option they went for.</p>' + bars(d.picks) + '</div>';
+
+    var forms = (d.forms || []).filter(function (r) { return r.k !== 'stats'; });
+    h += '<div class="box"><h2>Forms</h2><p class="sub">Opened, started (answered at least one question) and sent.</p>';
+    if (!forms.length) h += '<p class="empty">Nothing yet.</p>';
+    else h += '<table><tr><th>Page</th><th>Opened</th><th>Started</th><th>Sent</th><th>Sent of started</th></tr>' + forms.map(function (r) {
+      return '<tr><td>' + esc(FORMS[r.k] || nm(r.k)) + '</td><td>' + r.viewed + '</td><td>' + r.started + '</td><td>' + r.sent + '</td><td>' + pct(r.sent, r.started) + '</td></tr>';
+    }).join('') + '</table>';
+    h += '</div>';
+
+    if (d.steps && d.steps.length) {
+      var sname = { '1': '1 · Goal', '2': '2 · Plan', '3': '3 · About you', '4': '4 · Training', '5': '5 · Health', '6': '6 · Last step' };
+      h += '<div class="box"><h2>Online application, step by step</h2><p class="sub">How many reached each step. Where it drops is where people give up.</p>' +
+        bars(d.steps.map(function (r) { return { k: sname[r.k] || r.k, n: r.n }; }), (d.steps[0] || {}).n, true) + '</div>';
+    }
+
+    h += '<div class="box"><h2>Where visitors come from</h2>' + bars(d.refs, d.visitors, true) + '</div>';
+    h += '<div class="box"><h2>Devices</h2>' + bars(d.devices, d.visitors, true) + '</div>';
+
+    var daily = d.daily || [];
+    if (daily.length) {
+      var max = Math.max.apply(null, daily.map(function (x) { return x.n; })) || 1;
+      h += '<div class="box"><h2>Visitors per day</h2><div class="days">' + daily.map(function (x) {
+        return '<div title="' + esc(x.d) + ': ' + x.n + '" style="height:' + Math.max(3, Math.round(x.n * 100 / max)) + '%"></div>';
+      }).join('') + '</div><div class="days-axis"><span>' + esc(daily[0].d) + '</span><span>' + esc(daily[daily.length - 1].d) + '</span></div></div>';
+    }
+    $('out').innerHTML = h;
+  }
+
+  function load() {
+    $('perr').textContent = ''; $('out').innerHTML = '<p class="empty">Loading...</p>';
+    fetch(URL_ + '/rest/v1/rpc/ze_stats', {
+      method: 'POST', headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p_days: days })
+    }).then(function (r) {
+      if (r.status === 401) throw new Error('auth');
+      if (!r.ok) throw new Error('bad');
+      return r.json();
+    }).then(render).catch(function (e) {
+      if (e.message === 'auth') { signOut(); $('lerr').textContent = 'Please sign in again.'; return; }
+      $('out').innerHTML = ''; $('perr').textContent = 'Couldn\'t load the stats.';
+    });
+  }
+  function showPanel() { $('signin').style.display = 'none'; $('panel').style.display = 'block'; load(); }
+  function signOut() { token = null; store('zeStTok', null); $('panel').style.display = 'none'; $('signin').style.display = ''; }
+
+  $('login').addEventListener('click', function () {
+    $('lerr').textContent = '';
+    fetch(URL_ + '/auth/v1/token?grant_type=password', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'apikey': KEY },
+      body: JSON.stringify({ email: $('em').value.trim(), password: $('pw').value })
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d.access_token) { $('lerr').textContent = 'Sign-in failed.'; return; }
+      token = d.access_token; store('zeStTok', token); store('zeStExp', String(Date.now() + (d.expires_in || 3600) * 1000));
+      showPanel();
+    }).catch(function () { $('lerr').textContent = 'Sign-in failed.'; });
+  });
+  $('logout').addEventListener('click', signOut);
+  Array.prototype.forEach.call($('tabs').children, function (b) {
+    b.addEventListener('click', function () {
+      days = +b.getAttribute('data-d');
+      Array.prototype.forEach.call($('tabs').children, function (x) { x.classList.toggle('on', x === b); });
+      load();
+    });
+  });
+  var t = read('zeStTok'), exp = +read('zeStExp') || 0;
+  if (t && exp > Date.now() + 60000) { token = t; showPanel(); }
+})();
+</script>
+</body>
+</html>
