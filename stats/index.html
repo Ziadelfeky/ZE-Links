@@ -50,6 +50,11 @@ td{padding:9px 4px;border-top:1px solid var(--line);text-align:right;font-varian
 .days-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--soft);margin-top:6px;}
 .empty{color:var(--soft);font-size:13px;}
 .note{font-size:12px;color:var(--soft);margin-top:24px;line-height:1.6;}
+.mk{display:flex;flex-direction:column;gap:10px;}
+.mk select{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line-strong);border-radius:12px;padding:12px 14px;}
+.mk-out{display:flex;gap:8px;align-items:center;background:var(--bg);border:1px solid var(--line-strong);border-radius:12px;padding:10px 12px;font-size:13px;word-break:break-all;}
+.mk-out span{flex:1;color:var(--gold);}
+.mk-copy{flex:0 0 auto;border:0;border-radius:8px;background:var(--gold);color:var(--ink);font:inherit;font-size:13px;font-weight:500;padding:8px 12px;cursor:pointer;}
 .out{background:none;border:0;color:var(--soft);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline;padding:0;margin-top:16px;}
 </style>
 </head>
@@ -74,6 +79,22 @@ td{padding:9px 4px;border-top:1px solid var(--line);text-align:right;font-varian
     </div>
     <p class="err" id="perr"></p>
     <div id="out"></div>
+    <div class="box">
+      <h2>Make a link for a post</h2>
+      <p class="sub">Use it in a story, reel caption or your bio. Visitors from it show up under its name in "Where visitors come from" and in each form you receive.</p>
+      <div class="mk">
+        <input type="text" id="mk-name" placeholder="Name it, e.g. knee reel" maxlength="40" autocomplete="off">
+        <select id="mk-page">
+          <option value="">Homepage</option>
+          <option value="apply/">Online coaching application</option>
+          <option value="kraft/">Kraft form</option>
+          <option value="home-training/">Home training form</option>
+          <option value="muscle-release/">Muscle Release form</option>
+          <option value="review/">Leave a review</option>
+        </select>
+        <div class="mk-out"><span id="mk-url">https://ziadelfeky.com/?from=bio</span><button class="mk-copy" id="mk-copy" type="button">Copy</button></div>
+      </div>
+    </div>
     <p class="note">A visitor is one browser visit. No names or personal data are collected. People who block trackers aren't counted, so real numbers are a little higher.</p>
     <button class="out" id="logout" type="button">Sign out</button>
   </div>
@@ -184,6 +205,16 @@ td{padding:9px 4px;border-top:1px solid var(--line);text-align:right;font-varian
     }).catch(function () { $('lerr').textContent = 'Sign-in failed.'; });
   });
   $('logout').addEventListener('click', signOut);
+  function mkUrl() {
+    var n = ($('mk-name').value || 'bio').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'bio';
+    $('mk-url').textContent = 'https://ziadelfeky.com/' + $('mk-page').value + '?from=' + n;
+  }
+  $('mk-name').addEventListener('input', mkUrl); $('mk-page').addEventListener('change', mkUrl);
+  $('mk-copy').addEventListener('click', function () {
+    var t = $('mk-url').textContent, b = $('mk-copy');
+    function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500); }
+    try { navigator.clipboard.writeText(t).then(done, function () { done(); }); } catch (e) { done(); }
+  });
   Array.prototype.forEach.call($('tabs').children, function (b) {
     b.addEventListener('click', function () {
       days = +b.getAttribute('data-d');

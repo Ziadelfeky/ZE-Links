@@ -832,6 +832,7 @@ function showDetail(idx) {
     ['Sleep', s.sleep], ['Stress', s.stress_level ? s.stress_level + '/10' : ''],
     ['Nutrition', s.nutrition], ['Water', s.water], ['Activity level', s.activity_level],
     ['Previous coaching', s.prev_exp], ['Referral', s.referral], ['Other notes', s.other_notes],
+    ['Website visit', s.visit],
   ];
   var html = '<div class="detail-name">' + esc(s.name || '—') + '</div>';
   html += '<div class="detail-meta">' + esc([s.service_type, s.area].filter(Boolean).join(' · ')) + ' · Submitted ' + fmtDate(s.submitted_at, true) + '</div>';

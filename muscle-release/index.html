@@ -799,6 +799,7 @@ function showDetail(idx) {
     ['Oil allergies', s.oil_allergies], ['Medication', s.medications],
     ['Clothing preference', s.clothing_preference], ['Consent given', s.consent ? 'Yes — confirmed' : 'No'],
     ['Referral', s.referral], ['Notes', s.notes],
+    ['Website visit', s.visit],
   ];
   var html = '<div class="detail-name">' + esc(s.name || '—') + '</div>';
   html += '<div class="detail-meta">' + esc([s.session_duration, s.clothing_preference].filter(Boolean).join(' · ')) + ' · Submitted ' + fmtDate(s.submitted_at, true) + '</div>';

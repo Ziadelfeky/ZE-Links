@@ -952,7 +952,8 @@ function showDetail(idx) {
     ['Check-in preference', s.checkin], ['Plan', s.support_level],
     ['Nutrition add-on', s.nutrition_addon], ['Start', s.start_when],
     ['Found me via', s.source], ['Which post', s.source_detail],
-    ['Other notes', s.other_notes]
+    ['Other notes', s.other_notes],
+    ['Website visit', s.visit],
   ];
   var html = '<div class="detail-name">' + esc(s.name || '—') + '</div>';
   html += '<div class="detail-meta">' + esc([s.gender, s.location].filter(Boolean).join(' · ')) + ' · Submitted ' + fmtDate(s.submitted_at, true) + '</div>';

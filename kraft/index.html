@@ -883,6 +883,7 @@ function showDetail(idx) {
     ['Health & Medical', [['Pain / injuries', s.pain_injuries], ['Conditions', s.medical_conditions], ['Other conditions', s.other_condition], ['Medication', s.medications], ['Avoid', s.avoid_movements], ['Menstrual cycle', s.menstrual_cycle], ['Health notes', s.health_notes]]],
     ['Lifestyle', [['Sleep', s.sleep], ['Stress', s.stress_level ? s.stress_level + '/10' : ''], ['Nutrition', s.nutrition], ['Water', s.water], ['Activity level', s.activity_level]]],
     ['Other', [['Previous gym exp', s.prev_exp], ['Referral', s.referral], ['Notes', s.other_notes]]],
+    ['Before sending', [['Website visit', s.visit]]],
   ];
   var html = '<div class="detail-name">' + esc(s.name || '—') + '</div>';
   var badge = s.member_type === 'Returning member' ? '<span class="badge badge-ret">Returning</span>' : '<span class="badge badge-new">New</span>';
