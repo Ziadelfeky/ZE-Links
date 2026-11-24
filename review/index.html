@@ -46,6 +46,20 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
 .star.on{color:var(--gold);border-color:rgba(207,178,124,.5);}
 .check{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--muted);cursor:pointer;}
 .check input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--gold);flex:0 0 auto;}
+.photos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.pick{position:relative;aspect-ratio:4/5;border:1px dashed var(--line-strong);border-radius:12px;background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--soft);font-size:12px;cursor:pointer;overflow:hidden;text-align:center;padding:6px;}
+.pick svg{width:22px;height:22px;color:var(--gold);}
+.pick input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.pick img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.pick.has{border-style:solid;border-color:rgba(207,178,124,.5);}
+.pick .x{position:absolute;top:6px;right:6px;z-index:2;width:26px;height:26px;border-radius:50%;border:0;background:rgba(12,11,10,.8);color:var(--text);font-size:15px;line-height:26px;padding:0;cursor:pointer;display:none;}
+.pick.has .x{display:block;}
+.pick .tag{position:absolute;left:6px;bottom:6px;z-index:1;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(12,11,10,.78);color:var(--text);padding:3px 7px;border-radius:6px;display:none;}
+.pick.has .tag{display:block;}
+.rev-pics{display:flex;gap:8px;margin:12px 0 0;}
+.rev-pics figure{margin:0;width:31%;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#000;position:relative;}
+.rev-pics img{width:100%;height:100%;object-fit:cover;}
+.rev-pics figcaption{position:absolute;left:5px;bottom:5px;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;background:rgba(12,11,10,.78);padding:2px 6px;border-radius:5px;}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 .btn{height:54px;border:0;border-radius:12px;background:var(--gold);color:var(--ink);font:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:filter .2s;}
 .btn:hover{filter:brightness(1.06);}
@@ -112,9 +126,19 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
         <span class="count" id="count">0 / 1200</span>
       </div>
 
+      <div class="field">
+        <span class="lbl">Photos <span class="hint">(optional)</span></span>
+        <div class="photos">
+          <label class="pick" data-slot="profile"><input type="file" accept="image/*" aria-label="Add a photo of you"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="9" r="3.5"/><path d="M5 19.5c1.4-3.2 4-4.8 7-4.8s5.6 1.6 7 4.8" stroke-linecap="round"/></svg><span>Photo of you</span><span class="tag">You</span><button class="x" type="button" aria-label="Remove photo">&times;</button></label>
+          <label class="pick" data-slot="before"><input type="file" accept="image/*" aria-label="Add a before photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg><span>Before</span><span class="tag">Before</span><button class="x" type="button" aria-label="Remove photo">&times;</button></label>
+          <label class="pick" data-slot="after"><input type="file" accept="image/*" aria-label="Add an after photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg><span>After</span><span class="tag">After</span><button class="x" type="button" aria-label="Remove photo">&times;</button></label>
+        </div>
+        <span class="hint">A photo of you, or your before and after. Nothing is shown until I approve it.</span>
+      </div>
+
       <div class="hp" aria-hidden="true"><label>Website <input type="text" id="website" tabindex="-1" autocomplete="off"></label></div>
 
-      <label class="check"><input type="checkbox" id="consent"> <span>Ziad can publish my review on ziadelfeky.com with my first name.</span></label>
+      <label class="check"><input type="checkbox" id="consent"> <span>Ziad can publish my review, and any photos I added, on ziadelfeky.com with my first name.</span></label>
 
       <p class="err" id="err" role="alert"></p>
       <button class="btn" type="submit" id="send">Send review</button>
@@ -142,6 +166,7 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
         <button class="tab" data-s="approved">On the site</button>
         <button class="tab" data-s="hidden">Hidden</button>
       </div>
+      <p class="err" id="perr"></p>
       <div id="list"></div>
       <button class="out" id="logout" type="button">Sign out</button>
     </div>
@@ -170,6 +195,49 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
       b.setAttribute('aria-checked', j === rating - 1 ? 'true' : 'false');
     });
   }
+  var photos = {};
+  function shrink(file) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image(), url = URL.createObjectURL(file);
+      img.onload = function () {
+        var max = 1400, w = img.naturalWidth, h = img.naturalHeight, k = Math.min(1, max / Math.max(w, h));
+        var c = document.createElement('canvas'); c.width = Math.round(w * k); c.height = Math.round(h * k);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        c.toBlob(function (b) { b ? resolve(b) : reject(new Error('blob')); }, 'image/jpeg', 0.85);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('img')); };
+      img.src = url;
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.pick'), function (box) {
+    var slot = box.getAttribute('data-slot'), input = box.querySelector('input');
+    input.addEventListener('change', function () {
+      var f = input.files && input.files[0]; if (!f) return;
+      shrink(f).then(function (blob) {
+        photos[slot] = blob;
+        var old = box.querySelector('img'); if (old) old.remove();
+        var im = document.createElement('img'); im.alt = ''; im.src = URL.createObjectURL(blob);
+        box.insertBefore(im, box.firstChild); box.classList.add('has');
+      }).catch(function () { $('err').textContent = 'That photo couldn\'t be opened. Try another one.'; });
+      input.value = '';
+    });
+    box.querySelector('.x').addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      delete photos[slot]; var im = box.querySelector('img'); if (im) im.remove(); box.classList.remove('has');
+    });
+  });
+  function uuid() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
+  }
+  function upload(blob) {
+    var path = 'new/' + uuid() + '.jpg';
+    return fetch(URL_ + '/storage/v1/object/review-uploads/' + path, {
+      method: 'POST', headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + KEY, 'Content-Type': 'image/jpeg' }, body: blob
+    }).then(function (r) { if (!r.ok) throw new Error('upload ' + r.status); return path; });
+  }
+
   $('text').addEventListener('input', function () { $('count').textContent = this.value.length + ' / 1200'; });
 
   $('form').addEventListener('submit', function (e) {
@@ -183,10 +251,15 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
     if (text.length < 20) { err.textContent = 'Please write a little more, at least a sentence or two.'; return; }
     if (!$('consent').checked) { err.textContent = 'Please tick the box so I can publish your review.'; return; }
     var btn = $('send'); btn.disabled = true; btn.textContent = 'Sending...';
-    fetch(URL_ + '/rest/v1/ze_reviews', {
-      method: 'POST',
-      headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-      body: JSON.stringify({ first_name: name, service: service, rating: rating, review: text, consent: true })
+    var row = { first_name: name, service: service, rating: rating, review: text, consent: true };
+    var slots = ['profile', 'before', 'after'].filter(function (k) { return photos[k]; });
+    Promise.all(slots.map(function (k) { return upload(photos[k]).then(function (path) { row['photo_' + k] = path; }); }))
+    .then(function () {
+      return fetch(URL_ + '/rest/v1/ze_reviews', {
+        method: 'POST',
+        headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+        body: JSON.stringify(row)
+      });
     }).then(function (r) {
       if (!r.ok) throw new Error(r.status);
       $('form').style.display = 'none'; $('done').style.display = 'block';
@@ -257,9 +330,18 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
           if (r.status !== 'pending') btns += '<button class="act" data-to="pending">Back to waiting</button>';
           el.innerHTML = '<div class="rev-top"><span><b>' + esc(r.first_name) + '</b> · ' + esc(r.service) + '</span><span>' + date + '</span></div>' +
             '<div class="rev-stars">' + '★★★★★'.slice(0, r.rating) + '<span style="opacity:.25">' + '★★★★★'.slice(r.rating) + '</span></div>' +
-            '<p>' + esc(r.review) + '</p><div class="acts">' + btns + '</div>';
+            '<p>' + esc(r.review) + '</p><div class="rev-pics"></div><div class="acts">' + btns + '</div>';
+          var pics = el.querySelector('.rev-pics');
+          [['photo_profile', 'You'], ['photo_before', 'Before'], ['photo_after', 'After']].forEach(function (k) {
+            if (!r[k[0]]) return;
+            var fig = document.createElement('figure'); var im = document.createElement('img'); im.alt = k[1];
+            var cap = document.createElement('figcaption'); cap.textContent = k[1];
+            fig.appendChild(im); fig.appendChild(cap); pics.appendChild(fig);
+            getBlob('review-uploads', r[k[0]]).then(function (b) { im.src = URL.createObjectURL(b); }).catch(function () { cap.textContent = k[1] + ' (missing)'; });
+          });
+          if (!pics.children.length) pics.remove();
           Array.prototype.forEach.call(el.querySelectorAll('.act'), function (b) {
-            b.addEventListener('click', function () { setStatus(r.id, b.getAttribute('data-to')); });
+            b.addEventListener('click', function () { b.disabled = true; b.textContent = '...'; setStatus(r, b.getAttribute('data-to')); });
           });
           list.appendChild(el);
         });
@@ -270,10 +352,33 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
       });
   }
 
-  function setStatus(id, to) {
-    fetch(URL_ + '/rest/v1/ze_reviews?id=eq.' + id, {
-      method: 'PATCH', headers: Object.assign(auth(), { 'Prefer': 'return=minimal' }), body: JSON.stringify({ status: to })
-    }).then(load);
+  function getBlob(bucket, path) {
+    return fetch(URL_ + '/storage/v1/object/authenticated/' + bucket + '/' + path, { headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + token } })
+      .then(function (r) { if (!r.ok) throw new Error('get ' + r.status); return r.blob(); });
+  }
+  function photoPaths(r) { return [r.photo_profile, r.photo_before, r.photo_after].filter(Boolean); }
+  function publishPhotos(r) {
+    return Promise.all(photoPaths(r).map(function (path) {
+      return getBlob('review-uploads', path).then(function (b) {
+        return fetch(URL_ + '/storage/v1/object/review-photos/' + path, {
+          method: 'POST', headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + token, 'Content-Type': 'image/jpeg', 'x-upsert': 'true' }, body: b
+        }).then(function (res) { if (!res.ok) throw new Error('put ' + res.status); });
+      });
+    }));
+  }
+  function unpublishPhotos(r) {
+    var paths = photoPaths(r); if (!paths.length) return Promise.resolve();
+    return fetch(URL_ + '/storage/v1/object/review-photos', {
+      method: 'DELETE', headers: auth(), body: JSON.stringify({ prefixes: paths })
+    });
+  }
+  function setStatus(r, to) {
+    var step = to === 'approved' ? publishPhotos(r) : unpublishPhotos(r);
+    step.then(function () {
+      return fetch(URL_ + '/rest/v1/ze_reviews?id=eq.' + r.id, {
+        method: 'PATCH', headers: Object.assign(auth(), { 'Prefer': 'return=minimal' }), body: JSON.stringify({ status: to })
+      });
+    }).then(function () { $('perr').textContent = ''; load(); }).catch(function () { load(); $('perr').textContent = 'The photos couldn\'t be published. Try again.'; });
   }
 
   route();

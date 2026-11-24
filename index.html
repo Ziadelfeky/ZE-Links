@@ -130,6 +130,11 @@ img{max-width:100%;display:block;}
 .rev-link{display:inline-block;margin-top:22px;font-size:13.5px;color:var(--soft);text-decoration:none;}
 .rev-link b{font-weight:500;color:var(--gold);border-bottom:1px solid currentColor;}
 .q .stars{font-size:11px;letter-spacing:2px;color:var(--gold);}
+.q footer .q-av{width:34px;height:34px;border-radius:50%;object-fit:cover;align-self:center;border:1px solid var(--line-strong);}
+.q-ba{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
+.q-ba figure{margin:0;position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#000;}
+.q-ba img{width:100%;height:100%;object-fit:cover;display:block;}
+.q-ba figcaption{position:absolute;left:6px;bottom:6px;font-size:9.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;background:var(--tag-bg);color:var(--tag-ink);padding:3px 7px;border-radius:6px;}
 .dot::after{content:"";position:absolute;left:-3px;right:-3px;top:-16px;bottom:-16px;}
 
 /* WAYS TO TRAIN */
@@ -518,7 +523,25 @@ details.more[open] summary .plus{transform:rotate(45deg);}
       var who = document.createElement('span'); who.className = 'who'; who.textContent = r.first_name + ' \u00B7 ' + r.service;
       var st = document.createElement('span'); st.className = 'stars'; st.setAttribute('aria-label', r.rating + ' out of 5');
       st.textContent = '\u2605\u2605\u2605\u2605\u2605'.slice(0, r.rating);
-      f.appendChild(who); f.appendChild(st); q.appendChild(mark); q.appendChild(p); q.appendChild(f);
+      var base = 'https://gndbfxwjcumkftbultkt.supabase.co/storage/v1/object/public/review-photos/';
+      if (r.photo_profile) {
+        var av = document.createElement('img'); av.className = 'q-av'; av.alt = ''; av.loading = 'lazy';
+        av.src = base + r.photo_profile; av.onerror = function () { av.remove(); };
+        f.appendChild(av);
+      }
+      f.appendChild(who); f.appendChild(st); q.appendChild(mark); q.appendChild(p);
+      if (r.photo_before && r.photo_after) {
+        var ba = document.createElement('div'); ba.className = 'q-ba';
+        [['photo_before', 'Before'], ['photo_after', 'After']].forEach(function (k) {
+          var fig = document.createElement('figure'); var im = document.createElement('img');
+          im.alt = r.first_name + ' ' + k[1].toLowerCase(); im.loading = 'lazy'; im.src = base + r[k[0]];
+          im.onerror = function () { ba.remove(); };
+          var cap = document.createElement('figcaption'); cap.textContent = k[1];
+          fig.appendChild(im); fig.appendChild(cap); ba.appendChild(fig);
+        });
+        q.appendChild(ba);
+      }
+      q.appendChild(f);
       quotes.insertBefore(q, quotes.firstChild);
     });
     quotes.scrollLeft = 0;
