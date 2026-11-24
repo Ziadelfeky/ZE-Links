@@ -626,12 +626,14 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     restart: {say:'We start from where you are today, not where you used to be. The first weeks are built so you can keep going.', q:['I used to start and stop all the time, but this time it\'s different.'], w:['online','kraft','home'], x:'lean'},
     sport:   {say:'Strength, speed and conditioning built around your sport and your season.', q:['My strength has improved a lot and I feel the difference in my performance too.'], w:['kraft','online']}
   };
-  function pickHTML(k){ var w = WAYS[k]; return '<a class="pick" data-track="pick" data-track-label="'+k+'" href="'+w.u+'"'+(w.ext?' target="_blank" rel="noopener"':'')+'><span class="pick-ico"><svg viewBox="0 0 24 24">'+w.i+'</svg></span><span class="pick-text"><b>'+w.t+'</b><span>'+w.s+'</span></span><span class="pick-go" aria-hidden="true">&rarr;</span></a>'; }
+  var curGoal = '';
+  function pickHTML(k){ var w = WAYS[k]; var u = w.ext ? w.u : w.u + (curGoal ? '?goal=' + curGoal : ''); return '<a class="pick" data-track="pick" data-track-label="'+k+'" href="'+u+'"'+(w.ext?' target="_blank" rel="noopener"':'')+'><span class="pick-ico"><svg viewBox="0 0 24 24">'+w.i+'</svg></span><span class="pick-text"><b>'+w.t+'</b><span>'+w.s+'</span></span><span class="pick-go" aria-hidden="true">&rarr;</span></a>'; }
   var gpanel = document.getElementById('gpanel');
   Array.prototype.forEach.call(document.querySelectorAll('.gchip'), function(c){
     c.addEventListener('click', function(){
       var k = c.getAttribute('data-goal'), g = GOALS[k];
       if (window.zeTrack) zeTrack('goal', k);
+      curGoal = k;
       Array.prototype.forEach.call(document.querySelectorAll('.gchip'), function(x){ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
       var h = '<p class="gpanel-say">'+g.say+'</p>';
       h += '<p class="gpanel-q">&ldquo;'+g.q[0]+'&rdquo;<span>A client</span></p>';
