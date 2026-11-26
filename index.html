@@ -116,7 +116,7 @@ img{max-width:100%;display:block;}
 .note{font-size:11.5px;line-height:1.6;color:var(--soft);margin:0;}
 
 /* REVIEWS */
-.quotes{display:flex;overflow-x:auto;overflow-anchor:none;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;align-items:flex-start;}
+.quotes{display:flex;overflow-x:auto;overflow-anchor:none;transition:height .3s ease;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;align-items:flex-start;}
 .quotes::-webkit-scrollbar{display:none;}
 .q{flex:0 0 100%;scroll-snap-align:start;margin:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 22px 20px;}
 .q-mark{font-family:var(--serif);font-size:46px;line-height:.6;color:var(--gold);height:22px;display:block;}
@@ -130,6 +130,7 @@ img{max-width:100%;display:block;}
 .rev-link{display:inline-block;margin-top:22px;font-size:13.5px;color:var(--soft);text-decoration:none;}
 .rev-link b{font-weight:500;color:var(--gold);border-bottom:1px solid currentColor;}
 .q .stars{font-size:11px;letter-spacing:2px;color:var(--gold);}
+.q p{white-space:pre-line;}
 .q footer .q-av{width:34px;height:34px;border-radius:50%;object-fit:cover;align-self:center;border:1px solid var(--line-strong);}
 .q-ba{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
 .q-ba figure{margin:0;position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#000;}
@@ -335,11 +336,6 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     <p class="label">In their words</p>
     <h2 class="sec-title" id="rev-title">What clients say</h2>
     <div class="quotes" id="quotes">
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Not gonna lie, I was expecting results but I didn't expect to enjoy the process this much. The plan fits my lifestyle and I don't feel lost anymore. Still not at my final goal, but the progress so far makes me wanna keep going.</p><footer><span class="who">A plan that fits life</span></footer></blockquote>
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I started just wanting to change my body, but honestly gained so much more than that. I feel stronger, more confident and finally comfortable with myself. I used to start and stop all the time, but this time it's different. Thank you Ziad.</p><footer><span class="who">Body and confidence</span></footer></blockquote>
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Honestly, the difference isn't just in shape. I've become more dedicated, and I understand why and how I train. The program is built around my goal and there's always follow-up. It's the first time I feel there's a real plan I'm following, and I'm training pain-free.</p><footer><span class="who">Training pain-free</span><span class="tr">Translated from Arabic</span></footer></blockquote>
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>I honestly thought my arm would never feel normal again. I was so frustrated at the beginning and didn't know if I would get better, but seeing the progress step by step gave me hope again. Still have work to do, but I'm so happy with how far I've come.</p><footer><span class="who">Arm recovery</span></footer></blockquote>
-      <blockquote class="q"><span class="q-mark" aria-hidden="true">&ldquo;</span><p>Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts. My strength has improved a lot and I feel the difference in my performance too. The follow-up and feedback really make a difference.</p><footer><span class="who">Strength and performance</span></footer></blockquote>
     </div>
     <div class="dots" id="dots" aria-label="Reviews"></div>
     <a class="rev-link" href="https://ziadelfeky.com/review/">Trained with me? <b>Leave a review</b> &rarr;</a>
@@ -619,12 +615,12 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     sos:    {u:'https://traintrackmarketplace.com/en/programmes/8875ef1e-eef0-4ee3-8598-9eece0f9536e', t:'Shape Over Scale', s:'Ready-made &middot; 6 weeks &middot; for women &middot; 2,500 EGP', i:'<path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6"/>', ext:true}
   };
   var GOALS = {
-    fat:     {say:'Fat loss that lasts comes from training you can keep doing and food that fits your life. I build both around you.', q:['I started just wanting to change my body, but honestly gained so much more than that.'], w:['online','kraft','home'], x:'lean'},
-    shape:   {say:'Shape comes from building muscle where you want it, then losing the fat on top. Your plan does both, at your pace.', q:['I feel stronger, more confident and finally comfortable with myself.'], w:['online','kraft','home'], x:'sos'},
-    muscle:  {say:'You\'ll always know what to lift and when to add more. No guessing, no random workouts.', q:['Biggest difference is that now I actually have a plan instead of just going to the gym and doing random workouts.'], w:['online','kraft']},
-    pain:    {say:'With pain or after an injury, I start in person so I can assess you hands-on. Then we build you back up step by step.', q:['It\'s the first time I feel there\'s a real plan I\'m following, and I\'m training pain-free.'], w:['kraft','home']},
-    restart: {say:'We start from where you are today, not where you used to be. The first weeks are built so you can keep going.', q:['I used to start and stop all the time, but this time it\'s different.'], w:['online','kraft','home'], x:'lean'},
-    sport:   {say:'Strength, speed and conditioning built around your sport and your season.', q:['My strength has improved a lot and I feel the difference in my performance too.'], w:['kraft','online']}
+    fat:     {say:'Fat loss that lasts comes from training you can keep doing and food that fits your life. I build both around you.', q:['He consistently follows up to track my progress.', 'Menna · Training at Kraft'], w:['online','kraft','home'], x:'lean'},
+    shape:   {say:'Shape comes from building muscle where you want it, then losing the fat on top. Your plan does both, at your pace.', q:['I\'m now almost at my dream body.', 'Nehad · Rehab'], w:['online','kraft','home'], x:'sos'},
+    muscle:  {say:'You\'ll always know what to lift and when to add more. No guessing, no random workouts.', q:['I started training while struggling to carry my own weight 4 months ago and now reached a point where I could train with 10kg dumbbells.', 'May · Training at Kraft'], w:['online','kraft']},
+    pain:    {say:'With pain or after an injury, I start in person so I can assess you hands-on. Then we build you back up step by step.', q:['I started training with Ziad because of my knee issues, but it gradually became much more than that.', 'Sally · Training at Kraft'], w:['kraft','home']},
+    restart: {say:'We start from where you are today, not where you used to be. The first weeks are built so you can keep going.', q:['He helped me to get myself back on track again.', 'Haneen · Online coaching'], w:['online','kraft','home'], x:'lean'},
+    sport:   {say:'Strength, speed and conditioning built around your sport and your season.', q:['Not only did my back get much better, but I also managed to do my first HYROX.', 'Ismail · Training at Kraft'], w:['kraft','online']}
   };
   var curGoal = '';
   function pickHTML(k){ var w = WAYS[k]; var u = w.ext ? w.u : w.u + (curGoal ? '?goal=' + curGoal : ''); return '<a class="pick" data-track="pick" data-track-label="'+k+'" href="'+u+'"'+(w.ext?' target="_blank" rel="noopener"':'')+'><span class="pick-ico"><svg viewBox="0 0 24 24">'+w.i+'</svg></span><span class="pick-text"><b>'+w.t+'</b><span>'+w.s+'</span></span><span class="pick-go" aria-hidden="true">&rarr;</span></a>'; }
@@ -636,7 +632,7 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
       curGoal = k;
       Array.prototype.forEach.call(document.querySelectorAll('.gchip'), function(x){ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
       var h = '<p class="gpanel-say">'+g.say+'</p>';
-      h += '<p class="gpanel-q">&ldquo;'+g.q[0]+'&rdquo;<span>A client</span></p>';
+      h += '<p class="gpanel-q">&ldquo;'+g.q[0]+'&rdquo;<span>'+g.q[1]+'</span></p>';
       h += '<p class="gpanel-lbl">Where I\'d start you</p>';
       g.w.forEach(function(w){ h += pickHTML(w); });
       if (g.x) { h += '<p class="gpanel-lbl">Lower-cost start</p>' + pickHTML(g.x); }
@@ -650,7 +646,10 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
   var started = false;
   function startQuotes() {
     if (started) return; started = true;
-    swipe(quotes, Array.prototype.slice.call(quotes.querySelectorAll('.q')), document.getElementById('dots'), 'Review', null, false);
+    if (!quotes.querySelector('.q')) { var rs = document.getElementById('reviews'); if (rs) rs.style.display = 'none'; return; }
+    var qs = Array.prototype.slice.call(quotes.querySelectorAll('.q'));
+    swipe(quotes, qs, document.getElementById('dots'), 'Review', null, true);
+    qs.forEach(function (q) { Array.prototype.forEach.call(q.querySelectorAll('img'), function (im) { im.addEventListener('load', function () { window.dispatchEvent(new Event('resize')); }); }); });
   }
   function addReviews(rows) {
     if (!Array.isArray(rows)) return;
