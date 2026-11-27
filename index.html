@@ -116,9 +116,9 @@ img{max-width:100%;display:block;}
 .note{font-size:11.5px;line-height:1.6;color:var(--soft);margin:0;}
 
 /* REVIEWS */
-.quotes{display:flex;overflow-x:auto;overflow-anchor:none;transition:height .3s ease;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;align-items:flex-start;}
+.quotes{display:flex;overflow-x:auto;overflow-y:hidden;overflow-anchor:none;transition:height .3s ease;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;align-items:flex-start;}
 .quotes::-webkit-scrollbar{display:none;}
-.q{flex:0 0 100%;scroll-snap-align:start;margin:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 22px 20px;}
+.q{flex:0 0 88%;scroll-snap-align:start;margin:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 22px 20px;}
 .q-mark{font-family:var(--serif);font-size:46px;line-height:.6;color:var(--gold);height:22px;display:block;}
 .q p{font-family:var(--serif);font-size:18px;line-height:1.6;margin:10px 0 0;color:var(--text);}
 .q footer{margin-top:16px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;}
@@ -127,6 +127,12 @@ img{max-width:100%;display:block;}
 .dots{display:flex;gap:6px;}
 .dot{width:18px;height:2px;border-radius:2px;background:var(--line-strong);border:0;padding:0;cursor:pointer;transition:background .2s,width .2s;position:relative;}
 .dot.on{background:var(--gold);width:28px;}
+.qfoot{display:flex;align-items:center;gap:14px;margin-top:16px;}
+.qfoot .dots{display:none !important;}
+.qfoot .count{white-space:nowrap;min-width:52px;text-align:center;}
+.qbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:none;color:var(--text);font-size:17px;cursor:pointer;display:grid;place-items:center;padding:0;transition:border-color .2s,color .2s,opacity .2s;}
+.qbtn:hover{border-color:var(--gold);color:var(--gold);}
+.qbtn[disabled]{opacity:.3;cursor:default;}
 .rev-link{display:inline-block;margin-top:22px;font-size:13.5px;color:var(--soft);text-decoration:none;}
 .rev-link b{font-weight:500;color:var(--gold);border-bottom:1px solid currentColor;}
 .q .stars{font-size:11px;letter-spacing:2px;color:var(--gold);}
@@ -194,6 +200,8 @@ details.more[open] summary .plus{transform:rotate(45deg);}
 .step-img{margin-top:12px;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:var(--panel-2);}
 .step-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) sepia(.1);}
 .step-photo-natural img{filter:none;object-position:50% 30%;}
+.step-portrait{aspect-ratio:4/5;max-width:62%;}
+.step-portrait img{filter:none;object-position:50% 30%;}
 .step-logo{display:grid;place-items:center;background:#000;}
 .step-logo img{width:52%;height:auto;object-fit:contain;filter:none;}
 
@@ -340,7 +348,12 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     <h2 class="sec-title" id="rev-title">What clients say</h2>
     <div class="quotes" id="quotes">
     </div>
-    <div class="dots" id="dots" aria-label="Reviews"></div>
+    <div class="qfoot">
+      <div class="dots" id="dots" aria-hidden="true" hidden></div>
+      <button class="qbtn" id="qprev" type="button" aria-label="Previous review">&larr;</button>
+      <span class="count" id="qcount" aria-live="polite"></span>
+      <button class="qbtn" id="qnext" type="button" aria-label="Next review">&rarr;</button>
+    </div>
     <a class="rev-link" href="https://ziadelfeky.com/review/">Trained with me? <b>Leave a review</b> &rarr;</a>
   </section>
 
@@ -465,6 +478,7 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
           <span class="step-year">Age 7</span>
           <h3 class="step-title">Where it started</h3>
           <p class="step-text">Football first, then kung fu, boxing, track and field and swimming. Sport has been part of every year since.</p>
+          <div class="step-img step-portrait"><img src="path-age7.jpg" alt="Ziad at age 7" loading="lazy"></div>
         </li>
         <li class="step">
           <span class="step-year">2016</span>
@@ -653,7 +667,16 @@ a.goal:hover,a.goal:active{border-color:var(--gold);}
     if (started) return; started = true;
     if (!quotes.querySelector('.q')) { var rs = document.getElementById('reviews'); if (rs) rs.style.display = 'none'; return; }
     var qs = Array.prototype.slice.call(quotes.querySelectorAll('.q'));
-    swipe(quotes, qs, document.getElementById('dots'), 'Review', null, true);
+    swipe(quotes, qs, document.getElementById('dots'), 'Review', document.getElementById('qcount'), true);
+    document.getElementById('qcount').textContent = '1 / ' + qs.length;
+    var qprev = document.getElementById('qprev'), qnext = document.getElementById('qnext');
+    function qpitch() { return qs.length > 1 ? qs[1].offsetLeft - qs[0].offsetLeft : quotes.clientWidth; }
+    function qcur() { return Math.round(quotes.scrollLeft / qpitch()); }
+    function qstate() { var i = qcur(); qprev.disabled = i <= 0; qnext.disabled = i >= qs.length - 1; }
+    qprev.addEventListener('click', function () { quotes.scrollTo({ left: Math.max(0, qcur() - 1) * qpitch(), behavior: smooth ? 'smooth' : 'auto' }); });
+    qnext.addEventListener('click', function () { quotes.scrollTo({ left: Math.min(qs.length - 1, qcur() + 1) * qpitch(), behavior: smooth ? 'smooth' : 'auto' }); });
+    quotes.addEventListener('scroll', qstate, { passive: true }); qstate();
+    if (qs.length < 2) document.querySelector('.qfoot').style.display = 'none';
     qs.forEach(function (q) { Array.prototype.forEach.call(q.querySelectorAll('img'), function (im) { im.addEventListener('load', function () { window.dispatchEvent(new Event('resize')); }); }); });
   }
   function addReviews(rows) {

@@ -84,6 +84,11 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
 .act{border:1px solid var(--line-strong);background:none;color:var(--text);border-radius:10px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer;}
 .act.pub{background:var(--gold);color:var(--ink);border-color:var(--gold);}
 .empty{color:var(--soft);font-size:14px;}
+.order{display:flex;align-items:center;gap:6px;margin:0 0 12px;}
+.pos{font-family:var(--serif);font-size:18px;color:var(--gold);margin-right:auto;}
+.mv{border:1px solid var(--line-strong);background:none;color:var(--text);border-radius:8px;min-width:40px;height:34px;padding:0 10px;font:inherit;font-size:13px;cursor:pointer;}
+.mv[disabled]{opacity:.3;cursor:default;}
+.order-hint{font-size:12.5px;color:var(--soft);margin:0 0 12px;}
 .out{background:none;border:0;color:var(--soft);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline;padding:0;}
 </style>
 </head>
@@ -321,14 +326,34 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
         if (!Array.isArray(rows)) throw new Error('bad');
         if (!rows.length) { list.innerHTML = '<p class="empty">Nothing here.</p>'; return; }
         list.innerHTML = '';
-        rows.forEach(function (r) {
+        if (filter === 'approved') {
+          rows.sort(function (a, b) {
+            var ra = a.rank == null ? 1e9 : a.rank, rb = b.rank == null ? 1e9 : b.rank;
+            if (ra !== rb) return ra - rb;
+            var pa = hasPhoto(a) ? 0 : 1, pb = hasPhoto(b) ? 0 : 1;
+            if (pa !== pb) return pa - pb;
+            return new Date(b.created_at) - new Date(a.created_at);
+          });
+          var hint = document.createElement('p'); hint.className = 'order-hint';
+          hint.textContent = 'This is the order on your website. Use the arrows to move a review, or Top to show it first.';
+          list.appendChild(hint);
+        }
+        currentRows = rows;
+        rows.forEach(function (r, idx) {
           var el = document.createElement('div'); el.className = 'rev';
           var date = new Date(r.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
           var btns = '';
           if (r.status !== 'approved') btns += '<button class="act pub" data-to="approved">Publish</button>';
           if (r.status !== 'hidden') btns += '<button class="act" data-to="hidden">Hide</button>';
           if (r.status !== 'pending') btns += '<button class="act" data-to="pending">Back to waiting</button>';
-          el.innerHTML = '<div class="rev-top"><span><b>' + esc(r.first_name) + '</b> · ' + esc(r.service) + '</span><span>' + date + '</span></div>' +
+          var order = '';
+          if (filter === 'approved') {
+            order = '<div class="order"><span class="pos">#' + (idx + 1) + '</span>' +
+              '<button class="mv" data-mv="top"' + (idx === 0 ? ' disabled' : '') + '>Top</button>' +
+              '<button class="mv" data-mv="up" aria-label="Move up"' + (idx === 0 ? ' disabled' : '') + '>&uarr;</button>' +
+              '<button class="mv" data-mv="down" aria-label="Move down"' + (idx === rows.length - 1 ? ' disabled' : '') + '>&darr;</button></div>';
+          }
+          el.innerHTML = order + '<div class="rev-top"><span><b>' + esc(r.first_name) + '</b> · ' + esc(r.service) + '</span><span>' + date + '</span></div>' +
             '<div class="rev-stars">' + '★★★★★'.slice(0, r.rating) + '<span style="opacity:.25">' + '★★★★★'.slice(r.rating) + '</span></div>' +
             '<p>' + esc(r.review) + '</p><div class="rev-pics"></div><div class="acts">' + btns + '</div>';
           var pics = el.querySelector('.rev-pics');
@@ -340,6 +365,9 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
             getBlob('review-uploads', r[k[0]]).then(function (b) { im.src = URL.createObjectURL(b); }).catch(function () { cap.textContent = k[1] + ' (missing)'; });
           });
           if (!pics.children.length) pics.remove();
+          Array.prototype.forEach.call(el.querySelectorAll('.mv'), function (b) {
+            b.addEventListener('click', function () { move(idx, b.getAttribute('data-mv')); });
+          });
           Array.prototype.forEach.call(el.querySelectorAll('.act'), function (b) {
             b.addEventListener('click', function () { b.disabled = true; b.textContent = '...'; setStatus(r, b.getAttribute('data-to')); });
           });
@@ -352,6 +380,22 @@ textarea{min-height:150px;resize:vertical;line-height:1.6;}
       });
   }
 
+  var currentRows = [];
+  function hasPhoto(r) { return !!(r.photo_profile || (r.photo_before && r.photo_after)); }
+  function move(i, how) {
+    var rows = currentRows.slice(), item = rows[i];
+    rows.splice(i, 1);
+    var to = how === 'top' ? 0 : how === 'up' ? Math.max(0, i - 1) : Math.min(rows.length, i + 1);
+    rows.splice(to, 0, item);
+    var jobs = [];
+    rows.forEach(function (r, k) {
+      if (r.rank !== k + 1) jobs.push(fetch(URL_ + '/rest/v1/ze_reviews?id=eq.' + r.id, {
+        method: 'PATCH', headers: Object.assign(auth(), { 'Prefer': 'return=minimal' }), body: JSON.stringify({ rank: k + 1 })
+      }).then(function (res) { if (!res.ok) throw new Error('order'); }));
+    });
+    $('perr').textContent = '';
+    Promise.all(jobs).then(load).catch(function () { $('perr').textContent = 'Couldn\'t save the order. Try again.'; load(); });
+  }
   function getBlob(bucket, path) {
     return fetch(URL_ + '/storage/v1/object/authenticated/' + bucket + '/' + path, { headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + token } })
       .then(function (r) { if (!r.ok) throw new Error('get ' + r.status); return r.blob(); });
